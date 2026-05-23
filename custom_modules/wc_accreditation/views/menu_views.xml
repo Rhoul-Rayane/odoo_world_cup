@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="wc_menu_accreditations"
+              name="Accréditations"
+              parent="wc_base.wc_main_menu"
+              action="wc_accreditation_action"
+              sequence="50"/>
+
+</odoo>

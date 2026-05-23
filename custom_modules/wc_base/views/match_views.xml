@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============ MATCH LIST VIEW ============ -->
+    <record id="wc_match_view_list" model="ir.ui.view">
+        <field name="name">wc.match.list</field>
+        <field name="model">wc.match</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="date_time"/>
+                <field name="team_a"/>
+                <field name="team_b"/>
+                <field name="stadium_id"/>
+                <field name="phase" widget="badge"/>
+                <field name="score_a"/>
+                <field name="score_b"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'done'"
+                       decoration-info="state == 'planned'"
+                       decoration-warning="state == 'ongoing'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============ MATCH FORM VIEW ============ -->
+    <record id="wc_match_view_form" model="ir.ui.view">
+        <field name="name">wc.match.form</field>
+        <field name="model">wc.match</field>
+        <field name="arch" type="xml">
+            <form string="Match">
+                <header>
+                    <button name="action_start" type="object" string="Démarrer le match"
+                            class="btn-primary" invisible="state != 'planned'"/>
+                    <button name="action_end" type="object" string="Terminer le match"
+                            class="btn-success" invisible="state != 'ongoing'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="planned,ongoing,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Équipes">
+                            <field name="team_a"/>
+                            <field name="team_b"/>
+                        </group>
+                        <group string="Détails">
+                            <field name="stadium_id"/>
+                            <field name="date_time"/>
+                            <field name="phase"/>
+                            <field name="group" invisible="phase != 'group'"/>
+                        </group>
+                    </group>
+                    <group string="Résultat" invisible="state == 'planned'">
+                        <group>
+                            <field name="score_a"/>
+                            <field name="score_b"/>
+                        </group>
+                        <group>
+                            <field name="referee"/>
+                            <field name="attendance"/>
+                        </group>
+                    </group>
+                    <field name="notes" placeholder="Notes sur le match..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============ MATCH CALENDAR VIEW ============ -->
+    <record id="wc_match_view_calendar" model="ir.ui.view">
+        <field name="name">wc.match.calendar</field>
+        <field name="model">wc.match</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendrier des matchs" date_start="date_time" color="stadium_id">
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="phase"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- ============ MATCH SEARCH VIEW ============ -->
+    <record id="wc_match_view_search" model="ir.ui.view">
+        <field name="name">wc.match.search</field>
+        <field name="model">wc.match</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Matchs">
+                <field name="team_a"/>
+                <field name="team_b"/>
+                <field name="stadium_id"/>
+                <field name="phase"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============ MATCH ACTION ============ -->
+    <record id="wc_match_action" model="ir.actions.act_window">
+        <field name="name">Matchs</field>
+        <field name="res_model">wc.match</field>
+        <field name="view_mode">list,calendar,form</field>
+    </record>
+
+</odoo>

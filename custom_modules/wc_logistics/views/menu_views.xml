@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Sous-menu Logistique -->
+    <menuitem id="wc_menu_logistics"
+              name="Logistique"
+              parent="wc_base.wc_main_menu"
+              sequence="60"/>
+
+    <menuitem id="wc_menu_resources"
+              name="Ressources"
+              parent="wc_menu_logistics"
+              action="wc_resource_action"
+              sequence="10"/>
+
+    <menuitem id="wc_menu_requests"
+              name="Demandes"
+              parent="wc_menu_logistics"
+              action="wc_request_action"
+              sequence="20"/>
+
+    <menuitem id="wc_menu_transports"
+              name="Transports"
+              parent="wc_menu_logistics"
+              action="wc_transport_action"
+              sequence="30"/>
+
+    <menuitem id="wc_menu_incidents"
+              name="Incidents"
+              parent="wc_menu_logistics"
+              action="wc_incident_action"
+              sequence="40"/>
+
+</odoo>

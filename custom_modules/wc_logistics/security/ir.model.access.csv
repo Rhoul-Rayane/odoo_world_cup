@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wc_logistics_resource_user,wc.logistics.resource.user,model_wc_logistics_resource,base.group_user,1,0,0,0
+access_wc_logistics_resource_manager,wc.logistics.resource.manager,model_wc_logistics_resource,base.group_system,1,1,1,1
+access_wc_logistics_request_user,wc.logistics.request.user,model_wc_logistics_request,base.group_user,1,1,1,0
+access_wc_logistics_request_manager,wc.logistics.request.manager,model_wc_logistics_request,base.group_system,1,1,1,1
+access_wc_logistics_request_line_user,wc.logistics.request.line.user,model_wc_logistics_request_line,base.group_user,1,1,1,1
+access_wc_logistics_request_line_manager,wc.logistics.request.line.manager,model_wc_logistics_request_line,base.group_system,1,1,1,1
+access_wc_logistics_transport_user,wc.logistics.transport.user,model_wc_logistics_transport,base.group_user,1,0,0,0
+access_wc_logistics_transport_manager,wc.logistics.transport.manager,model_wc_logistics_transport,base.group_system,1,1,1,1
+access_wc_logistics_incident_user,wc.logistics.incident.user,model_wc_logistics_incident,base.group_user,1,1,1,0
+access_wc_logistics_incident_manager,wc.logistics.incident.manager,model_wc_logistics_incident,base.group_system,1,1,1,1

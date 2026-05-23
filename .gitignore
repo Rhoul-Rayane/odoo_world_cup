@@ -1,0 +1,29 @@
+# Ignore virtual environments
+worldcupenv/
+venv/
+.venv/
+
+# Ignore Odoo core (it should be cloned separately or is already on GitHub)
+odoo/
+
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log

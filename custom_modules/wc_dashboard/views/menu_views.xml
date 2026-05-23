@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Menu principal Dashboard -->
+    <menuitem id="wc_menu_dashboard"
+              name="📊 Dashboard"
+              parent="wc_base.wc_main_menu"
+              sequence="5"/>
+
+    <menuitem id="wc_menu_dashboard_main"
+              name="Tableau de Bord"
+              parent="wc_menu_dashboard"
+              action="wc_dashboard_action"
+              sequence="10"/>
+
+    <menuitem id="wc_menu_dashboard_vol_graph"
+              name="Volontaires par Statut"
+              parent="wc_menu_dashboard"
+              action="wc_volunteer_state_action"
+              sequence="20"/>
+
+    <menuitem id="wc_menu_dashboard_badge_graph"
+              name="Badges par Catégorie"
+              parent="wc_menu_dashboard"
+              action="wc_badge_category_action"
+              sequence="30"/>
+
+    <menuitem id="wc_menu_dashboard_incident_graph"
+              name="Incidents par Sévérité"
+              parent="wc_menu_dashboard"
+              action="wc_incident_severity_action"
+              sequence="40"/>
+
+</odoo>

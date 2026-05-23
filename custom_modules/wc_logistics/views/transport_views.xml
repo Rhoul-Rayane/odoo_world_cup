@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="wc_transport_view_list" model="ir.ui.view">
+        <field name="name">wc.logistics.transport.list</field>
+        <field name="model">wc.logistics.transport</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="vehicle_type"/>
+                <field name="origin_stadium_id"/>
+                <field name="destination_stadium_id"/>
+                <field name="departure_time"/>
+                <field name="capacity"/>
+                <field name="passenger_count"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'planned'"
+                       decoration-warning="state == 'boarding'"
+                       decoration-success="state == 'arrived'"
+                       decoration-primary="state == 'transit'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="wc_transport_view_form" model="ir.ui.view">
+        <field name="name">wc.logistics.transport.form</field>
+        <field name="model">wc.logistics.transport</field>
+        <field name="arch" type="xml">
+            <form string="Transport">
+                <header>
+                    <button name="action_board" type="object" string="Embarquement"
+                            class="btn-primary" invisible="state != 'planned'"/>
+                    <button name="action_depart" type="object" string="Départ"
+                            class="btn-primary" invisible="state != 'boarding'"/>
+                    <button name="action_arrive" type="object" string="Arrivé"
+                            class="btn-success" invisible="state != 'transit'"/>
+                    <button name="action_cancel" type="object" string="Annuler"
+                            class="btn-danger" invisible="state in ('arrived', 'cancelled')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="planned,boarding,transit,arrived"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Ex: NAV-001"/></h1>
+                    </div>
+                    <group>
+                        <group string="Véhicule">
+                            <field name="vehicle_type"/>
+                            <field name="capacity"/>
+                            <field name="plate_number"/>
+                            <field name="driver_name"/>
+                            <field name="driver_phone" widget="phone"/>
+                        </group>
+                        <group string="Trajet">
+                            <field name="origin_stadium_id"/>
+                            <field name="destination_stadium_id"/>
+                            <field name="departure_time"/>
+                            <field name="arrival_time"/>
+                            <field name="match_id"/>
+                            <field name="passenger_count"/>
+                        </group>
+                    </group>
+                    <field name="notes" placeholder="Notes..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="wc_transport_view_search" model="ir.ui.view">
+        <field name="name">wc.logistics.transport.search</field>
+        <field name="model">wc.logistics.transport</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Transports">
+                <field name="name"/>
+                <field name="origin_stadium_id"/>
+                <field name="destination_stadium_id"/>
+                <field name="state"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="wc_transport_action" model="ir.actions.act_window">
+        <field name="name">Transports</field>
+        <field name="res_model">wc.logistics.transport</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

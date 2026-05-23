@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="wc_request_view_list" model="ir.ui.view">
+        <field name="name">wc.logistics.request.list</field>
+        <field name="model">wc.logistics.request</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="match_id" optional="show"/>
+                <field name="date_needed"/>
+                <field name="total_items"/>
+                <field name="priority" widget="priority"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'submitted'"
+                       decoration-success="state in ('approved', 'delivered')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="wc_request_view_form" model="ir.ui.view">
+        <field name="name">wc.logistics.request.form</field>
+        <field name="model">wc.logistics.request</field>
+        <field name="arch" type="xml">
+            <form string="Demande Logistique">
+                <header>
+                    <button name="action_submit" type="object" string="Soumettre"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approuver"
+                            class="btn-success" invisible="state != 'submitted'"/>
+                    <button name="action_deliver" type="object" string="Marquer Livré"
+                            class="btn-primary" invisible="state != 'approved'"/>
+                    <button name="action_cancel" type="object" string="Annuler"
+                            class="btn-danger" invisible="state in ('delivered', 'cancelled')"/>
+                    <button name="action_reset" type="object" string="Réinitialiser"
+                            class="btn-secondary" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,approved,delivered"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="stadium_id"/>
+                            <field name="zone_id"/>
+                            <field name="match_id"/>
+                        </group>
+                        <group>
+                            <field name="date_needed"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="requester_id"/>
+                            <field name="total_items"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Ressources demandées" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="resource_id"/>
+                                    <field name="quantity"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Instructions" name="notes">
+                            <field name="notes" placeholder="Instructions spéciales de livraison..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="wc_request_view_search" model="ir.ui.view">
+        <field name="name">wc.logistics.request.search</field>
+        <field name="model">wc.logistics.request</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Demandes">
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="state"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="wc_request_action" model="ir.actions.act_window">
+        <field name="name">Demandes</field>
+        <field name="res_model">wc.logistics.request</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

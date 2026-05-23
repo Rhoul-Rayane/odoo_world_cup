@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="wc_incident_view_list" model="ir.ui.view">
+        <field name="name">wc.logistics.incident.list</field>
+        <field name="model">wc.logistics.incident</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="incident_type"/>
+                <field name="severity"/>
+                <field name="stadium_id"/>
+                <field name="zone_id" optional="show"/>
+                <field name="reporter_id"/>
+                <field name="state" widget="badge"
+                       decoration-danger="state == 'reported'"
+                       decoration-warning="state == 'in_progress'"
+                       decoration-success="state in ('resolved', 'closed')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="wc_incident_view_form" model="ir.ui.view">
+        <field name="name">wc.logistics.incident.form</field>
+        <field name="model">wc.logistics.incident</field>
+        <field name="arch" type="xml">
+            <form string="Incident">
+                <header>
+                    <button name="action_start_treatment" type="object" string="Prendre en charge"
+                            class="btn-primary" invisible="state != 'reported'"/>
+                    <button name="action_resolve" type="object" string="Marquer Résolu"
+                            class="btn-success" invisible="state != 'in_progress'"/>
+                    <button name="action_close" type="object" string="Clôturer"
+                            class="btn-secondary" invisible="state != 'resolved'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="reported,in_progress,resolved,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Titre de l'incident"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="incident_type"/>
+                            <field name="severity"/>
+                            <field name="reporter_id"/>
+                        </group>
+                        <group>
+                            <field name="stadium_id"/>
+                            <field name="zone_id"/>
+                            <field name="match_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" placeholder="Décrivez l'incident en détail..."/>
+                        </page>
+                        <page string="Résolution" name="resolution" invisible="state in ('reported',)">
+                            <field name="resolution" placeholder="Mesures prises pour résoudre l'incident..."/>
+                            <field name="resolved_date" invisible="state != 'resolved'"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="wc_incident_view_search" model="ir.ui.view">
+        <field name="name">wc.logistics.incident.search</field>
+        <field name="model">wc.logistics.incident</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Incidents">
+                <field name="name"/>
+                <field name="incident_type"/>
+                <field name="stadium_id"/>
+                <field name="state"/>
+                <field name="severity"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="wc_incident_action" model="ir.actions.act_window">
+        <field name="name">Incidents</field>
+        <field name="res_model">wc.logistics.incident</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

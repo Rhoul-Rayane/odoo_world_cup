@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============ STADES MAROCAINS ============ -->
+        <record id="stadium_hassan_ii" model="wc.stadium">
+            <field name="name">Grand Stade Hassan II</field>
+            <field name="city">Benslimane</field>
+            <field name="capacity">115000</field>
+            <field name="country">morocco</field>
+            <field name="state">construction</field>
+            <field name="address">Benslimane, Région Casablanca-Settat</field>
+        </record>
+
+        <record id="stadium_ibn_batouta" model="wc.stadium">
+            <field name="name">Stade Ibn Batouta</field>
+            <field name="city">Tanger</field>
+            <field name="capacity">65000</field>
+            <field name="country">morocco</field>
+            <field name="state">ready</field>
+        </record>
+
+        <record id="stadium_marrakech" model="wc.stadium">
+            <field name="name">Grand Stade de Marrakech</field>
+            <field name="city">Marrakech</field>
+            <field name="capacity">45000</field>
+            <field name="country">morocco</field>
+            <field name="state">ready</field>
+        </record>
+
+        <record id="stadium_agadir" model="wc.stadium">
+            <field name="name">Grand Stade d'Agadir</field>
+            <field name="city">Agadir</field>
+            <field name="capacity">45000</field>
+            <field name="country">morocco</field>
+            <field name="state">ready</field>
+        </record>
+
+        <record id="stadium_fes" model="wc.stadium">
+            <field name="name">Grand Stade de Fès</field>
+            <field name="city">Fès</field>
+            <field name="capacity">50000</field>
+            <field name="country">morocco</field>
+            <field name="state">construction</field>
+        </record>
+
+        <record id="stadium_rabat" model="wc.stadium">
+            <field name="name">Stade Moulay Abdellah</field>
+            <field name="city">Rabat</field>
+            <field name="capacity">52000</field>
+            <field name="country">morocco</field>
+            <field name="state">ready</field>
+        </record>
+
+        <!-- ============ ZONES EXEMPLE (Grand Stade Hassan II) ============ -->
+        <record id="zone_hassan_tribune_nord" model="wc.stadium.zone">
+            <field name="name">Tribune Nord</field>
+            <field name="stadium_id" ref="stadium_hassan_ii"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">25000</field>
+        </record>
+
+        <record id="zone_hassan_tribune_sud" model="wc.stadium.zone">
+            <field name="name">Tribune Sud</field>
+            <field name="stadium_id" ref="stadium_hassan_ii"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">25000</field>
+        </record>
+
+        <record id="zone_hassan_vip" model="wc.stadium.zone">
+            <field name="name">Loges VIP</field>
+            <field name="stadium_id" ref="stadium_hassan_ii"/>
+            <field name="zone_type">vip</field>
+            <field name="capacity">5000</field>
+        </record>
+
+        <record id="zone_hassan_presse" model="wc.stadium.zone">
+            <field name="name">Tribune Presse</field>
+            <field name="stadium_id" ref="stadium_hassan_ii"/>
+            <field name="zone_type">press</field>
+            <field name="capacity">2000</field>
+        </record>
+
+        <record id="zone_hassan_medical" model="wc.stadium.zone">
+            <field name="name">Zone Médicale</field>
+            <field name="stadium_id" ref="stadium_hassan_ii"/>
+            <field name="zone_type">medical</field>
+            <field name="capacity">100</field>
+        </record>
+
+    </data>
+</odoo>

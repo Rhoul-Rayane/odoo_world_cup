@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wc_volunteer_skill_user,wc.volunteer.skill.user,model_wc_volunteer_skill,base.group_user,1,1,1,0
+access_wc_volunteer_skill_manager,wc.volunteer.skill.manager,model_wc_volunteer_skill,base.group_system,1,1,1,1
+access_wc_volunteer_language_user,wc.volunteer.language.user,model_wc_volunteer_language,base.group_user,1,1,1,0
+access_wc_volunteer_language_manager,wc.volunteer.language.manager,model_wc_volunteer_language,base.group_system,1,1,1,1
+access_wc_volunteer_user,wc.volunteer.user,model_wc_volunteer,base.group_user,1,0,0,0
+access_wc_volunteer_manager,wc.volunteer.manager,model_wc_volunteer,base.group_system,1,1,1,1

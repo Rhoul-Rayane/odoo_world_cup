@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Séquence pour les demandes -->
+        <record id="sequence_logistics_request" model="ir.sequence">
+            <field name="name">Demande Logistique</field>
+            <field name="code">wc.logistics.request</field>
+            <field name="prefix">LOG-%(year)s-</field>
+            <field name="padding">4</field>
+        </record>
+
+        <!-- Ressources type -->
+        <record id="resource_chaises" model="wc.logistics.resource">
+            <field name="name">Chaises pliantes</field>
+            <field name="category">furniture</field>
+            <field name="total_qty">5000</field>
+            <field name="unit">unité</field>
+        </record>
+        <record id="resource_tables" model="wc.logistics.resource">
+            <field name="name">Tables événementielles</field>
+            <field name="category">furniture</field>
+            <field name="total_qty">500</field>
+            <field name="unit">unité</field>
+        </record>
+        <record id="resource_ecrans" model="wc.logistics.resource">
+            <field name="name">Écrans LED géants</field>
+            <field name="category">tech</field>
+            <field name="total_qty">24</field>
+            <field name="unit">unité</field>
+        </record>
+        <record id="resource_radios" model="wc.logistics.resource">
+            <field name="name">Talkies-walkies</field>
+            <field name="category">communication</field>
+            <field name="total_qty">200</field>
+            <field name="unit">unité</field>
+        </record>
+        <record id="resource_kit_medical" model="wc.logistics.resource">
+            <field name="name">Kit premiers secours</field>
+            <field name="category">medical</field>
+            <field name="total_qty">100</field>
+            <field name="unit">kit</field>
+        </record>
+        <record id="resource_panneaux" model="wc.logistics.resource">
+            <field name="name">Panneaux de signalisation</field>
+            <field name="category">signage</field>
+            <field name="total_qty">300</field>
+            <field name="unit">unité</field>
+        </record>
+
+    </data>
+</odoo>

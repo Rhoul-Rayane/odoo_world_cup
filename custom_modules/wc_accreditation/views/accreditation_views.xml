@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============ ACCREDITATION LIST VIEW ============ -->
+    <record id="wc_accreditation_view_list" model="ir.ui.view">
+        <field name="name">wc.accreditation.list</field>
+        <field name="model">wc.accreditation</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="holder_name"/>
+                <field name="category"/>
+                <field name="organization"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="scan_count"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'draft'"
+                       decoration-success="state in ('approved', 'active')"
+                       decoration-warning="state == 'suspended'"
+                       decoration-danger="state == 'revoked'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============ ACCREDITATION FORM VIEW ============ -->
+    <record id="wc_accreditation_view_form" model="ir.ui.view">
+        <field name="name">wc.accreditation.form</field>
+        <field name="model">wc.accreditation</field>
+        <field name="arch" type="xml">
+            <form string="Accréditation">
+                <header>
+                    <button name="action_approve" type="object" string="Approuver"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_print" type="object" string="Marquer Imprimé"
+                            class="btn-primary" invisible="state != 'approved'"/>
+                    <button name="action_activate" type="object" string="Activer"
+                            class="btn-success" invisible="state != 'printed'"/>
+                    <button name="action_scan" type="object" string="🔍 Simuler un Scan"
+                            class="btn-info" invisible="state != 'active'"/>
+                    <button name="action_suspend" type="object" string="Suspendre"
+                            class="btn-warning" invisible="state not in ('active', 'printed')"/>
+                    <button name="action_revoke" type="object" string="Révoquer"
+                            class="btn-danger" invisible="state in ('draft', 'revoked')"/>
+                    <button name="action_reset_to_draft" type="object" string="Réinitialiser"
+                            class="btn-secondary" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,approved,printed,active"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box"/>
+                    <field name="holder_photo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                        <h3><field name="holder_name" placeholder="Nom du titulaire"/></h3>
+                    </div>
+                    <group>
+                        <group string="Identité">
+                            <field name="holder_email" widget="email"/>
+                            <field name="holder_phone" widget="phone"/>
+                            <field name="organization"/>
+                            <field name="function"/>
+                            <field name="volunteer_id"/>
+                        </group>
+                        <group string="Catégorie &amp; Validité">
+                            <field name="category"/>
+                            <field name="badge_color" widget="color"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="is_expired"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Zones &amp; Accès">
+                            <field name="stadium_ids" widget="many2many_tags"/>
+                            <field name="zone_ids" widget="many2many_tags"/>
+                            <field name="match_ids" widget="many2many_tags"/>
+                        </group>
+                        <group string="QR Code &amp; Traçabilité">
+                            <field name="qr_token"/>
+                            <field name="qr_code" widget="image" readonly="1"/>
+                            <field name="scan_count"/>
+                            <field name="last_scan_date"/>
+                            <field name="approved_by"/>
+                            <field name="approved_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="notes" placeholder="Notes internes sur cette accréditation..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============ ACCREDITATION KANBAN VIEW ============ -->
+    <record id="wc_accreditation_view_kanban" model="ir.ui.view">
+        <field name="name">wc.accreditation.kanban</field>
+        <field name="model">wc.accreditation</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="name"/>
+                <field name="holder_name"/>
+                <field name="category"/>
+                <field name="state"/>
+                <field name="holder_photo"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="holder_photo" widget="image" options="{'size': [80, 80]}"/>
+                        <div>
+                            <strong><field name="name"/></strong>
+                            <div><field name="holder_name"/></div>
+                            <div><field name="category"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ============ ACCREDITATION SEARCH VIEW ============ -->
+    <record id="wc_accreditation_view_search" model="ir.ui.view">
+        <field name="name">wc.accreditation.search</field>
+        <field name="model">wc.accreditation</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Accréditations">
+                <field name="holder_name"/>
+                <field name="category"/>
+                <field name="organization"/>
+                <field name="state"/>
+                <field name="qr_token"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============ ACCREDITATION ACTION ============ -->
+    <record id="wc_accreditation_action" model="ir.actions.act_window">
+        <field name="name">Accréditations</field>
+        <field name="res_model">wc.accreditation</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+</odoo>

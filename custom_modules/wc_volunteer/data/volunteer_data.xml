@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============ COMPÉTENCES ============ -->
+        <record id="skill_accueil" model="wc.volunteer.skill"><field name="name">Accueil / Orientation</field><field name="color">1</field></record>
+        <record id="skill_securite" model="wc.volunteer.skill"><field name="name">Sécurité</field><field name="color">2</field></record>
+        <record id="skill_logistique" model="wc.volunteer.skill"><field name="name">Logistique</field><field name="color">3</field></record>
+        <record id="skill_medical" model="wc.volunteer.skill"><field name="name">Assistance médicale</field><field name="color">4</field></record>
+        <record id="skill_transport" model="wc.volunteer.skill"><field name="name">Transport / Conduite</field><field name="color">5</field></record>
+        <record id="skill_media" model="wc.volunteer.skill"><field name="name">Média / Communication</field><field name="color">6</field></record>
+        <record id="skill_tech" model="wc.volunteer.skill"><field name="name">Support technique / IT</field><field name="color">7</field></record>
+        <record id="skill_restauration" model="wc.volunteer.skill"><field name="name">Restauration / Catering</field><field name="color">8</field></record>
+        <record id="skill_protocole" model="wc.volunteer.skill"><field name="name">Protocole / VIP</field><field name="color">9</field></record>
+        <record id="skill_traduction" model="wc.volunteer.skill"><field name="name">Traduction / Interprétation</field><field name="color">10</field></record>
+
+        <!-- ============ LANGUES ============ -->
+        <record id="lang_arabe" model="wc.volunteer.language"><field name="name">Arabe</field><field name="color">1</field></record>
+        <record id="lang_francais" model="wc.volunteer.language"><field name="name">Français</field><field name="color">2</field></record>
+        <record id="lang_anglais" model="wc.volunteer.language"><field name="name">Anglais</field><field name="color">3</field></record>
+        <record id="lang_espagnol" model="wc.volunteer.language"><field name="name">Espagnol</field><field name="color">4</field></record>
+        <record id="lang_portugais" model="wc.volunteer.language"><field name="name">Portugais</field><field name="color">5</field></record>
+        <record id="lang_allemand" model="wc.volunteer.language"><field name="name">Allemand</field><field name="color">6</field></record>
+        <record id="lang_amazigh" model="wc.volunteer.language"><field name="name">Amazigh</field><field name="color">7</field></record>
+
+    </data>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wc_stadium_user,wc.stadium.user,model_wc_stadium,base.group_user,1,0,0,0
+access_wc_stadium_manager,wc.stadium.manager,model_wc_stadium,base.group_system,1,1,1,1
+access_wc_stadium_zone_user,wc.stadium.zone.user,model_wc_stadium_zone,base.group_user,1,0,0,0
+access_wc_stadium_zone_manager,wc.stadium.zone.manager,model_wc_stadium_zone,base.group_system,1,1,1,1
+access_wc_match_user,wc.match.user,model_wc_match,base.group_user,1,0,0,0
+access_wc_match_manager,wc.match.manager,model_wc_match,base.group_system,1,1,1,1

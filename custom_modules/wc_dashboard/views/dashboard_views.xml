@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============ DASHBOARD MAIN FORM ============ -->
+    <record id="wc_dashboard_view_form" model="ir.ui.view">
+        <field name="name">wc.dashboard.form</field>
+        <field name="model">wc.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Tableau de Bord WC 2030" create="false" delete="false">
+                <header>
+                    <button name="action_refresh" type="object" string="🔄 Actualiser les KPIs"
+                            class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>🏆 Tableau de Bord — Coupe du Monde 2030</h1>
+                        <field name="date_refresh" string="Dernière actualisation"/>
+                    </div>
+
+                    <!-- VOLONTAIRES -->
+                    <group string="👥 Volontaires">
+                        <group>
+                            <field name="vol_total"/>
+                            <field name="vol_candidates"/>
+                            <field name="vol_preselected"/>
+                        </group>
+                        <group>
+                            <field name="vol_trained"/>
+                            <field name="vol_assigned"/>
+                            <field name="vol_active"/>
+                            <field name="vol_avg_score" widget="progressbar"/>
+                        </group>
+                    </group>
+
+                    <!-- STADES & MATCHS -->
+                    <group string="🏟️ Stades &amp; Matchs">
+                        <group>
+                            <field name="stadium_total"/>
+                            <field name="stadium_ready"/>
+                            <field name="stadium_total_capacity"/>
+                        </group>
+                        <group>
+                            <field name="match_total"/>
+                            <field name="match_planned"/>
+                            <field name="match_done"/>
+                        </group>
+                    </group>
+
+                    <!-- ACCRÉDITATIONS -->
+                    <group string="🎫 Accréditations">
+                        <group>
+                            <field name="badge_total"/>
+                            <field name="badge_active"/>
+                        </group>
+                        <group>
+                            <field name="badge_expired"/>
+                            <field name="badge_revoked"/>
+                            <field name="badge_total_scans"/>
+                        </group>
+                    </group>
+
+                    <!-- LOGISTIQUE -->
+                    <group string="📦 Logistique">
+                        <group>
+                            <field name="incident_total"/>
+                            <field name="incident_open"/>
+                            <field name="incident_critical"/>
+                        </group>
+                        <group>
+                            <field name="resource_out_of_stock"/>
+                            <field name="transport_planned"/>
+                            <field name="request_pending"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============ GRAPH : VOLONTAIRES PAR STATUT ============ -->
+    <record id="wc_volunteer_state_graph" model="ir.ui.view">
+        <field name="name">wc.dashboard.volunteer.state.graph</field>
+        <field name="model">wc.dashboard.volunteer.state</field>
+        <field name="arch" type="xml">
+            <graph string="Volontaires par Statut" type="bar">
+                <field name="state" type="row"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="wc_volunteer_state_pivot" model="ir.ui.view">
+        <field name="name">wc.dashboard.volunteer.state.pivot</field>
+        <field name="model">wc.dashboard.volunteer.state</field>
+        <field name="arch" type="xml">
+            <pivot string="Volontaires par Statut">
+                <field name="state" type="row"/>
+                <field name="count" type="measure"/>
+                <field name="avg_score" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="wc_volunteer_state_action" model="ir.actions.act_window">
+        <field name="name">📊 Volontaires par Statut</field>
+        <field name="res_model">wc.dashboard.volunteer.state</field>
+        <field name="view_mode">graph,pivot</field>
+    </record>
+
+    <!-- ============ GRAPH : BADGES PAR CATÉGORIE ============ -->
+    <record id="wc_badge_category_graph" model="ir.ui.view">
+        <field name="name">wc.dashboard.badge.category.graph</field>
+        <field name="model">wc.dashboard.badge.category</field>
+        <field name="arch" type="xml">
+            <graph string="Badges par Catégorie" type="pie">
+                <field name="category" type="row"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="wc_badge_category_action" model="ir.actions.act_window">
+        <field name="name">📊 Badges par Catégorie</field>
+        <field name="res_model">wc.dashboard.badge.category</field>
+        <field name="view_mode">graph,pivot</field>
+    </record>
+
+    <!-- ============ GRAPH : INCIDENTS PAR SÉVÉRITÉ ============ -->
+    <record id="wc_incident_severity_graph" model="ir.ui.view">
+        <field name="name">wc.dashboard.incident.severity.graph</field>
+        <field name="model">wc.dashboard.incident.severity</field>
+        <field name="arch" type="xml">
+            <graph string="Incidents par Sévérité" type="bar">
+                <field name="severity" type="row"/>
+                <field name="count" type="measure"/>
+                <field name="open_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="wc_incident_severity_action" model="ir.actions.act_window">
+        <field name="name">📊 Incidents par Sévérité</field>
+        <field name="res_model">wc.dashboard.incident.severity</field>
+        <field name="view_mode">graph,pivot</field>
+    </record>
+
+    <!-- ============ DASHBOARD ACTION ============ -->
+    <record id="wc_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Tableau de Bord</field>
+        <field name="res_model">wc.dashboard</field>
+        <field name="view_mode">form</field>
+    </record>
+
+</odoo>

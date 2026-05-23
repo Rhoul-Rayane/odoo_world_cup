@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wc_dashboard_user,wc.dashboard.user,model_wc_dashboard,base.group_user,1,0,0,0
+access_wc_dashboard_manager,wc.dashboard.manager,model_wc_dashboard,base.group_system,1,1,1,1
+access_wc_dashboard_vol_state_user,wc.dashboard.volunteer.state.user,model_wc_dashboard_volunteer_state,base.group_user,1,0,0,0
+access_wc_dashboard_badge_cat_user,wc.dashboard.badge.category.user,model_wc_dashboard_badge_category,base.group_user,1,0,0,0
+access_wc_dashboard_incident_sev_user,wc.dashboard.incident.severity.user,model_wc_dashboard_incident_severity,base.group_user,1,0,0,0

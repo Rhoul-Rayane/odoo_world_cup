@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============ MENU PRINCIPAL ============ -->
+    <menuitem id="wc_main_menu"
+              name="🏆 World Cup 2030"
+              sequence="1"
+              web_icon="wc_base,static/description/icon.png"/>
+
+    <!-- Sous-menu Stades -->
+    <menuitem id="wc_menu_stadiums"
+              name="Stades"
+              parent="wc_main_menu"
+              action="wc_stadium_action"
+              sequence="10"/>
+
+    <!-- Sous-menu Zones -->
+    <menuitem id="wc_menu_zones"
+              name="Zones de Stade"
+              parent="wc_main_menu"
+              action="wc_stadium_zone_action"
+              sequence="20"/>
+
+    <!-- Sous-menu Matchs -->
+    <menuitem id="wc_menu_matches"
+              name="Matchs"
+              parent="wc_main_menu"
+              action="wc_match_action"
+              sequence="30"/>
+
+</odoo>
