@@ -5,7 +5,30 @@
     <menuitem id="wc_menu_volunteers"
               name="Volontaires"
               parent="wc_base.wc_main_menu"
+              sequence="40"/>
+
+    <menuitem id="wc_menu_volunteers_list"
+              name="Liste des Volontaires"
+              parent="wc_menu_volunteers"
               action="wc_volunteer_action"
+              sequence="10"/>
+
+    <menuitem id="wc_menu_volunteers_roles"
+              name="Rôles Fonctionnels"
+              parent="wc_menu_volunteers"
+              action="action_volunteer_role"
+              sequence="20"/>
+
+    <menuitem id="wc_menu_volunteers_quotas"
+              name="Quotas par Stade"
+              parent="wc_menu_volunteers"
+              action="action_stadium_volunteer_quota"
+              sequence="30"/>
+
+    <menuitem id="wc_menu_volunteers_badges"
+              name="Badges &amp; Récompenses"
+              parent="wc_menu_volunteers"
+              action="action_volunteer_badge"
               sequence="40"/>
 
 </odoo>

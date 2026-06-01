@@ -42,6 +42,54 @@ class WcDashboard(models.Model):
     transport_planned = fields.Integer(string='Navettes planifiées', compute='_compute_logistics_kpis')
     request_pending = fields.Integer(string='Demandes en attente', compute='_compute_logistics_kpis')
 
+    # ============ KPI TRANSPORT ============
+    transport_line_total = fields.Integer(string='Lignes de transport', compute='_compute_transport_kpis')
+    transport_station_total = fields.Integer(string='Stations', compute='_compute_transport_kpis')
+    parking_total = fields.Integer(string='Zones de parking', compute='_compute_transport_kpis')
+    parking_avg_occupancy = fields.Float(string='Occupation moyenne parkings (%)', compute='_compute_transport_kpis', digits=(5, 1))
+    parking_full = fields.Integer(string='Parkings pleins (>90%)', compute='_compute_transport_kpis')
+    schedule_total = fields.Integer(string='Trajets programmés', compute='_compute_transport_kpis')
+
+    # ============ KPI SÉCURITÉ ============
+    security_deployment_total = fields.Integer(string='Déploiements sécurité', compute='_compute_security_kpis')
+    security_agents_total = fields.Integer(string='Agents déployés', compute='_compute_security_kpis')
+    security_agreement_total = fields.Integer(string='Accords internationaux', compute='_compute_security_kpis')
+    crowd_monitoring_total = fields.Integer(string='Points monitoring', compute='_compute_security_kpis')
+    crowd_alert_red = fields.Integer(string='Alertes rouges', compute='_compute_security_kpis')
+    crowd_alert_orange = fields.Integer(string='Alertes orange', compute='_compute_security_kpis')
+
+    # ============ KPI DURABILITÉ ============
+    waste_total_kg = fields.Float(string='Déchets totaux (kg)', compute='_compute_sustainability_kpis', digits=(12, 1))
+    waste_diversion_avg = fields.Float(string='Taux détournement moyen (%)', compute='_compute_sustainability_kpis', digits=(5, 1))
+    carbon_total_emission = fields.Float(string='Émissions CO₂ (tonnes)', compute='_compute_sustainability_kpis', digits=(12, 2))
+    carbon_total_offset = fields.Float(string='Compensations CO₂ (tonnes)', compute='_compute_sustainability_kpis', digits=(12, 2))
+    carbon_net = fields.Float(string='Émissions nettes CO₂', compute='_compute_sustainability_kpis', digits=(12, 2))
+    audit_total = fields.Integer(string='Audits ISO 20121', compute='_compute_sustainability_kpis')
+    audit_compliant = fields.Integer(string='Audits conformes', compute='_compute_sustainability_kpis')
+    audit_non_conformity = fields.Integer(string='Non-conformités', compute='_compute_sustainability_kpis')
+
+    # ============ KPI FINANCE ============
+    budget_total_planned = fields.Float(string='Budget prévu (MAD)', compute='_compute_finance_kpis', digits=(14, 2))
+    budget_total_spent = fields.Float(string='Budget dépensé (MAD)', compute='_compute_finance_kpis', digits=(14, 2))
+    budget_consumption_avg = fields.Float(string='Consommation budget (%)', compute='_compute_finance_kpis', digits=(5, 1))
+    revenue_total_projected = fields.Float(string='Revenus projetés (MAD)', compute='_compute_finance_kpis', digits=(14, 2))
+    revenue_total_actual = fields.Float(string='Revenus réalisés (MAD)', compute='_compute_finance_kpis', digits=(14, 2))
+    revenue_variance_pct = fields.Float(string='Variance revenus (%)', compute='_compute_finance_kpis', digits=(5, 1))
+    ticket_total_available = fields.Integer(string='Billets disponibles', compute='_compute_finance_kpis')
+    ticket_total_sold = fields.Integer(string='Billets vendus', compute='_compute_finance_kpis')
+    ticket_fill_rate = fields.Float(string='Taux remplissage (%)', compute='_compute_finance_kpis', digits=(5, 1))
+
+    # ============ BENCHMARKS QATAR 2022 ============
+    # Chiffres réels de Qatar 2022 (source : FIFA, Supreme Committee)
+    qatar_volunteers = fields.Integer(string='Qatar 2022 : Volontaires', default=20000, readonly=True)
+    qatar_stadiums = fields.Integer(string='Qatar 2022 : Stades', default=8, readonly=True)
+    qatar_capacity = fields.Integer(string='Qatar 2022 : Capacité totale', default=437000, readonly=True)
+    qatar_matches = fields.Integer(string='Qatar 2022 : Matchs', default=64, readonly=True)
+    qatar_attendance = fields.Integer(string='Qatar 2022 : Spectateurs', default=3404252, readonly=True)
+    qatar_carbon_tons = fields.Float(string='Qatar 2022 : CO₂ (tonnes)', default=3630000, readonly=True)
+    qatar_waste_diverted_pct = fields.Float(string='Qatar 2022 : Taux recyclage (%)', default=79.0, readonly=True)
+    qatar_budget_usd_bn = fields.Float(string='Qatar 2022 : Budget (Mrd $)', default=220.0, readonly=True)
+
     # ============ COMPUTE METHODS ============
     def _compute_volunteer_kpis(self):
         Volunteer = self.env['wc.volunteer']
@@ -94,11 +142,150 @@ class WcDashboard(models.Model):
             rec.transport_planned = Transport.search_count([('state', '=', 'planned')])
             rec.request_pending = Request.search_count([('state', 'in', ('draft', 'submitted'))])
 
+    def _compute_transport_kpis(self):
+        Line = self.env['wc.transport.line']
+        Station = self.env['wc.transport.station']
+        Parking = self.env['wc.parking.zone']
+        Schedule = self.env['wc.transport.schedule']
+        for rec in self:
+            rec.transport_line_total = Line.search_count([])
+            rec.transport_station_total = Station.search_count([])
+            all_parkings = Parking.search([])
+            rec.parking_total = len(all_parkings)
+            occupancies = all_parkings.mapped('occupancy_rate')
+            rec.parking_avg_occupancy = sum(occupancies) / len(occupancies) if occupancies else 0
+            rec.parking_full = Parking.search_count([('occupancy_rate', '>', 90)])
+            rec.schedule_total = Schedule.search_count([])
+
+    def _compute_security_kpis(self):
+        Deployment = self.env['wc.security.deployment']
+        Agreement = self.env['wc.security.agreement']
+        Crowd = self.env['wc.crowd.monitoring']
+        for rec in self:
+            all_deployments = Deployment.search([])
+            rec.security_deployment_total = len(all_deployments)
+            rec.security_agents_total = sum(all_deployments.mapped('agent_count'))
+            rec.security_agreement_total = Agreement.search_count([])
+            rec.crowd_monitoring_total = Crowd.search_count([])
+            rec.crowd_alert_red = Crowd.search_count([('safety_status', '=', 'danger')])
+            rec.crowd_alert_orange = Crowd.search_count([('safety_status', '=', 'warning')])
+
+    def _compute_sustainability_kpis(self):
+        Waste = self.env['wc.waste.tracking']
+        Carbon = self.env['wc.carbon.footprint']
+        Audit = self.env['wc.sustainability.audit']
+        for rec in self:
+            all_waste = Waste.search([])
+            rec.waste_total_kg = sum(all_waste.mapped('quantity_kg'))
+            diversions = all_waste.mapped('diversion_rate')
+            rec.waste_diversion_avg = sum(diversions) / len(diversions) if diversions else 0
+            all_carbon = Carbon.search([])
+            rec.carbon_total_emission = sum(all_carbon.mapped('emission_tons_co2'))
+            rec.carbon_total_offset = sum(all_carbon.mapped('offset_tons_co2'))
+            rec.carbon_net = sum(all_carbon.mapped('net_emission'))
+            rec.audit_total = Audit.search_count([])
+            rec.audit_compliant = Audit.search_count([('compliance_level', '=', 'full')])
+            rec.audit_non_conformity = Audit.search_count([('state', '=', 'non_conformity')])
+
+    def _compute_finance_kpis(self):
+        Budget = self.env['wc.budget.line']
+        Revenue = self.env['wc.revenue.stream']
+        Pricing = self.env['wc.ticket.pricing']
+        for rec in self:
+            all_budgets = Budget.search([])
+            rec.budget_total_planned = sum(all_budgets.mapped('planned_amount'))
+            rec.budget_total_spent = sum(all_budgets.mapped('spent_amount'))
+            consumptions = all_budgets.mapped('consumption_rate')
+            rec.budget_consumption_avg = sum(consumptions) / len(consumptions) if consumptions else 0
+            all_revenues = Revenue.search([])
+            rec.revenue_total_projected = sum(all_revenues.mapped('projected_amount'))
+            rec.revenue_total_actual = sum(all_revenues.mapped('actual_amount'))
+            total_proj = rec.revenue_total_projected
+            rec.revenue_variance_pct = ((rec.revenue_total_actual - total_proj) / total_proj * 100) if total_proj else 0
+            all_pricing = Pricing.search([])
+            rec.ticket_total_available = sum(all_pricing.mapped('total_available'))
+            rec.ticket_total_sold = sum(all_pricing.mapped('total_sold'))
+            rec.ticket_fill_rate = (rec.ticket_total_sold / rec.ticket_total_available * 100) if rec.ticket_total_available else 0
+
     def action_refresh(self):
         """Force le recalcul de tous les KPIs."""
         self.write({'date_refresh': fields.Datetime.now()})
         return True
 
+    # ============ ACTIONS DE RACCOURCI ============
+    def action_open_critical_incidents(self):
+        """Ouvre la liste des incidents critiques ouverts."""
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '🚨 Incidents Critiques',
+            'res_model': 'wc.logistics.incident',
+            'view_mode': 'list,form',
+            'domain': [('severity', '=', '4'), ('state', '!=', 'closed')],
+            'context': {'default_severity': '4'},
+        }
+
+    def action_open_out_of_stock(self):
+        """Ouvre la liste des ressources en rupture de stock."""
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '⚠️ Ressources en rupture',
+            'res_model': 'wc.logistics.resource',
+            'view_mode': 'list,form',
+            'domain': [('state', '=', 'out')],
+        }
+
+    def action_open_crowd_alerts(self):
+        """Ouvre les alertes foule (rouge + orange)."""
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '🔴 Alertes Foule',
+            'res_model': 'wc.crowd.monitoring',
+            'view_mode': 'list,form',
+            'domain': [('safety_status', 'in', ['danger', 'warning'])],
+        }
+
+    def action_open_parking_full(self):
+        """Ouvre les parkings avec occupation > 90%."""
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '🅿️ Parkings Pleins',
+            'res_model': 'wc.parking.zone',
+            'view_mode': 'list,form',
+            'domain': [('occupancy_rate', '>', 90)],
+        }
+
+    def action_open_non_conformity(self):
+        """Ouvre les audits en non-conformité."""
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '❌ Non-Conformités ISO',
+            'res_model': 'wc.sustainability.audit',
+            'view_mode': 'list,form',
+            'domain': [('state', '=', 'non_conformity')],
+        }
+
+    def action_open_budget_overspent(self):
+        """Ouvre les budgets en surconsommation (>80%)."""
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '💸 Budgets en alerte',
+            'res_model': 'wc.budget.line',
+            'view_mode': 'list,form',
+            'domain': [('consumption_rate', '>', 80)],
+        }
+
+    def action_open_pending_requests(self):
+        """Ouvre les demandes logistiques en attente."""
+        return {
+            'type': 'ir.actions.act_window',
+            'name': '📋 Demandes en attente',
+            'res_model': 'wc.logistics.request',
+            'view_mode': 'list,form',
+            'domain': [('state', 'in', ('draft', 'submitted'))],
+        }
+
+
+# ============ SQL VIEWS FOR CHARTS ============
 
 class VolunteerByState(models.Model):
     """Vue SQL pour les graphiques de répartition des volontaires."""
@@ -191,5 +378,144 @@ class IncidentBySeverity(models.Model):
                     SUM(CASE WHEN state IN ('reported', 'in_progress') THEN 1 ELSE 0 END) AS open_count
                 FROM wc_logistics_incident
                 GROUP BY severity
+            )
+        """)
+
+
+class BudgetByCategory(models.Model):
+    """Vue SQL : répartition du budget par catégorie."""
+    _name = 'wc.dashboard.budget.category'
+    _description = 'Répartition budget par catégorie'
+    _auto = False
+    _order = 'category'
+
+    category = fields.Selection([
+        ('infrastructure', 'Infrastructure'),
+        ('technology', 'Technologie'),
+        ('security', 'Sécurité'),
+        ('logistics', 'Logistique'),
+        ('hospitality', 'Hospitalité'),
+        ('sustainability', 'Durabilité'),
+        ('communication', 'Communication'),
+        ('other', 'Autre'),
+    ], string='Catégorie', readonly=True)
+    total_planned = fields.Float(string='Prévu (MAD)', readonly=True)
+    total_spent = fields.Float(string='Dépensé (MAD)', readonly=True)
+    avg_consumption = fields.Float(string='Consommation (%)', readonly=True)
+
+    def init(self):
+        self.env.cr.execute("""
+            CREATE OR REPLACE VIEW wc_dashboard_budget_category AS (
+                SELECT
+                    ROW_NUMBER() OVER () AS id,
+                    category,
+                    COALESCE(SUM(planned_amount), 0) AS total_planned,
+                    COALESCE(SUM(spent_amount), 0) AS total_spent,
+                    CASE WHEN SUM(planned_amount) > 0
+                         THEN SUM(spent_amount) / SUM(planned_amount) * 100
+                         ELSE 0 END AS avg_consumption
+                FROM wc_budget_line
+                GROUP BY category
+            )
+        """)
+
+
+class WasteByType(models.Model):
+    """Vue SQL : déchets par type."""
+    _name = 'wc.dashboard.waste.type'
+    _description = 'Répartition déchets par type'
+    _auto = False
+    _order = 'waste_type'
+
+    waste_type = fields.Selection([
+        ('organic', 'Organique'),
+        ('plastic', 'Plastique'),
+        ('paper', 'Papier/Carton'),
+        ('glass', 'Verre'),
+        ('metal', 'Métal'),
+        ('electronic', 'Électronique'),
+        ('mixed', 'Mélangé'),
+    ], string='Type', readonly=True)
+    total_kg = fields.Float(string='Total (kg)', readonly=True)
+    recycled_kg = fields.Float(string='Recyclé (kg)', readonly=True)
+    avg_diversion = fields.Float(string='Détournement (%)', readonly=True)
+
+    def init(self):
+        self.env.cr.execute("""
+            CREATE OR REPLACE VIEW wc_dashboard_waste_type AS (
+                SELECT
+                    ROW_NUMBER() OVER () AS id,
+                    waste_type,
+                    COALESCE(SUM(quantity_kg), 0) AS total_kg,
+                    COALESCE(SUM(recycled_kg), 0) AS recycled_kg,
+                    CASE WHEN SUM(quantity_kg) > 0
+                         THEN (SUM(recycled_kg) + SUM(diverted_kg)) / SUM(quantity_kg) * 100
+                         ELSE 0 END AS avg_diversion
+                FROM wc_waste_tracking
+                GROUP BY waste_type
+            )
+        """)
+
+
+class CarbonByCategory(models.Model):
+    """Vue SQL : émissions carbone par catégorie."""
+    _name = 'wc.dashboard.carbon.category'
+    _description = 'Émissions carbone par catégorie'
+    _auto = False
+    _order = 'category'
+
+    category = fields.Selection([
+        ('energy', 'Énergie'),
+        ('transport', 'Transport'),
+        ('construction', 'Construction'),
+        ('catering', 'Restauration'),
+        ('waste', 'Déchets'),
+        ('water', 'Eau'),
+    ], string='Catégorie', readonly=True)
+    total_emission = fields.Float(string='Émissions (t CO₂)', readonly=True)
+    total_offset = fields.Float(string='Compensé (t CO₂)', readonly=True)
+    net_emission = fields.Float(string='Net (t CO₂)', readonly=True)
+
+    def init(self):
+        self.env.cr.execute("""
+            CREATE OR REPLACE VIEW wc_dashboard_carbon_category AS (
+                SELECT
+                    ROW_NUMBER() OVER () AS id,
+                    category,
+                    COALESCE(SUM(emission_tons_co2), 0) AS total_emission,
+                    COALESCE(SUM(offset_tons_co2), 0) AS total_offset,
+                    COALESCE(SUM(emission_tons_co2 - offset_tons_co2), 0) AS net_emission
+                FROM wc_carbon_footprint
+                GROUP BY category
+            )
+        """)
+
+
+class TransportByType(models.Model):
+    """Vue SQL : lignes de transport par type."""
+    _name = 'wc.dashboard.transport.type'
+    _description = 'Lignes de transport par type'
+    _auto = False
+    _order = 'line_type'
+
+    line_type = fields.Selection([
+        ('bus', 'Bus / Navette'),
+        ('tram', 'Tramway'),
+        ('train', 'Train'),
+        ('metro', 'Métro'),
+    ], string='Type', readonly=True)
+    line_count = fields.Integer(string='Lignes', readonly=True)
+    total_capacity = fields.Integer(string='Capacité totale', readonly=True)
+
+    def init(self):
+        self.env.cr.execute("""
+            CREATE OR REPLACE VIEW wc_dashboard_transport_type AS (
+                SELECT
+                    ROW_NUMBER() OVER () AS id,
+                    line_type,
+                    COUNT(*) AS line_count,
+                    COALESCE(SUM(capacity_per_hour), 0) AS total_capacity
+                FROM wc_transport_line
+                GROUP BY line_type
             )
         """)

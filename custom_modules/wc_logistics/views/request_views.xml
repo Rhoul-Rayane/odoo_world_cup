@@ -83,6 +83,15 @@
                 <field name="name"/>
                 <field name="stadium_id"/>
                 <field name="state"/>
+                <separator/>
+                <filter name="filter_my_requests" string="Mes demandes" domain="[('requester_id', '=', uid)]"/>
+                <separator/>
+                <filter name="filter_pending" string="En attente d'approbation" domain="[('state', '=', 'submitted')]"/>
+                <filter name="filter_approved" string="Approuvées" domain="[('state', '=', 'approved')]"/>
+                <filter name="filter_delivered" string="Livrées" domain="[('state', '=', 'delivered')]"/>
+                <filter name="group_state" string="Statut" context="{'group_by': 'state'}" domain="[]"/>
+                <filter name="group_priority" string="Priorité" context="{'group_by': 'priority'}" domain="[]"/>
+                <filter name="group_stadium" string="Stade" context="{'group_by': 'stadium_id'}" domain="[]"/>
             </search>
         </field>
     </record>

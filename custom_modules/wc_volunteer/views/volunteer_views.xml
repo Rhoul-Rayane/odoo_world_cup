@@ -48,6 +48,13 @@
                            statusbar_visible="candidate,preselected,trained,assigned,active"/>
                 </header>
                 <sheet>
+                    <widget name="web_ribbon" title="Archivé" bg_color="text-bg-secondary" invisible="state != 'archived'"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-star"
+                                type="object" name="action_view_badges">
+                            <field name="badge_count" string="Badges" widget="statinfo"/>
+                        </button>
+                    </div>
                     <field name="photo" widget="image" class="oe_avatar"/>
                     <div class="oe_title">
                         <h1><field name="name" placeholder="Nom complet du volontaire"/></h1>
@@ -81,11 +88,13 @@
                             <field name="preferred_stadium_id"/>
                             <field name="assigned_stadium_id"/>
                             <field name="assigned_zone_id"/>
+                            <field name="role_id"/>
                         </group>
                         <group string="Gamification &amp; Suivi">
                             <field name="application_date"/>
                             <field name="training_date"/>
                             <field name="points"/>
+                            <field name="badge_ids" widget="many2many_tags"/>
                             <field name="badge_count"/>
                         </group>
                     </group>
@@ -144,6 +153,15 @@
                 <field name="language_ids"/>
                 <field name="assigned_stadium_id"/>
                 <field name="state"/>
+                <separator/>
+                <filter string="Candidats" name="filter_candidate" domain="[('state', '=', 'candidate')]"/>
+                <filter string="Actifs" name="filter_active" domain="[('state', '=', 'active')]"/>
+                <filter string="Affectés" name="filter_assigned" domain="[('state', '=', 'assigned')]"/>
+                <filter string="Archivés" name="filter_archived" domain="[('state', '=', 'archived'), ('active', '=', False)]" />
+                <filter string="Score élevé (&gt;70)" name="filter_high_score" domain="[('matching_score', '&gt;', 70)]"/>
+                <filter string="Statut" name="group_state" context="{'group_by': 'state'}" domain="[]"/>
+                <filter string="Disponibilité" name="group_availability" context="{'group_by': 'availability'}" domain="[]"/>
+                <filter string="Stade affecté" name="group_stadium" context="{'group_by': 'assigned_stadium_id'}" domain="[]"/>
             </search>
         </field>
     </record>
@@ -154,6 +172,124 @@
         <field name="res_model">wc.volunteer</field>
         <field name="view_mode">kanban,list,form</field>
         <field name="context">{'search_default_group_state': 1}</field>
+    </record>
+
+    <!-- ============ VUES ROLE VOLONTAIRE ============ -->
+    <record id="view_volunteer_role_list" model="ir.ui.view">
+        <field name="name">wc.volunteer.role.list</field>
+        <field name="model">wc.volunteer.role</field>
+        <field name="arch" type="xml">
+            <list string="Rôles Fonctionnels">
+                <field name="name"/>
+                <field name="functional_area"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_volunteer_role_form" model="ir.ui.view">
+        <field name="name">wc.volunteer.role.form</field>
+        <field name="model">wc.volunteer.role</field>
+        <field name="arch" type="xml">
+            <form string="Rôle Fonctionnel">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="Ex: Hôte Loge VIP"/></h1>
+                    </div>
+                    <group>
+                        <field name="functional_area"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_volunteer_role" model="ir.actions.act_window">
+        <field name="name">Rôles Fonctionnels</field>
+        <field name="res_model">wc.volunteer.role</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ============ VUES QUOTA PAR STADE ============ -->
+    <record id="view_stadium_volunteer_quota_list" model="ir.ui.view">
+        <field name="name">wc.stadium.volunteer.quota.list</field>
+        <field name="model">wc.stadium.volunteer.quota</field>
+        <field name="arch" type="xml">
+            <list string="Quotas Volontaires par Stade">
+                <field name="stadium_id"/>
+                <field name="role_id"/>
+                <field name="quota_required"/>
+                <field name="quota_assigned"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_stadium_volunteer_quota_form" model="ir.ui.view">
+        <field name="name">wc.stadium.volunteer.quota.form</field>
+        <field name="model">wc.stadium.volunteer.quota</field>
+        <field name="arch" type="xml">
+            <form string="Quota Volontaires par Stade">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="stadium_id"/>
+                            <field name="role_id"/>
+                        </group>
+                        <group>
+                            <field name="quota_required"/>
+                            <field name="quota_assigned" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_stadium_volunteer_quota" model="ir.actions.act_window">
+        <field name="name">Quotas Volontaires Stades</field>
+        <field name="res_model">wc.stadium.volunteer.quota</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ============ VUES BADGE GAMIFICATION ============ -->
+    <record id="view_volunteer_badge_list" model="ir.ui.view">
+        <field name="name">wc.volunteer.badge.list</field>
+        <field name="model">wc.volunteer.badge</field>
+        <field name="arch" type="xml">
+            <list string="Badges de Gamification">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="points_reward"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_volunteer_badge_form" model="ir.ui.view">
+        <field name="name">wc.volunteer.badge.form</field>
+        <field name="model">wc.volunteer.badge</field>
+        <field name="arch" type="xml">
+            <form string="Badge de Gamification">
+                <sheet>
+                    <field name="icon" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="Ex: Secouriste Émérite"/></h1>
+                    </div>
+                    <group>
+                        <field name="points_reward"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_volunteer_badge" model="ir.actions.act_window">
+        <field name="name">Badges Volontaires</field>
+        <field name="res_model">wc.volunteer.badge</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 </odoo>

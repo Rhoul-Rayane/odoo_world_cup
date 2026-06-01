@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============ MENU PRINCIPAL FINANCE ============ -->
+    <menuitem id="wc_finance_menu_root"
+              name="💰 Finance &amp; Billetterie"
+              parent="wc_base.wc_main_menu"
+              sequence="80"/>
+
+    <!-- Sous-menu Budget -->
+    <menuitem id="wc_finance_menu_budget"
+              name="Budget Analytique"
+              parent="wc_finance_menu_root"
+              action="action_budget_line"
+              sequence="10"/>
+
+    <!-- Sous-menu Revenus -->
+    <menuitem id="wc_finance_menu_revenue"
+              name="Flux de Revenus"
+              parent="wc_finance_menu_root"
+              action="action_revenue_stream"
+              sequence="20"/>
+
+    <!-- Sous-menu Tarification -->
+    <menuitem id="wc_finance_menu_pricing"
+              name="Grille Tarifaire"
+              parent="wc_finance_menu_root"
+              action="action_ticket_pricing"
+              sequence="30"/>
+
+</odoo>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============ LIST VIEW ============ -->
+    <record id="wc_budget_line_view_list" model="ir.ui.view">
+        <field name="name">wc.budget.line.list</field>
+        <field name="model">wc.budget.line</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="consumption_rate &gt; 90"
+                  decoration-warning="consumption_rate &gt; 70 and consumption_rate &lt;= 90"
+                  decoration-muted="state == 'closed'">
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="category" widget="badge" decoration-info="1"/>
+                <field name="budget_type" widget="badge" decoration-success="budget_type == 'capex'" decoration-warning="budget_type == 'opex'"/>
+                <field name="planned_amount" sum="Total prévu"/>
+                <field name="spent_amount" sum="Total dépensé"/>
+                <field name="remaining_amount" sum="Total restant"/>
+                <field name="consumption_rate" widget="progressbar"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'approved'" decoration-warning="state == 'locked'" decoration-muted="state == 'closed'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============ FORM VIEW ============ -->
+    <record id="wc_budget_line_view_form" model="ir.ui.view">
+        <field name="name">wc.budget.line.form</field>
+        <field name="model">wc.budget.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_approve" type="object" string="Approuver"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_lock" type="object" string="Verrouiller"
+                            class="btn-warning"
+                            invisible="state != 'approved'"/>
+                    <button name="action_close" type="object" string="Clôturer"
+                            class="btn-danger"
+                            invisible="state not in ('approved', 'locked')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,approved,locked,closed"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Verrouillé" bg_color="text-bg-warning"
+                            invisible="state != 'locked'"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Intitulé de la ligne budgétaire"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Informations générales">
+                            <field name="stadium_id"/>
+                            <field name="category"/>
+                            <field name="budget_type"/>
+                            <field name="fiscal_year"/>
+                            <field name="responsible_id"/>
+                        </group>
+                        <group string="Montants (MAD)">
+                            <field name="planned_amount"/>
+                            <field name="committed_amount"/>
+                            <field name="spent_amount"/>
+                            <field name="remaining_amount"/>
+                            <field name="consumption_rate" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="notes" placeholder="Notes et commentaires..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============ SEARCH VIEW ============ -->
+    <record id="wc_budget_line_view_search" model="ir.ui.view">
+        <field name="name">wc.budget.line.search</field>
+        <field name="model">wc.budget.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="category"/>
+                <field name="responsible_id"/>
+                <separator/>
+                <filter name="filter_infrastructure" string="Infrastructure" domain="[('category', '=', 'infrastructure')]"/>
+                <filter name="filter_technology" string="Technologie" domain="[('category', '=', 'technology')]"/>
+                <filter name="filter_security" string="Sécurité" domain="[('category', '=', 'security')]"/>
+                <filter name="filter_logistics" string="Logistique" domain="[('category', '=', 'logistics')]"/>
+                <separator/>
+                <filter name="filter_capex" string="CAPEX" domain="[('budget_type', '=', 'capex')]"/>
+                <filter name="filter_opex" string="OPEX" domain="[('budget_type', '=', 'opex')]"/>
+                <separator/>
+                <filter name="filter_draft" string="Brouillon" domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_approved" string="Approuvé" domain="[('state', '=', 'approved')]"/>
+                <filter name="filter_locked" string="Verrouillé" domain="[('state', '=', 'locked')]"/>
+                <filter name="filter_closed" string="Clôturé" domain="[('state', '=', 'closed')]"/>
+                <separator/>
+                <filter name="group_stadium" string="Stade" context="{'group_by': 'stadium_id'}"/>
+                <filter name="group_category" string="Catégorie" context="{'group_by': 'category'}"/>
+                <filter name="group_budget_type" string="Type de budget" context="{'group_by': 'budget_type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============ GRAPH VIEW ============ -->
+    <record id="wc_budget_line_view_graph" model="ir.ui.view">
+        <field name="name">wc.budget.line.graph</field>
+        <field name="model">wc.budget.line</field>
+        <field name="arch" type="xml">
+            <graph type="bar">
+                <field name="stadium_id"/>
+                <field name="planned_amount" type="measure"/>
+                <field name="spent_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ============ KANBAN VIEW ============ -->
+    <record id="wc_budget_line_view_kanban" model="ir.ui.view">
+        <field name="name">wc.budget.line.kanban</field>
+        <field name="model">wc.budget.line</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold fs-5"/>
+                        <field name="stadium_id"/>
+                        <field name="category" widget="badge" decoration-info="1"/>
+                        <div class="mt-2">
+                            <field name="consumption_rate" widget="progressbar"/>
+                        </div>
+                        <div class="d-flex justify-content-between mt-1">
+                            <span>Prévu: <field name="planned_amount"/> MAD</span>
+                        </div>
+                        <field name="state" widget="badge"
+                               decoration-info="state == 'draft'"
+                               decoration-success="state == 'approved'"
+                               decoration-warning="state == 'locked'"
+                               decoration-muted="state == 'closed'"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ============ ACTION ============ -->
+    <record id="action_budget_line" model="ir.actions.act_window">
+        <field name="name">Budget Analytique</field>
+        <field name="res_model">wc.budget.line</field>
+        <field name="view_mode">list,form,kanban,graph</field>
+        <field name="search_view_id" ref="wc_budget_line_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer une nouvelle ligne budgétaire
+            </p>
+            <p>
+                Gérez les budgets CAPEX et OPEX par stade et catégorie pour la Coupe du Monde 2030.
+            </p>
+        </field>
+    </record>
+
+</odoo>

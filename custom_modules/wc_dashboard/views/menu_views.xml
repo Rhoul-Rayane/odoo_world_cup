@@ -13,22 +13,58 @@
               action="wc_dashboard_action"
               sequence="10"/>
 
+    <!-- Sous-menu : Graphiques Opérationnels -->
+    <menuitem id="wc_menu_dashboard_graphs_operational"
+              name="📈 Graphiques Opérationnels"
+              parent="wc_menu_dashboard"
+              sequence="20"/>
+
     <menuitem id="wc_menu_dashboard_vol_graph"
               name="Volontaires par Statut"
-              parent="wc_menu_dashboard"
+              parent="wc_menu_dashboard_graphs_operational"
               action="wc_volunteer_state_action"
-              sequence="20"/>
+              sequence="10"/>
 
     <menuitem id="wc_menu_dashboard_badge_graph"
               name="Badges par Catégorie"
-              parent="wc_menu_dashboard"
+              parent="wc_menu_dashboard_graphs_operational"
               action="wc_badge_category_action"
-              sequence="30"/>
+              sequence="20"/>
 
     <menuitem id="wc_menu_dashboard_incident_graph"
               name="Incidents par Sévérité"
-              parent="wc_menu_dashboard"
+              parent="wc_menu_dashboard_graphs_operational"
               action="wc_incident_severity_action"
+              sequence="30"/>
+
+    <menuitem id="wc_menu_dashboard_transport_graph"
+              name="Transport par Type"
+              parent="wc_menu_dashboard_graphs_operational"
+              action="wc_transport_type_action"
               sequence="40"/>
+
+    <!-- Sous-menu : Graphiques Finance & Durabilité -->
+    <menuitem id="wc_menu_dashboard_graphs_analytics"
+              name="📈 Graphiques Analytiques"
+              parent="wc_menu_dashboard"
+              sequence="30"/>
+
+    <menuitem id="wc_menu_dashboard_budget_graph"
+              name="Budget par Catégorie"
+              parent="wc_menu_dashboard_graphs_analytics"
+              action="wc_budget_category_action"
+              sequence="10"/>
+
+    <menuitem id="wc_menu_dashboard_waste_graph"
+              name="Déchets par Type"
+              parent="wc_menu_dashboard_graphs_analytics"
+              action="wc_waste_type_action"
+              sequence="20"/>
+
+    <menuitem id="wc_menu_dashboard_carbon_graph"
+              name="Émissions Carbone"
+              parent="wc_menu_dashboard_graphs_analytics"
+              action="wc_carbon_category_action"
+              sequence="30"/>
 
 </odoo>

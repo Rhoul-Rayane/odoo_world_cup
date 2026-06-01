@@ -22,6 +22,192 @@
         <record id="lang_portugais" model="wc.volunteer.language"><field name="name">Portugais</field><field name="color">5</field></record>
         <record id="lang_allemand" model="wc.volunteer.language"><field name="name">Allemand</field><field name="color">6</field></record>
         <record id="lang_amazigh" model="wc.volunteer.language"><field name="name">Amazigh</field><field name="color">7</field></record>
+        <!-- ============ BADGES DE GAMIFICATION ============ -->
+        <record id="badge_first_aid" model="wc.volunteer.badge">
+            <field name="name">Secouriste Certifié</field>
+            <field name="description">Volontaire ayant suivi avec succès la formation de premiers secours d'urgence.</field>
+            <field name="points_reward">150</field>
+        </record>
+        <record id="badge_linguist" model="wc.volunteer.badge">
+            <field name="name">Polyglotte Expert</field>
+            <field name="description">Attribué aux volontaires parlant couramment 3 langues ou plus.</field>
+            <field name="points_reward">200</field>
+        </record>
+        <record id="badge_active" model="wc.volunteer.badge">
+            <field name="name">Assiduité Remarquable</field>
+            <field name="description">Volontaire ayant complété plus de 30 heures de travail effectives.</field>
+            <field name="points_reward">100</field>
+        </record>
+        <record id="badge_elite" model="wc.volunteer.badge">
+            <field name="name">Chef d'Équipe Élite</field>
+            <field name="description">Attribué pour un rôle de supervision et un leadership exemplaire sur le terrain.</field>
+            <field name="points_reward">250</field>
+        </record>
+
+        <!-- ============ ROLES FONCTIONNELS (30) ============ -->
+        <!-- 1. Accréditation -->
+        <record id="role_acc_welcome" model="wc.volunteer.role">
+            <field name="name">Agent Centre d'Accréditation</field>
+            <field name="functional_area">accreditation</field>
+            <field name="description">Accueil des participants et vérification d'identité pour la délivrance des badges.</field>
+        </record>
+        <record id="role_acc_print" model="wc.volunteer.role">
+            <field name="name">Opérateur Impression Badges</field>
+            <field name="functional_area">accreditation</field>
+            <field name="description">Gestion technique de l'impression et de l'encodage des cartes d'accréditation.</field>
+        </record>
+        <record id="role_acc_scanner" model="wc.volunteer.role">
+            <field name="name">Vérificateur Accréditations</field>
+            <field name="functional_area">accreditation</field>
+            <field name="description">Contrôle des accès physiques via terminaux de scan aux portes réservées.</field>
+        </record>
+
+        <!-- 2. Média & Presse -->
+        <record id="role_med_welcome" model="wc.volunteer.role">
+            <field name="name">Hôte Centre de Presse (MMC)</field>
+            <field name="functional_area">media</field>
+            <field name="description">Orientation des journalistes et distribution des kits média officiels.</field>
+        </record>
+        <record id="role_med_tribune" model="wc.volunteer.role">
+            <field name="name">Assistant Tribune Presse</field>
+            <field name="functional_area">media</field>
+            <field name="description">Assistance aux journalistes sportifs et placement en tribune média.</field>
+        </record>
+        <record id="role_med_flash" model="wc.volunteer.role">
+            <field name="name">Facilitateur Zone Mixte</field>
+            <field name="functional_area">media</field>
+            <field name="description">Encadrement des interviews rapides des joueurs après les rencontres.</field>
+        </record>
+        <record id="role_med_photo" model="wc.volunteer.role">
+            <field name="name">Coordonnateur Opérations Photo</field>
+            <field name="functional_area">media</field>
+            <field name="description">Gestion du placement des photographes autour du terrain.</field>
+        </record>
+
+        <!-- 3. Billetterie -->
+        <record id="role_tkt_resol" model="wc.volunteer.role">
+            <field name="name">Conseiller Résolution Billetterie</field>
+            <field name="functional_area">ticketing</field>
+            <field name="description">Aide aux spectateurs ayant des problèmes de e-tickets ou de duplication.</field>
+        </record>
+        <record id="role_tkt_control" model="wc.volunteer.role">
+            <field name="name">Steward Entrée Billets</field>
+            <field name="functional_area">ticketing</field>
+            <field name="description">Orientation des supporters vers les bons portillons d'accès.</field>
+        </record>
+        <record id="role_tkt_scanner" model="wc.volunteer.role">
+            <field name="name">Opérateur Scan Tickets</field>
+            <field name="functional_area">ticketing</field>
+            <field name="description">Opération des lecteurs code-barres/QR codes aux tourniquets.</field>
+        </record>
+
+        <!-- 4. Transport & Logistique -->
+        <record id="role_trn_shuttle" model="wc.volunteer.role">
+            <field name="name">Régulateur Navettes</field>
+            <field name="functional_area">transport</field>
+            <field name="description">Coordination des départs et des arrêts de bus navettes inter-stades.</field>
+        </record>
+        <record id="role_trn_driver" model="wc.volunteer.role">
+            <field name="name">Chauffeur VIP FIFA</field>
+            <field name="functional_area">transport</field>
+            <field name="description">Conduite de véhicules officiels pour transporter les délégations.</field>
+        </record>
+        <record id="role_trn_depot" model="wc.volunteer.role">
+            <field name="name">Assistant Dépôt Logistique</field>
+            <field name="functional_area">transport</field>
+            <field name="description">Aide à la réception, au tri, et à l'inventaire des fournitures de match.</field>
+        </record>
+        <record id="role_trn_lost" model="wc.volunteer.role">
+            <field name="name">Steward Objets Trouvés</field>
+            <field name="functional_area">transport</field>
+            <field name="description">Enregistrement et restitution des objets égarés par les spectateurs.</field>
+        </record>
+        <record id="role_trn_sign" model="wc.volunteer.role">
+            <field name="name">Guide Signalétique &amp; Direction</field>
+            <field name="functional_area">transport</field>
+            <field name="description">Placement aux carrefours clés pour orienter les piétons vers les transports.</field>
+        </record>
+
+        <!-- 5. Services Médicaux -->
+        <record id="role_med_firstaid" model="wc.volunteer.role">
+            <field name="name">Secouriste Poste de Premier Secours</field>
+            <field name="functional_area">medical</field>
+            <field name="description">Premiers soins aux spectateurs en cas de malaise ou de blessure mineure.</field>
+        </record>
+        <record id="role_med_field" model="wc.volunteer.role">
+            <field name="name">Brancardier Terrain</field>
+            <field name="functional_area">medical</field>
+            <field name="description">Évacuation rapide des joueurs blessés hors du terrain.</field>
+        </record>
+        <record id="role_med_doping" model="wc.volunteer.role">
+            <field name="name">Chaperon Anti-Dopage</field>
+            <field name="functional_area">medical</field>
+            <field name="description">Escorte des joueurs sélectionnés pour les contrôles anti-dopage post-match.</field>
+        </record>
+
+        <!-- 6. Sécurité & Gestion de Foule -->
+        <record id="role_sec_tribune" model="wc.volunteer.role">
+            <field name="name">Steward de Tribune</field>
+            <field name="functional_area">security</field>
+            <field name="description">Surveillance passive des tribunes et maintien des issues d'évacuation dégagées.</field>
+        </record>
+        <record id="role_sec_flow" model="wc.volunteer.role">
+            <field name="name">Régulateur Flux Esplanade</field>
+            <field name="functional_area">security</field>
+            <field name="description">Orientation et canalisation de la foule avant l'entrée dans le périmètre.</field>
+        </record>
+        <record id="role_sec_queue" model="wc.volunteer.role">
+            <field name="name">Gestionnaire de File d'Attente</field>
+            <field name="functional_area">security</field>
+            <field name="description">Maintien de l'ordre et réponse aux questions des fans dans les files d'attente.</field>
+        </record>
+        <record id="role_sec_guide" model="wc.volunteer.role">
+            <field name="name">Guide Services Spectateurs</field>
+            <field name="functional_area">security</field>
+            <field name="description">Orientation des personnes à mobilité réduite (PMR) et accompagnement.</field>
+        </record>
+        <record id="role_sec_marshal" model="wc.volunteer.role">
+            <field name="name">Assistant Maréchal de Sécurité</field>
+            <field name="functional_area">security</field>
+            <field name="description">Support aux forces de l'ordre pour signaler tout comportement suspect.</field>
+        </record>
+
+        <!-- 7. Protocole & VIP -->
+        <record id="role_prt_lounge" model="wc.volunteer.role">
+            <field name="name">Hôte Salon VIP</field>
+            <field name="functional_area">protocol</field>
+            <field name="description">Accueil, vestiaire, et service des personnalités dans les loges officielles.</field>
+        </record>
+        <record id="role_prt_vvip" model="wc.volunteer.role">
+            <field name="name">Officier Protocole VVIP</field>
+            <field name="functional_area">protocol</field>
+            <field name="description">Escorte des chefs d'État et des hauts dignitaires de la FIFA.</field>
+        </record>
+        <record id="role_prt_ceremonies" model="wc.volunteer.role">
+            <field name="name">Assistant Cérémonies Officielles</field>
+            <field name="functional_area">protocol</field>
+            <field name="description">Participation aux préparatifs des hymnes nationaux et spectacles d'ouverture.</field>
+        </record>
+        <record id="role_prt_liaison" model="wc.volunteer.role">
+            <field name="name">Officier de Liaison Équipe (TLO)</field>
+            <field name="functional_area">protocol</field>
+            <field name="description">Facilitation de la communication et des déplacements pour une équipe nationale.</field>
+        </record>
+        <record id="role_prt_mascot" model="wc.volunteer.role">
+            <field name="name">Escorte Mascotte</field>
+            <field name="functional_area">protocol</field>
+            <field name="description">Accompagnement de l'acteur incarnant la mascotte officielle pour des raisons de sécurité.</field>
+        </record>
+        <record id="role_prt_award" model="wc.volunteer.role">
+            <field name="name">Porteur de Plateau Remise des Prix</field>
+            <field name="functional_area">protocol</field>
+            <field name="description">Présentation des médailles ou des trophées lors de la cérémonie finale.</field>
+        </record>
+        <record id="role_prt_escort" model="wc.volunteer.role">
+            <field name="name">Escorte Invité Accrédité</field>
+            <field name="functional_area">protocol</field>
+            <field name="description">Prise en charge personnalisée des délégués FIFA étrangers à leur arrivée au stade.</field>
+        </record>
 
     </data>
 </odoo>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============ LIST VIEW ============ -->
+    <record id="wc_ticket_pricing_view_list" model="ir.ui.view">
+        <field name="name">wc.ticket.pricing.list</field>
+        <field name="model">wc.ticket.pricing</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="fill_rate &gt; 95"
+                  decoration-warning="fill_rate &gt; 80 and fill_rate &lt;= 95">
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="phase" widget="badge" decoration-info="1"/>
+                <field name="ticket_category" widget="badge" decoration-success="1"/>
+                <field name="base_price"/>
+                <field name="final_price_resident"/>
+                <field name="final_price_student"/>
+                <field name="total_available" sum="Total places"/>
+                <field name="total_sold" sum="Total vendues"/>
+                <field name="fill_rate" widget="progressbar"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============ FORM VIEW ============ -->
+    <record id="wc_ticket_pricing_view_form" model="ir.ui.view">
+        <field name="name">wc.ticket.pricing.form</field>
+        <field name="model">wc.ticket.pricing</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Tarification">
+                            <field name="stadium_id"/>
+                            <field name="phase"/>
+                            <field name="ticket_category"/>
+                            <field name="base_price"/>
+                            <field name="early_bird_price"/>
+                            <field name="last_minute_price"/>
+                        </group>
+                        <group string="Remises">
+                            <field name="resident_discount_pct"/>
+                            <field name="student_discount_pct"/>
+                            <field name="final_price_resident"/>
+                            <field name="final_price_student"/>
+                        </group>
+                    </group>
+                    <group string="Disponibilité">
+                        <group>
+                            <field name="total_available"/>
+                            <field name="total_sold"/>
+                            <field name="fill_rate" widget="progressbar"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============ SEARCH VIEW ============ -->
+    <record id="wc_ticket_pricing_view_search" model="ir.ui.view">
+        <field name="name">wc.ticket.pricing.search</field>
+        <field name="model">wc.ticket.pricing</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <separator/>
+                <filter name="filter_group" string="Phase de groupes" domain="[('phase', '=', 'group')]"/>
+                <filter name="filter_round16" string="Huitièmes" domain="[('phase', '=', 'round16')]"/>
+                <filter name="filter_quarter" string="Quarts" domain="[('phase', '=', 'quarter')]"/>
+                <filter name="filter_semi" string="Demi-finales" domain="[('phase', '=', 'semi')]"/>
+                <filter name="filter_final" string="Finale" domain="[('phase', '=', 'final')]"/>
+                <separator/>
+                <filter name="filter_cat1" string="Cat. 1 (VIP)" domain="[('ticket_category', '=', 'cat1')]"/>
+                <filter name="filter_cat2" string="Cat. 2" domain="[('ticket_category', '=', 'cat2')]"/>
+                <filter name="filter_cat3" string="Cat. 3" domain="[('ticket_category', '=', 'cat3')]"/>
+                <filter name="filter_cat4" string="Cat. 4 (Populaire)" domain="[('ticket_category', '=', 'cat4')]"/>
+                <separator/>
+                <filter name="group_phase" string="Phase" context="{'group_by': 'phase'}"/>
+                <filter name="group_stadium" string="Stade" context="{'group_by': 'stadium_id'}"/>
+                <filter name="group_category" string="Catégorie de billet" context="{'group_by': 'ticket_category'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============ GRAPH VIEW ============ -->
+    <record id="wc_ticket_pricing_view_graph" model="ir.ui.view">
+        <field name="name">wc.ticket.pricing.graph</field>
+        <field name="model">wc.ticket.pricing</field>
+        <field name="arch" type="xml">
+            <graph type="bar">
+                <field name="phase"/>
+                <field name="base_price" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ============ ACTION ============ -->
+    <record id="action_ticket_pricing" model="ir.actions.act_window">
+        <field name="name">Grille Tarifaire</field>
+        <field name="res_model">wc.ticket.pricing</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="search_view_id" ref="wc_ticket_pricing_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer une nouvelle grille tarifaire
+            </p>
+            <p>
+                Définissez les prix par phase, catégorie et stade avec remises résidents et étudiants.
+            </p>
+        </field>
+    </record>
+
+</odoo>

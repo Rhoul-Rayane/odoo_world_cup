@@ -6,7 +6,8 @@
         <field name="name">wc.accreditation.list</field>
         <field name="model">wc.accreditation</field>
         <field name="arch" type="xml">
-            <list>
+            <list decoration-danger="state in ('expired', 'revoked')"
+                  decoration-warning="state == 'suspended'">
                 <field name="name"/>
                 <field name="holder_name"/>
                 <field name="category"/>
@@ -48,7 +49,14 @@
                            statusbar_visible="draft,approved,printed,active"/>
                 </header>
                 <sheet>
-                    <div class="oe_button_box" name="button_box"/>
+                    <widget name="web_ribbon" title="Suspendu" bg_color="text-bg-warning" invisible="state != 'suspended'"/>
+                    <widget name="web_ribbon" title="Révoqué" bg_color="text-bg-danger" invisible="state != 'revoked'"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-barcode"
+                                type="object" name="action_view_scans">
+                            <field name="scan_count" string="Scans" widget="statinfo"/>
+                        </button>
+                    </div>
                     <field name="holder_photo" widget="image" class="oe_avatar"/>
                     <div class="oe_title">
                         <h1><field name="name"/></h1>
@@ -132,6 +140,13 @@
                 <field name="organization"/>
                 <field name="state"/>
                 <field name="qr_token"/>
+                <separator/>
+                <filter string="Actives" name="filter_active" domain="[('state', '=', 'active')]"/>
+                <filter string="Expirées" name="filter_expired" domain="[('is_expired', '=', True)]"/>
+                <filter string="Suspendues" name="filter_suspended" domain="[('state', '=', 'suspended')]"/>
+                <filter string="Révoquées" name="filter_revoked" domain="[('state', '=', 'revoked')]"/>
+                <filter string="Catégorie" name="group_category" context="{'group_by': 'category'}" domain="[]"/>
+                <filter string="Statut" name="group_state" context="{'group_by': 'state'}" domain="[]"/>
             </search>
         </field>
     </record>

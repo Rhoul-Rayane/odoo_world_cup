@@ -47,3 +47,25 @@ class Stadium(models.Model):
 
     def action_set_maintenance(self):
         self.write({'state': 'maintenance'})
+
+    def action_view_zones(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Zones',
+            'res_model': 'wc.stadium.zone',
+            'view_mode': 'list,form',
+            'domain': [('stadium_id', '=', self.id)],
+            'context': {'default_stadium_id': self.id},
+        }
+
+    def action_view_matches(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Matchs',
+            'res_model': 'wc.match',
+            'view_mode': 'list,form',
+            'domain': [('stadium_id', '=', self.id)],
+            'context': {'default_stadium_id': self.id},
+        }

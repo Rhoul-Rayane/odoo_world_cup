@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ============ DEPLOYEMENT SECURITE ============ -->
+
+    <!-- LIST -->
+    <record id="view_security_deployment_list" model="ir.ui.view">
+        <field name="name">wc.security.deployment.list</field>
+        <field name="model">wc.security.deployment</field>
+        <field name="arch" type="xml">
+            <list string="Déploiements Sécurité"
+                  decoration-danger="agent_count &lt; 5"
+                  decoration-success="agent_count &gt;= 20">
+                <field name="name"/>
+                <field name="match_id"/>
+                <field name="match_stadium_id"/>
+                <field name="stadium_zone_id"/>
+                <field name="deployment_type" widget="badge"
+                       decoration-info="deployment_type == 'steward'"
+                       decoration-warning="deployment_type == 'police'"
+                       decoration-success="deployment_type == 'private'"
+                       decoration-danger="deployment_type == 'medical'"/>
+                <field name="agent_count" sum="Total Agents"/>
+                <field name="supervisor_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM -->
+    <record id="view_security_deployment_form" model="ir.ui.view">
+        <field name="name">wc.security.deployment.form</field>
+        <field name="model">wc.security.deployment</field>
+        <field name="arch" type="xml">
+            <form string="Déploiement Sécurité">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="match_id"/>
+                            <field name="match_stadium_id"/>
+                            <field name="stadium_zone_id"/>
+                        </group>
+                        <group>
+                            <field name="deployment_type" widget="badge"/>
+                            <field name="agent_count"/>
+                            <field name="supervisor_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Détails" name="details">
+                            <group>
+                                <field name="deployment_type" invisible="1"/>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <div class="oe_form_box_info">
+                                <p>Ajoutez ici des notes supplémentaires sur ce déploiement.</p>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- SEARCH -->
+    <record id="view_security_deployment_search" model="ir.ui.view">
+        <field name="name">wc.security.deployment.search</field>
+        <field name="model">wc.security.deployment</field>
+        <field name="arch" type="xml">
+            <search string="Rechercher Déploiements">
+                <field name="name"/>
+                <field name="match_id"/>
+                <field name="stadium_zone_id"/>
+                <field name="supervisor_id"/>
+                <separator/>
+                <filter string="Stewards / Accueil" name="filter_steward"
+                        domain="[('deployment_type', '=', 'steward')]"/>
+                <filter string="Forces de l'ordre" name="filter_police"
+                        domain="[('deployment_type', '=', 'police')]"/>
+                <filter string="Sécurité privée" name="filter_private"
+                        domain="[('deployment_type', '=', 'private')]"/>
+                <filter string="Secouristes / Médical" name="filter_medical"
+                        domain="[('deployment_type', '=', 'medical')]"/>
+                                    <filter string="Match" name="group_match"
+                            context="{'group_by': 'match_id'}"/>
+                    <filter string="Type de force" name="group_type"
+                            context="{'group_by': 'deployment_type'}"/>
+                    <filter string="Zone du stade" name="group_zone"
+                            context="{'group_by': 'stadium_zone_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- KANBAN -->
+    <record id="view_security_deployment_kanban" model="ir.ui.view">
+        <field name="name">wc.security.deployment.kanban</field>
+        <field name="model">wc.security.deployment</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="deployment_type">
+                <templates>
+                    <t t-name="card">
+                        <field name="match_id" bold="1"/>
+                        <field name="stadium_zone_id"/>
+                        <div>
+                            <strong>Agents : </strong>
+                            <field name="agent_count"/>
+                        </div>
+                        <field name="supervisor_id" widget="many2one_avatar_user"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- GRAPH -->
+    <record id="view_security_deployment_graph" model="ir.ui.view">
+        <field name="name">wc.security.deployment.graph</field>
+        <field name="model">wc.security.deployment</field>
+        <field name="arch" type="xml">
+            <graph string="Agents par Type de Force" type="bar">
+                <field name="deployment_type" type="row"/>
+                <field name="agent_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_security_deployment" model="ir.actions.act_window">
+        <field name="name">Déploiements Sécurité</field>
+        <field name="res_model">wc.security.deployment</field>
+        <field name="view_mode">list,kanban,graph,form</field>
+        <field name="search_view_id" ref="view_security_deployment_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créez votre premier déploiement de sécurité
+            </p>
+            <p>Gérez les forces de sécurité déployées par zone pour chaque match.</p>
+        </field>
+    </record>
+
+    <!-- ============ ACCORDS INTERNATIONAUX ============ -->
+
+    <!-- LIST -->
+    <record id="view_security_agreement_list" model="ir.ui.view">
+        <field name="name">wc.security.agreement.list</field>
+        <field name="model">wc.security.agreement</field>
+        <field name="arch" type="xml">
+            <list string="Accords de Sécurité"
+                  decoration-muted="expiration_date and expiration_date &lt; current_date">
+                <field name="name"/>
+                <field name="partner_country" widget="badge"/>
+                <field name="agreement_type" widget="badge"
+                       decoration-info="agreement_type == 'personnel'"
+                       decoration-success="agreement_type == 'cybersecurity'"
+                       decoration-warning="agreement_type == 'anti_drone'"
+                       decoration-danger="agreement_type == 'crowd_control'"/>
+                <field name="effective_date"/>
+                <field name="expiration_date"/>
+                <field name="personnel_deployed" sum="Total Personnel Coopérant"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM -->
+    <record id="view_security_agreement_form" model="ir.ui.view">
+        <field name="name">wc.security.agreement.form</field>
+        <field name="model">wc.security.agreement</field>
+        <field name="arch" type="xml">
+            <form string="Accord de Sécurité">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="Ex: Accord France-Maroc Cybersécurité"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_country"/>
+                            <field name="agreement_type"/>
+                        </group>
+                        <group>
+                            <field name="effective_date"/>
+                            <field name="expiration_date"/>
+                            <field name="personnel_deployed"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Détails &amp; Protocoles" name="details">
+                            <field name="description" placeholder="Description de la coopération..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- SEARCH -->
+    <record id="view_security_agreement_search" model="ir.ui.view">
+        <field name="name">wc.security.agreement.search</field>
+        <field name="model">wc.security.agreement</field>
+        <field name="arch" type="xml">
+            <search string="Rechercher Accords">
+                <field name="name"/>
+                <field name="partner_country"/>
+                <field name="agreement_type"/>
+                <separator/>
+                <filter string="Mise à disposition" name="filter_personnel"
+                        domain="[('agreement_type', '=', 'personnel')]"/>
+                <filter string="Cybersécurité" name="filter_cybersecurity"
+                        domain="[('agreement_type', '=', 'cybersecurity')]"/>
+                <filter string="Anti-drone" name="filter_anti_drone"
+                        domain="[('agreement_type', '=', 'anti_drone')]"/>
+                <filter string="Gestion des foules" name="filter_crowd_control"
+                        domain="[('agreement_type', '=', 'crowd_control')]"/>
+                <filter string="Formation" name="filter_training"
+                        domain="[('agreement_type', '=', 'training')]"/>
+                <separator/>
+                <filter string="Actifs" name="filter_active"
+                        domain="['|', ('expiration_date', '=', False), ('expiration_date', '&gt;=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Expirés" name="filter_expired"
+                        domain="[('expiration_date', '!=', False), ('expiration_date', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                                    <filter string="Pays partenaire" name="group_country"
+                            context="{'group_by': 'partner_country'}"/>
+                    <filter string="Type d'accord" name="group_type"
+                            context="{'group_by': 'agreement_type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_security_agreement" model="ir.actions.act_window">
+        <field name="name">Accords Internationaux</field>
+        <field name="res_model">wc.security.agreement</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_security_agreement_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créez votre premier accord international de sécurité
+            </p>
+            <p>Suivez les coopérations internationales en matière de sécurité pour la Coupe du Monde.</p>
+        </field>
+    </record>
+
+    <!-- ============ MONITEUR DE FOULE ============ -->
+
+    <!-- LIST -->
+    <record id="view_crowd_monitoring_list" model="ir.ui.view">
+        <field name="name">wc.crowd.monitoring.list</field>
+        <field name="model">wc.crowd.monitoring</field>
+        <field name="arch" type="xml">
+            <list string="Suivi Foules"
+                  decoration-danger="safety_status == 'red'"
+                  decoration-warning="safety_status == 'orange'">
+                <field name="match_id"/>
+                <field name="match_stadium_id"/>
+                <field name="stadium_zone_id"/>
+                <field name="current_headcount"/>
+                <field name="zone_area"/>
+                <field name="density_per_sqm"/>
+                <field name="safety_status" widget="badge"
+                       decoration-success="safety_status == 'green'"
+                       decoration-warning="safety_status == 'orange'"
+                       decoration-danger="safety_status == 'red'"/>
+                <field name="last_updated"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM -->
+    <record id="view_crowd_monitoring_form" model="ir.ui.view">
+        <field name="name">wc.crowd.monitoring.form</field>
+        <field name="model">wc.crowd.monitoring</field>
+        <field name="arch" type="xml">
+            <form string="Suivi Foule">
+                <sheet>
+                    <widget name="web_ribbon" title="ALERTE CRITIQUE" bg_color="text-bg-danger"
+                            invisible="safety_status != 'red'"/>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="match_id"/>
+                            <field name="match_stadium_id"/>
+                            <field name="stadium_zone_id"/>
+                        </group>
+                        <group>
+                            <field name="current_headcount"/>
+                            <field name="zone_area"/>
+                            <field name="density_per_sqm" readonly="1"/>
+                            <field name="safety_status" widget="badge"
+                                   decoration-success="safety_status == 'green'"
+                                   decoration-warning="safety_status == 'orange'"
+                                   decoration-danger="safety_status == 'red'"/>
+                            <field name="last_updated"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- SEARCH -->
+    <record id="view_crowd_monitoring_search" model="ir.ui.view">
+        <field name="name">wc.crowd.monitoring.search</field>
+        <field name="model">wc.crowd.monitoring</field>
+        <field name="arch" type="xml">
+            <search string="Rechercher Suivi Foule">
+                <field name="match_id"/>
+                <field name="stadium_zone_id"/>
+                <separator/>
+                <filter string="Alerte Rouge" name="filter_red"
+                        domain="[('safety_status', '=', 'red')]"/>
+                <filter string="Alerte Orange" name="filter_orange"
+                        domain="[('safety_status', '=', 'orange')]"/>
+                <filter string="Normal" name="filter_green"
+                        domain="[('safety_status', '=', 'green')]"/>
+                                    <filter string="Match" name="group_match"
+                            context="{'group_by': 'match_id'}"/>
+                    <filter string="Zone" name="group_zone"
+                            context="{'group_by': 'stadium_zone_id'}"/>
+                    <filter string="Statut de sécurité" name="group_status"
+                            context="{'group_by': 'safety_status'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- KANBAN -->
+    <record id="view_crowd_monitoring_kanban" model="ir.ui.view">
+        <field name="name">wc.crowd.monitoring.kanban</field>
+        <field name="model">wc.crowd.monitoring</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="card">
+                        <field name="stadium_zone_id" bold="1"/>
+                        <div>
+                            <strong>Affluence : </strong>
+                            <field name="current_headcount"/>
+                        </div>
+                        <div>
+                            <strong>Densité : </strong>
+                            <field name="density_per_sqm"/> pers/m²
+                        </div>
+                        <field name="safety_status" widget="badge"
+                               decoration-success="safety_status == 'green'"
+                               decoration-warning="safety_status == 'orange'"
+                               decoration-danger="safety_status == 'red'"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- GRAPH -->
+    <record id="view_crowd_monitoring_graph" model="ir.ui.view">
+        <field name="name">wc.crowd.monitoring.graph</field>
+        <field name="model">wc.crowd.monitoring</field>
+        <field name="arch" type="xml">
+            <graph string="Répartition par Statut de Sécurité" type="pie">
+                <field name="safety_status" type="row"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_crowd_monitoring" model="ir.actions.act_window">
+        <field name="name">Monitoring Foule</field>
+        <field name="res_model">wc.crowd.monitoring</field>
+        <field name="view_mode">list,kanban,graph,form</field>
+        <field name="search_view_id" ref="view_crowd_monitoring_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créez votre premier suivi de foule
+            </p>
+            <p>Surveillez la densité et le statut de sécurité des zones de chaque stade en temps réel.</p>
+        </field>
+    </record>
+
+    <!-- ============ INCIDENT INHERIT VIEW ============ -->
+    <record id="view_incident_form_inherit_security" model="ir.ui.view">
+        <field name="name">wc.logistics.incident.form.inherit.security</field>
+        <field name="model">wc.logistics.incident</field>
+        <field name="inherit_id" ref="wc_logistics.wc_incident_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group[2]" position="inside">
+                <field name="intervention_force_required"/>
+                <field name="police_informed"/>
+                <field name="drone_intercepted"/>
+                <field name="security_deployment_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

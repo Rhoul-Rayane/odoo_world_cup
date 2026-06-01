@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wc_security_deployment,access_wc_security_deployment,model_wc_security_deployment,base.group_user,1,1,1,1
+access_wc_security_agreement,access_wc_security_agreement,model_wc_security_agreement,base.group_user,1,1,1,1
+access_wc_crowd_monitoring,access_wc_crowd_monitoring,model_wc_crowd_monitoring,base.group_user,1,1,1,1

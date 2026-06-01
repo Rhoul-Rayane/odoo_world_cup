@@ -79,9 +79,10 @@ class Accreditation(models.Model):
     active = fields.Boolean(default=True)
 
     # ============ CONTRAINTES ============
-    _sql_constraints = [
-        ('qr_token_unique', 'UNIQUE(qr_token)', 'Le token QR doit être unique.'),
-    ]
+    _qr_token_unique = models.Constraint(
+        'unique(qr_token)',
+        'Le token QR doit être unique.',
+    )
 
     @api.constrains('date_start', 'date_end')
     def _check_dates(self):
@@ -180,6 +181,18 @@ class Accreditation(models.Model):
 
     def action_reset_to_draft(self):
         self.write({'state': 'draft'})
+
+    def action_view_scans(self):
+        """Stat button action — opens the current record's form (scan info section)."""
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Détails Scans',
+            'res_model': 'wc.accreditation',
+            'view_mode': 'form',
+            'res_id': self.id,
+            'target': 'current',
+        }
 
     # ============ VÉRIFICATION SCAN ============
     def action_scan(self):

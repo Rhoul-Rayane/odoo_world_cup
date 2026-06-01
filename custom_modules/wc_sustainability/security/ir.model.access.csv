@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wc_waste_tracking_user,wc.waste.tracking.user,model_wc_waste_tracking,base.group_user,1,0,0,0
+access_wc_waste_tracking_system,wc.waste.tracking.system,model_wc_waste_tracking,base.group_system,1,1,1,1
+access_wc_carbon_footprint_user,wc.carbon.footprint.user,model_wc_carbon_footprint,base.group_user,1,0,0,0
+access_wc_carbon_footprint_system,wc.carbon.footprint.system,model_wc_carbon_footprint,base.group_system,1,1,1,1
+access_wc_sustainability_audit_user,wc.sustainability.audit.user,model_wc_sustainability_audit,base.group_user,1,0,0,0
+access_wc_sustainability_audit_system,wc.sustainability.audit.system,model_wc_sustainability_audit,base.group_system,1,1,1,1

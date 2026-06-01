@@ -1,0 +1,1685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="stadium_S_001" model="wc.stadium">
+            <field name="name">Estadio José Amalfitani</field>
+            <field name="city">Buenos Aires</field>
+            <field name="capacity">49000</field>
+            <field name="country">argentina</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_002" model="wc.stadium">
+            <field name="name">Estadio Monumental</field>
+            <field name="city">Buenos Aires</field>
+            <field name="capacity">75000</field>
+            <field name="country">argentina</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_003" model="wc.stadium">
+            <field name="name">Estadio Chateau Carreras</field>
+            <field name="city">Córdoba</field>
+            <field name="capacity">47000</field>
+            <field name="country">argentina</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_004" model="wc.stadium">
+            <field name="name">Estadio José María Minella</field>
+            <field name="city">Mar del Plata</field>
+            <field name="capacity">44000</field>
+            <field name="country">argentina</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_005" model="wc.stadium">
+            <field name="name">Estadio Ciudad de Mendoza</field>
+            <field name="city">Mendoza</field>
+            <field name="capacity">35000</field>
+            <field name="country">argentina</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_006" model="wc.stadium">
+            <field name="name">Estadio Gigante de Arroyito</field>
+            <field name="city">Rosario</field>
+            <field name="capacity">46000</field>
+            <field name="country">argentina</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_007" model="wc.stadium">
+            <field name="name">Estádio Independência</field>
+            <field name="city">Belo Horizonte</field>
+            <field name="capacity">30000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_008" model="wc.stadium">
+            <field name="name">Estádio Mineirão</field>
+            <field name="city">Belo Horizonte</field>
+            <field name="capacity">43000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_009" model="wc.stadium">
+            <field name="name">Estádio Nacional</field>
+            <field name="city">Brasília</field>
+            <field name="capacity">70000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_010" model="wc.stadium">
+            <field name="name">Arena Pantanal</field>
+            <field name="city">Cuiabá</field>
+            <field name="capacity">41000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_011" model="wc.stadium">
+            <field name="name">Arena da Baixada</field>
+            <field name="city">Curitiba</field>
+            <field name="capacity">40000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_012" model="wc.stadium">
+            <field name="name">Estádio Vila Capanema</field>
+            <field name="city">Curitiba</field>
+            <field name="capacity">10000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_013" model="wc.stadium">
+            <field name="name">Estádio Castelão</field>
+            <field name="city">Fortaleza</field>
+            <field name="capacity">63000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_014" model="wc.stadium">
+            <field name="name">Arena da Amazônia</field>
+            <field name="city">Manaus</field>
+            <field name="capacity">41000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_015" model="wc.stadium">
+            <field name="name">Arena das Dunas</field>
+            <field name="city">Natal</field>
+            <field name="capacity">40000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_016" model="wc.stadium">
+            <field name="name">Estádio Beira-Rio</field>
+            <field name="city">Porto Alegre</field>
+            <field name="capacity">43000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_017" model="wc.stadium">
+            <field name="name">Estádio dos Eucaliptos</field>
+            <field name="city">Porto Alegre</field>
+            <field name="capacity">20000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_018" model="wc.stadium">
+            <field name="name">Arena Pernambuco</field>
+            <field name="city">Recife</field>
+            <field name="capacity">43000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_019" model="wc.stadium">
+            <field name="name">Estádio Ilha do Retiro</field>
+            <field name="city">Recife</field>
+            <field name="capacity">30000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_020" model="wc.stadium">
+            <field name="name">Estádio do Maracanã</field>
+            <field name="city">Rio de Janeiro</field>
+            <field name="capacity">200000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_021" model="wc.stadium">
+            <field name="name">Arena Fonte Nova</field>
+            <field name="city">Salvador</field>
+            <field name="capacity">52000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_022" model="wc.stadium">
+            <field name="name">Arena Corinthians</field>
+            <field name="city">São Paulo</field>
+            <field name="capacity">63000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_023" model="wc.stadium">
+            <field name="name">Estádio do Pacaembu</field>
+            <field name="city">São Paulo</field>
+            <field name="capacity">60000</field>
+            <field name="country">brazil</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_024" model="wc.stadium">
+            <field name="name">Commonwealth Stadium</field>
+            <field name="city">Edmonton</field>
+            <field name="capacity">56000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_025" model="wc.stadium">
+            <field name="name">Moncton Stadium</field>
+            <field name="city">Moncton</field>
+            <field name="capacity">13000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_026" model="wc.stadium">
+            <field name="name">Olympic Stadium</field>
+            <field name="city">Montreal</field>
+            <field name="capacity">56000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_027" model="wc.stadium">
+            <field name="name">TD Place Stadium</field>
+            <field name="city">Ottawa</field>
+            <field name="capacity">24000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_028" model="wc.stadium">
+            <field name="name">BC Place</field>
+            <field name="city">Vancouver</field>
+            <field name="capacity">54000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_029" model="wc.stadium">
+            <field name="name">Investors Group Field</field>
+            <field name="city">Winnipeg</field>
+            <field name="capacity">33000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_030" model="wc.stadium">
+            <field name="name">Estadio Carlos Dittborn</field>
+            <field name="city">Arica</field>
+            <field name="capacity">18000</field>
+            <field name="country">chile</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_031" model="wc.stadium">
+            <field name="name">Estadio El Teniente</field>
+            <field name="city">Rancagua</field>
+            <field name="capacity">18000</field>
+            <field name="country">chile</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_032" model="wc.stadium">
+            <field name="name">Estadio Nacional</field>
+            <field name="city">Santiago</field>
+            <field name="capacity">67000</field>
+            <field name="country">chile</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_033" model="wc.stadium">
+            <field name="name">Estadio Sausalito</field>
+            <field name="city">Viña del Mar</field>
+            <field name="capacity">18000</field>
+            <field name="country">chile</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_034" model="wc.stadium">
+            <field name="name">Chengdu Sports Center</field>
+            <field name="city">Chengdu</field>
+            <field name="capacity">40000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_035" model="wc.stadium">
+            <field name="name">New Plaza Stadium</field>
+            <field name="city">Foshan</field>
+            <field name="capacity">14000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_036" model="wc.stadium">
+            <field name="name">Gaungdong Provincial Stadium</field>
+            <field name="city">Guangzhou</field>
+            <field name="capacity">25000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_037" model="wc.stadium">
+            <field name="name">Guangdong Provincial Stadium</field>
+            <field name="city">Guangzhou</field>
+            <field name="capacity">25000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_038" model="wc.stadium">
+            <field name="name">Tainhe Stadium</field>
+            <field name="city">Guangzhou</field>
+            <field name="capacity">60000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_039" model="wc.stadium">
+            <field name="name">Tianhe Stadium</field>
+            <field name="city">Guangzhou</field>
+            <field name="capacity">60000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_040" model="wc.stadium">
+            <field name="name">Ying Tung Stadium</field>
+            <field name="city">Guangzhou</field>
+            <field name="capacity">15000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_041" model="wc.stadium">
+            <field name="name">Yellow Dragon Sports Center</field>
+            <field name="city">Hangzhou</field>
+            <field name="capacity">51000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_042" model="wc.stadium">
+            <field name="name">Jiangmen Stadium</field>
+            <field name="city">Jiangmen</field>
+            <field name="capacity">13000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_043" model="wc.stadium">
+            <field name="name">Hongkou Football Stadium</field>
+            <field name="city">Shanghai</field>
+            <field name="capacity">33000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_044" model="wc.stadium">
+            <field name="name">Tianjin Olympic Center</field>
+            <field name="city">Tianjin</field>
+            <field name="capacity">60000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_045" model="wc.stadium">
+            <field name="name">Wuhan Sports Center</field>
+            <field name="city">Wuhan</field>
+            <field name="capacity">60000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_046" model="wc.stadium">
+            <field name="name">Zhongshan Stadium</field>
+            <field name="city">Zhongshan</field>
+            <field name="capacity">12000</field>
+            <field name="country">other</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_047" model="wc.stadium">
+            <field name="name">Villa Park</field>
+            <field name="city">Birmingham</field>
+            <field name="capacity">52000</field>
+            <field name="country">england</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_048" model="wc.stadium">
+            <field name="name">Goodison Park</field>
+            <field name="city">Liverpool</field>
+            <field name="capacity">50000</field>
+            <field name="country">england</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_049" model="wc.stadium">
+            <field name="name">Wembley Stadium</field>
+            <field name="city">London</field>
+            <field name="capacity">99000</field>
+            <field name="country">england</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_050" model="wc.stadium">
+            <field name="name">White City Stadium</field>
+            <field name="city">London</field>
+            <field name="capacity">77000</field>
+            <field name="country">england</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_051" model="wc.stadium">
+            <field name="name">Old Trafford</field>
+            <field name="city">Manchester</field>
+            <field name="capacity">58000</field>
+            <field name="country">england</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_052" model="wc.stadium">
+            <field name="name">Ayresome Park</field>
+            <field name="city">Middlesbrough</field>
+            <field name="capacity">40000</field>
+            <field name="country">england</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_053" model="wc.stadium">
+            <field name="name">Hillsborough Stadium</field>
+            <field name="city">Sheffield</field>
+            <field name="capacity">43000</field>
+            <field name="country">england</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_054" model="wc.stadium">
+            <field name="name">Roker Park</field>
+            <field name="city">Sunderland</field>
+            <field name="capacity">40000</field>
+            <field name="country">england</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_055" model="wc.stadium">
+            <field name="name">Stade du Fort Carré</field>
+            <field name="city">Antibes</field>
+            <field name="capacity">7000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_056" model="wc.stadium">
+            <field name="name">Stade du Parc Lescure</field>
+            <field name="city">Bordeaux</field>
+            <field name="capacity">35000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_057" model="wc.stadium">
+            <field name="name">Stade des Alpes</field>
+            <field name="city">Grenoble</field>
+            <field name="capacity">18000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_058" model="wc.stadium">
+            <field name="name">Stade Jules Deschaseaux</field>
+            <field name="city">Le Havre</field>
+            <field name="capacity">22000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_059" model="wc.stadium">
+            <field name="name">Stade Océane</field>
+            <field name="city">Le Havre</field>
+            <field name="capacity">24000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_060" model="wc.stadium">
+            <field name="name">Stade Félix-Bollaert</field>
+            <field name="city">Lens</field>
+            <field name="capacity">41000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_061" model="wc.stadium">
+            <field name="name">Stade Victor Boucquey</field>
+            <field name="city">Lille</field>
+            <field name="capacity">15000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_062" model="wc.stadium">
+            <field name="name">Parc Olympique Lyonnais</field>
+            <field name="city">Lyon</field>
+            <field name="capacity">58000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_063" model="wc.stadium">
+            <field name="name">Stade de Gerland</field>
+            <field name="city">Lyon</field>
+            <field name="capacity">44000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_064" model="wc.stadium">
+            <field name="name">Stade Vélodrome</field>
+            <field name="city">Marseille</field>
+            <field name="capacity">60000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_065" model="wc.stadium">
+            <field name="name">Stade de la Mosson</field>
+            <field name="city">Montpellier</field>
+            <field name="capacity">34000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_066" model="wc.stadium">
+            <field name="name">Stade de la Beaujoire</field>
+            <field name="city">Nantes</field>
+            <field name="capacity">40000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_067" model="wc.stadium">
+            <field name="name">Allianz Riviera</field>
+            <field name="city">Nice</field>
+            <field name="capacity">35000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_068" model="wc.stadium">
+            <field name="name">Parc des Princes</field>
+            <field name="city">Paris</field>
+            <field name="capacity">49000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_069" model="wc.stadium">
+            <field name="name">Stade Olympique de Colombes</field>
+            <field name="city">Paris</field>
+            <field name="capacity">60000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_070" model="wc.stadium">
+            <field name="name">Stade Auguste-Delaune</field>
+            <field name="city">Reims</field>
+            <field name="capacity">21000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_071" model="wc.stadium">
+            <field name="name">Vélodrome Municipal</field>
+            <field name="city">Reims</field>
+            <field name="capacity">22000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_072" model="wc.stadium">
+            <field name="name">Roazhon Park</field>
+            <field name="city">Rennes</field>
+            <field name="capacity">29000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_073" model="wc.stadium">
+            <field name="name">Stade de France</field>
+            <field name="city">Saint-Denis</field>
+            <field name="capacity">80000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_074" model="wc.stadium">
+            <field name="name">Stade Geoffroy-Guichard</field>
+            <field name="city">Saint-Étienne</field>
+            <field name="capacity">36000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_075" model="wc.stadium">
+            <field name="name">Stade de la Meinau</field>
+            <field name="city">Strasbourg</field>
+            <field name="capacity">30000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_076" model="wc.stadium">
+            <field name="name">Stade de Toulouse</field>
+            <field name="city">Toulouse</field>
+            <field name="capacity">37000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_077" model="wc.stadium">
+            <field name="name">Stade du T.O.E.C.</field>
+            <field name="city">Toulouse</field>
+            <field name="capacity">15000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_078" model="wc.stadium">
+            <field name="name">Stade du Hainaut</field>
+            <field name="city">Valenciennes</field>
+            <field name="capacity">23000</field>
+            <field name="country">france</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_079" model="wc.stadium">
+            <field name="name">Impuls Arena</field>
+            <field name="city">Augsburg</field>
+            <field name="capacity">25000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_080" model="wc.stadium">
+            <field name="name">Olympiastadion</field>
+            <field name="city">Berlin</field>
+            <field name="capacity">86000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_081" model="wc.stadium">
+            <field name="name">Ruhrstadion</field>
+            <field name="city">Bochum</field>
+            <field name="capacity">21000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_082" model="wc.stadium">
+            <field name="name">RheinEnergieStadion</field>
+            <field name="city">Cologne</field>
+            <field name="capacity">45000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_083" model="wc.stadium">
+            <field name="name">Westfalenstadion</field>
+            <field name="city">Dortmund</field>
+            <field name="capacity">65000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_084" model="wc.stadium">
+            <field name="name">Rudolf-Harbig-Stadion</field>
+            <field name="city">Dresden</field>
+            <field name="capacity">26000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_085" model="wc.stadium">
+            <field name="name">Rheinstadion</field>
+            <field name="city">Düsseldorf</field>
+            <field name="capacity">70000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_086" model="wc.stadium">
+            <field name="name">Waldstadion</field>
+            <field name="city">Frankfurt</field>
+            <field name="capacity">62000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_087" model="wc.stadium">
+            <field name="name">Arena AufShalke</field>
+            <field name="city">Gelsenkirchen</field>
+            <field name="capacity">52000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_088" model="wc.stadium">
+            <field name="name">Parkstadion</field>
+            <field name="city">Gelsenkirchen</field>
+            <field name="capacity">72000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_089" model="wc.stadium">
+            <field name="name">Volksparkstadion</field>
+            <field name="city">Hamburg</field>
+            <field name="capacity">61000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_090" model="wc.stadium">
+            <field name="name">Niedersachsenstadion</field>
+            <field name="city">Hanover</field>
+            <field name="capacity">60000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_091" model="wc.stadium">
+            <field name="name">Fritz-Walter-Stadion</field>
+            <field name="city">Kaiserslautern</field>
+            <field name="capacity">46000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_092" model="wc.stadium">
+            <field name="name">Zentralstadion</field>
+            <field name="city">Leipzig</field>
+            <field name="capacity">43000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_093" model="wc.stadium">
+            <field name="name">BayArena</field>
+            <field name="city">Leverkusen</field>
+            <field name="capacity">30000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_094" model="wc.stadium">
+            <field name="name">Borussia-Park</field>
+            <field name="city">Mönchengladbach</field>
+            <field name="capacity">46000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_095" model="wc.stadium">
+            <field name="name">Allianz Arena</field>
+            <field name="city">Munich</field>
+            <field name="capacity">66000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_096" model="wc.stadium">
+            <field name="name">Olympiastadion</field>
+            <field name="city">Munich</field>
+            <field name="capacity">78000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_097" model="wc.stadium">
+            <field name="name">Frankenstadion</field>
+            <field name="city">Nuremberg</field>
+            <field name="capacity">41000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_098" model="wc.stadium">
+            <field name="name">Rhein-Neckar-Arena</field>
+            <field name="city">Sinsheim</field>
+            <field name="capacity">30000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_099" model="wc.stadium">
+            <field name="name">Neckarstadion</field>
+            <field name="city">Stuttgart</field>
+            <field name="capacity">72000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_100" model="wc.stadium">
+            <field name="name">Volkswagen Arena</field>
+            <field name="city">Wolfsburg</field>
+            <field name="capacity">26000</field>
+            <field name="country">germany</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_101" model="wc.stadium">
+            <field name="name">Stadio San Nicola</field>
+            <field name="city">Bari</field>
+            <field name="capacity">51000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_102" model="wc.stadium">
+            <field name="name">Stadio Renato Dall&#x27;Ara</field>
+            <field name="city">Bologna</field>
+            <field name="capacity">50000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_103" model="wc.stadium">
+            <field name="name">Stadio Sant&#x27;Elia</field>
+            <field name="city">Cagliari</field>
+            <field name="capacity">35000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_104" model="wc.stadium">
+            <field name="name">Stadio Comunale</field>
+            <field name="city">Florence</field>
+            <field name="capacity">39000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_105" model="wc.stadium">
+            <field name="name">Stadio Giovanni Berta</field>
+            <field name="city">Florence</field>
+            <field name="capacity">47000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_106" model="wc.stadium">
+            <field name="name">Stadio Luigi Ferraris</field>
+            <field name="city">Genoa</field>
+            <field name="capacity">37000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_107" model="wc.stadium">
+            <field name="name">San Siro</field>
+            <field name="city">Milan</field>
+            <field name="capacity">75000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_108" model="wc.stadium">
+            <field name="name">Stadio Giorgio Ascarelli</field>
+            <field name="city">Naples</field>
+            <field name="capacity">40000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_109" model="wc.stadium">
+            <field name="name">Stadio San Paolo</field>
+            <field name="city">Naples</field>
+            <field name="capacity">60000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_110" model="wc.stadium">
+            <field name="name">Stadio La Favorita</field>
+            <field name="city">Palermo</field>
+            <field name="capacity">33000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_111" model="wc.stadium">
+            <field name="name">Stadio Nazionale PNF</field>
+            <field name="city">Rome</field>
+            <field name="capacity">47000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_112" model="wc.stadium">
+            <field name="name">Stadio Olimpico</field>
+            <field name="city">Rome</field>
+            <field name="capacity">74000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_113" model="wc.stadium">
+            <field name="name">Stadio Littorio</field>
+            <field name="city">Trieste</field>
+            <field name="capacity">8000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_114" model="wc.stadium">
+            <field name="name">Stadio Benito Mussolini</field>
+            <field name="city">Turin</field>
+            <field name="capacity">28000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_115" model="wc.stadium">
+            <field name="name">Stadio delle Alpi</field>
+            <field name="city">Turin</field>
+            <field name="capacity">63000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_116" model="wc.stadium">
+            <field name="name">Stadio Friuli</field>
+            <field name="city">Udine</field>
+            <field name="capacity">36000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_117" model="wc.stadium">
+            <field name="name">Stadio Marc&#x27;Antonio Bentegodi</field>
+            <field name="city">Verona</field>
+            <field name="capacity">36000</field>
+            <field name="country">italy</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_118" model="wc.stadium">
+            <field name="name">Kashima Stadium</field>
+            <field name="city">Ibaraki</field>
+            <field name="capacity">42000</field>
+            <field name="country">japan</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_119" model="wc.stadium">
+            <field name="name">Kobe Wing Stadium</field>
+            <field name="city">Kobe</field>
+            <field name="capacity">42000</field>
+            <field name="country">japan</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_120" model="wc.stadium">
+            <field name="name">Miyagi Stadium</field>
+            <field name="city">Miyagi</field>
+            <field name="capacity">49000</field>
+            <field name="country">japan</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_121" model="wc.stadium">
+            <field name="name">Niigata Stadium</field>
+            <field name="city">Niigata</field>
+            <field name="capacity">42000</field>
+            <field name="country">japan</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_122" model="wc.stadium">
+            <field name="name">Ōita Stadium</field>
+            <field name="city">Ōita</field>
+            <field name="capacity">43000</field>
+            <field name="country">japan</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_123" model="wc.stadium">
+            <field name="name">Nagai Stadium</field>
+            <field name="city">Osaka</field>
+            <field name="capacity">50000</field>
+            <field name="country">japan</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_124" model="wc.stadium">
+            <field name="name">Saitama Stadium</field>
+            <field name="city">Saitama</field>
+            <field name="capacity">63000</field>
+            <field name="country">japan</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_125" model="wc.stadium">
+            <field name="name">Sapporo Dome</field>
+            <field name="city">Sapporo</field>
+            <field name="capacity">42000</field>
+            <field name="country">japan</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_126" model="wc.stadium">
+            <field name="name">Shizuoka Stadium ECOPA</field>
+            <field name="city">Shizuoka</field>
+            <field name="capacity">51000</field>
+            <field name="country">japan</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_127" model="wc.stadium">
+            <field name="name">International Stadium Yokohama</field>
+            <field name="city">Yokohama</field>
+            <field name="capacity">72000</field>
+            <field name="country">japan</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_128" model="wc.stadium">
+            <field name="name">Estadio Jalisco</field>
+            <field name="city">Guadalajara</field>
+            <field name="capacity">71000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_129" model="wc.stadium">
+            <field name="name">Estadio Tres de Marzo</field>
+            <field name="city">Guadalajara</field>
+            <field name="capacity">30000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_130" model="wc.stadium">
+            <field name="name">Estadio Sergio León Chavez</field>
+            <field name="city">Irapuato</field>
+            <field name="capacity">31000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_131" model="wc.stadium">
+            <field name="name">Estadio Nou Camp</field>
+            <field name="city">León</field>
+            <field name="capacity">31000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_132" model="wc.stadium">
+            <field name="name">Estadio Azteca</field>
+            <field name="city">Mexico City</field>
+            <field name="capacity">115000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_133" model="wc.stadium">
+            <field name="name">Estadio Olímpico Universitario</field>
+            <field name="city">Mexico City</field>
+            <field name="capacity">72000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_134" model="wc.stadium">
+            <field name="name">Estadio Tecnológico</field>
+            <field name="city">Monterrey</field>
+            <field name="capacity">34000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_135" model="wc.stadium">
+            <field name="name">Estadio Universitario</field>
+            <field name="city">Monterrey</field>
+            <field name="capacity">44000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_136" model="wc.stadium">
+            <field name="name">Estadio Neza 86</field>
+            <field name="city">Nezahualcóyotl</field>
+            <field name="capacity">35000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_137" model="wc.stadium">
+            <field name="name">Estadio Cuauhtémoc</field>
+            <field name="city">Puebla</field>
+            <field name="capacity">46000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_138" model="wc.stadium">
+            <field name="name">Estadio La Corregidora</field>
+            <field name="city">Querétaro</field>
+            <field name="capacity">39000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_139" model="wc.stadium">
+            <field name="name">La Bombonera</field>
+            <field name="city">Toluca</field>
+            <field name="capacity">33000</field>
+            <field name="country">mexico</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_140" model="wc.stadium">
+            <field name="name">Al Bayt Stadium</field>
+            <field name="city">Al Khor</field>
+            <field name="capacity">69000</field>
+            <field name="country">qatar</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_141" model="wc.stadium">
+            <field name="name">Ahmad bin Ali Stadium</field>
+            <field name="city">Al Rayyan</field>
+            <field name="capacity">45000</field>
+            <field name="country">qatar</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_142" model="wc.stadium">
+            <field name="name">Education City Stadium</field>
+            <field name="city">Al Rayyan</field>
+            <field name="capacity">45000</field>
+            <field name="country">qatar</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_143" model="wc.stadium">
+            <field name="name">Khalifa International Stadium</field>
+            <field name="city">Al Rayyan</field>
+            <field name="capacity">46000</field>
+            <field name="country">qatar</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_144" model="wc.stadium">
+            <field name="name">Al Janoub Stadium</field>
+            <field name="city">Al Wakrah</field>
+            <field name="capacity">44000</field>
+            <field name="country">qatar</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_145" model="wc.stadium">
+            <field name="name">Al Thumama Stadium</field>
+            <field name="city">Doha</field>
+            <field name="capacity">44000</field>
+            <field name="country">qatar</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_146" model="wc.stadium">
+            <field name="name">Stadium 974</field>
+            <field name="city">Doha</field>
+            <field name="capacity">44000</field>
+            <field name="country">qatar</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_147" model="wc.stadium">
+            <field name="name">Lusail Stadium</field>
+            <field name="city">Lusail</field>
+            <field name="capacity">89000</field>
+            <field name="country">qatar</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_148" model="wc.stadium">
+            <field name="name">Kaliningrad Stadium</field>
+            <field name="city">Kaliningrad</field>
+            <field name="capacity">34000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_149" model="wc.stadium">
+            <field name="name">Kazan Arena</field>
+            <field name="city">Kazan</field>
+            <field name="capacity">43000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_150" model="wc.stadium">
+            <field name="name">Luzhniki Stadium</field>
+            <field name="city">Moscow</field>
+            <field name="capacity">78000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_151" model="wc.stadium">
+            <field name="name">Otkritie Arena</field>
+            <field name="city">Moscow</field>
+            <field name="capacity">44000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_152" model="wc.stadium">
+            <field name="name">Nizhny Novgorod Stadium</field>
+            <field name="city">Nizhny Novgorod</field>
+            <field name="capacity">43000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_153" model="wc.stadium">
+            <field name="name">Rostov Arena</field>
+            <field name="city">Rostov-on-Don</field>
+            <field name="capacity">43000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_154" model="wc.stadium">
+            <field name="name">Krestovsky Stadium</field>
+            <field name="city">Saint Petersburg</field>
+            <field name="capacity">64000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_155" model="wc.stadium">
+            <field name="name">Samara Arena</field>
+            <field name="city">Samara</field>
+            <field name="capacity">42000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_156" model="wc.stadium">
+            <field name="name">Mordovia Arena</field>
+            <field name="city">Saransk</field>
+            <field name="capacity">42000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_157" model="wc.stadium">
+            <field name="name">Fisht Olympic Stadium</field>
+            <field name="city">Sochi</field>
+            <field name="capacity">44000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_158" model="wc.stadium">
+            <field name="name">Volgograd Arena</field>
+            <field name="city">Volgograd</field>
+            <field name="capacity">44000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_159" model="wc.stadium">
+            <field name="name">Central Stadium</field>
+            <field name="city">Yekaterinburg</field>
+            <field name="capacity">33000</field>
+            <field name="country">russia</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_160" model="wc.stadium">
+            <field name="name">Free State Stadium</field>
+            <field name="city">Bloemfontein</field>
+            <field name="capacity">41000</field>
+            <field name="country">south_africa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_161" model="wc.stadium">
+            <field name="name">Cape Town Stadium</field>
+            <field name="city">Cape Town</field>
+            <field name="capacity">64000</field>
+            <field name="country">south_africa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_162" model="wc.stadium">
+            <field name="name">Moses Mabhida Stadium</field>
+            <field name="city">Durban</field>
+            <field name="capacity">63000</field>
+            <field name="country">south_africa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_163" model="wc.stadium">
+            <field name="name">Ellis Park Stadium</field>
+            <field name="city">Johannesburg</field>
+            <field name="capacity">56000</field>
+            <field name="country">south_africa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_164" model="wc.stadium">
+            <field name="name">Soccer City</field>
+            <field name="city">Johannesburg</field>
+            <field name="capacity">84000</field>
+            <field name="country">south_africa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_165" model="wc.stadium">
+            <field name="name">Mbombela Stadium</field>
+            <field name="city">Nelspruit</field>
+            <field name="capacity">41000</field>
+            <field name="country">south_africa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_166" model="wc.stadium">
+            <field name="name">Peter Mokaba Stadium</field>
+            <field name="city">Polokwane</field>
+            <field name="capacity">42000</field>
+            <field name="country">south_africa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_167" model="wc.stadium">
+            <field name="name">Nelson Mandela Bay Stadium</field>
+            <field name="city">Port Elizabeth</field>
+            <field name="capacity">42000</field>
+            <field name="country">south_africa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_168" model="wc.stadium">
+            <field name="name">Loftus Versfeld Stadium</field>
+            <field name="city">Pretoria</field>
+            <field name="capacity">43000</field>
+            <field name="country">south_africa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_169" model="wc.stadium">
+            <field name="name">Royal Bafokeng Stadium</field>
+            <field name="city">Rustenburg</field>
+            <field name="capacity">42000</field>
+            <field name="country">south_africa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_170" model="wc.stadium">
+            <field name="name">Busan Asiad Stadium</field>
+            <field name="city">Busan</field>
+            <field name="capacity">56000</field>
+            <field name="country">korea</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_171" model="wc.stadium">
+            <field name="name">Daegu World Cup Stadium</field>
+            <field name="city">Daegu</field>
+            <field name="capacity">68000</field>
+            <field name="country">korea</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_172" model="wc.stadium">
+            <field name="name">Daejeon World Cup Stadium</field>
+            <field name="city">Daejeon</field>
+            <field name="capacity">40000</field>
+            <field name="country">korea</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_173" model="wc.stadium">
+            <field name="name">Gwangju World Cup Stadium</field>
+            <field name="city">Gwangju</field>
+            <field name="capacity">43000</field>
+            <field name="country">korea</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_174" model="wc.stadium">
+            <field name="name">Incheon Munhak Stadium</field>
+            <field name="city">Incheon</field>
+            <field name="capacity">52000</field>
+            <field name="country">korea</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_175" model="wc.stadium">
+            <field name="name">Jeonju World Cup Stadium</field>
+            <field name="city">Jeonju</field>
+            <field name="capacity">42000</field>
+            <field name="country">korea</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_176" model="wc.stadium">
+            <field name="name">Jeju World Cup Stadium</field>
+            <field name="city">Seogwipo</field>
+            <field name="capacity">42000</field>
+            <field name="country">korea</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_177" model="wc.stadium">
+            <field name="name">Seoul World Cup Stadium</field>
+            <field name="city">Seoul</field>
+            <field name="capacity">64000</field>
+            <field name="country">korea</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_178" model="wc.stadium">
+            <field name="name">Suwon World Cup Stadium</field>
+            <field name="city">Suwon</field>
+            <field name="capacity">43000</field>
+            <field name="country">korea</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_179" model="wc.stadium">
+            <field name="name">Ulsan Munsu Football Stadium</field>
+            <field name="city">Ulsan</field>
+            <field name="capacity">44000</field>
+            <field name="country">korea</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_180" model="wc.stadium">
+            <field name="name">Estadio Riazor</field>
+            <field name="city">A Coruña</field>
+            <field name="capacity">34000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_181" model="wc.stadium">
+            <field name="name">Estadio José Rico Pérez</field>
+            <field name="city">Alicante</field>
+            <field name="capacity">33000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_182" model="wc.stadium">
+            <field name="name">Camp Nou</field>
+            <field name="city">Barcelona</field>
+            <field name="capacity">121000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_183" model="wc.stadium">
+            <field name="name">Estadi de Sarrià</field>
+            <field name="city">Barcelona</field>
+            <field name="capacity">40000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_184" model="wc.stadium">
+            <field name="name">Estadio San Mamés</field>
+            <field name="city">Bilbao</field>
+            <field name="capacity">46000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_185" model="wc.stadium">
+            <field name="name">Nuevo Estadio</field>
+            <field name="city">Elche</field>
+            <field name="capacity">53000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_186" model="wc.stadium">
+            <field name="name">Estadio El Molinón</field>
+            <field name="city">Gijón</field>
+            <field name="capacity">45000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_187" model="wc.stadium">
+            <field name="name">Estadio Santiago Bernabéu</field>
+            <field name="city">Madrid</field>
+            <field name="capacity">90000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_188" model="wc.stadium">
+            <field name="name">Vicente Calderón</field>
+            <field name="city">Madrid</field>
+            <field name="capacity">66000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_189" model="wc.stadium">
+            <field name="name">Estadio La Rosaleda</field>
+            <field name="city">Málaga</field>
+            <field name="capacity">45000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_190" model="wc.stadium">
+            <field name="name">Estadio Carlos Tartiere</field>
+            <field name="city">Oviedo</field>
+            <field name="capacity">24000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_191" model="wc.stadium">
+            <field name="name">Estadio Benito Villamarín</field>
+            <field name="city">Seville</field>
+            <field name="capacity">50000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_192" model="wc.stadium">
+            <field name="name">Estadio Ramón Sánchez Pizjuán</field>
+            <field name="city">Seville</field>
+            <field name="capacity">68000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_193" model="wc.stadium">
+            <field name="name">Estadio Luis Casanova</field>
+            <field name="city">Valencia</field>
+            <field name="capacity">50000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_194" model="wc.stadium">
+            <field name="name">Estadio José Zorrilla</field>
+            <field name="city">Valladolid</field>
+            <field name="capacity">30000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_195" model="wc.stadium">
+            <field name="name">Balaídos</field>
+            <field name="city">Vigo</field>
+            <field name="capacity">33000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_196" model="wc.stadium">
+            <field name="name">Estadio La Romareda</field>
+            <field name="city">Zaragoza</field>
+            <field name="capacity">42000</field>
+            <field name="country">spain</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_197" model="wc.stadium">
+            <field name="name">Ryavallen</field>
+            <field name="city">Borås</field>
+            <field name="capacity">15000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_198" model="wc.stadium">
+            <field name="name">Tunavallen</field>
+            <field name="city">Eskilstuna</field>
+            <field name="capacity">22000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_199" model="wc.stadium">
+            <field name="name">Strömvallen</field>
+            <field name="city">Gävle</field>
+            <field name="capacity">7000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_200" model="wc.stadium">
+            <field name="name">Ullevi</field>
+            <field name="city">Gothenburg</field>
+            <field name="capacity">54000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_201" model="wc.stadium">
+            <field name="name">Örjans Vall</field>
+            <field name="city">Halmstad</field>
+            <field name="capacity">15000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_202" model="wc.stadium">
+            <field name="name">Olympia</field>
+            <field name="city">Helsingborg</field>
+            <field name="capacity">27000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_203" model="wc.stadium">
+            <field name="name">Tingvalla IP</field>
+            <field name="city">Karlstad</field>
+            <field name="capacity">5000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_204" model="wc.stadium">
+            <field name="name">Malmö Stadion</field>
+            <field name="city">Malmö</field>
+            <field name="capacity">30000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_205" model="wc.stadium">
+            <field name="name">Idrottsparken</field>
+            <field name="city">Norrköping</field>
+            <field name="capacity">20000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_206" model="wc.stadium">
+            <field name="name">Eyravallen</field>
+            <field name="city">Örebro</field>
+            <field name="capacity">13000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_207" model="wc.stadium">
+            <field name="name">Jernvallen</field>
+            <field name="city">Sandviken</field>
+            <field name="capacity">20000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_208" model="wc.stadium">
+            <field name="name">Råsunda Stadium</field>
+            <field name="city">Solna</field>
+            <field name="capacity">52000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_209" model="wc.stadium">
+            <field name="name">Rimnersvallen</field>
+            <field name="city">Uddevalla</field>
+            <field name="capacity">18000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_210" model="wc.stadium">
+            <field name="name">Arosvallen</field>
+            <field name="city">Västerås</field>
+            <field name="capacity">10000</field>
+            <field name="country">sweden</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_211" model="wc.stadium">
+            <field name="name">St. Jakob Stadium</field>
+            <field name="city">Basel</field>
+            <field name="capacity">55000</field>
+            <field name="country">switzerland</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_212" model="wc.stadium">
+            <field name="name">Wankdorf Stadium</field>
+            <field name="city">Bern</field>
+            <field name="capacity">65000</field>
+            <field name="country">switzerland</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_213" model="wc.stadium">
+            <field name="name">Charmilles Stadium</field>
+            <field name="city">Geneva</field>
+            <field name="capacity">36000</field>
+            <field name="country">switzerland</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_214" model="wc.stadium">
+            <field name="name">Stade Olympique de la Pontaise</field>
+            <field name="city">Lausanne</field>
+            <field name="capacity">50000</field>
+            <field name="country">switzerland</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_215" model="wc.stadium">
+            <field name="name">Cornaredo Stadium</field>
+            <field name="city">Lugano</field>
+            <field name="capacity">36000</field>
+            <field name="country">switzerland</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_216" model="wc.stadium">
+            <field name="name">Hardturm Stadium</field>
+            <field name="city">Zürich</field>
+            <field name="capacity">35000</field>
+            <field name="country">switzerland</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_217" model="wc.stadium">
+            <field name="name">Foxboro Stadium</field>
+            <field name="city">Boston</field>
+            <field name="capacity">59000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_218" model="wc.stadium">
+            <field name="name">Home Depot Center</field>
+            <field name="city">Carson</field>
+            <field name="capacity">28000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_219" model="wc.stadium">
+            <field name="name">Soldier Field</field>
+            <field name="city">Chicago</field>
+            <field name="capacity">65000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_220" model="wc.stadium">
+            <field name="name">Columbus Crew Stadium</field>
+            <field name="city">Columbus</field>
+            <field name="capacity">23000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_221" model="wc.stadium">
+            <field name="name">Cotton Bowl</field>
+            <field name="city">Dallas</field>
+            <field name="capacity">64000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_222" model="wc.stadium">
+            <field name="name">Giants Stadium</field>
+            <field name="city">East Rutherford</field>
+            <field name="capacity">76000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_223" model="wc.stadium">
+            <field name="name">Foxboro Stadium</field>
+            <field name="city">Foxborough</field>
+            <field name="capacity">54000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_224" model="wc.stadium">
+            <field name="name">Gillette Stadium</field>
+            <field name="city">Foxborough</field>
+            <field name="capacity">68000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_225" model="wc.stadium">
+            <field name="name">Rose Bowl</field>
+            <field name="city">Los Angeles</field>
+            <field name="capacity">96000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_226" model="wc.stadium">
+            <field name="name">Giants Stadium</field>
+            <field name="city">New York City</field>
+            <field name="capacity">78000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_227" model="wc.stadium">
+            <field name="name">Citrus Bowl</field>
+            <field name="city">Orlando</field>
+            <field name="capacity">62000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_228" model="wc.stadium">
+            <field name="name">Rose Bowl</field>
+            <field name="city">Pasadena</field>
+            <field name="capacity">94000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_229" model="wc.stadium">
+            <field name="name">Lincoln Financial Field</field>
+            <field name="city">Philadelphia</field>
+            <field name="capacity">70000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_230" model="wc.stadium">
+            <field name="name">Pontiac Silverdome</field>
+            <field name="city">Pontiac</field>
+            <field name="capacity">78000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_231" model="wc.stadium">
+            <field name="name">Civic Stadium</field>
+            <field name="city">Portland</field>
+            <field name="capacity">27000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_232" model="wc.stadium">
+            <field name="name">PGE Park</field>
+            <field name="city">Portland</field>
+            <field name="capacity">28000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_233" model="wc.stadium">
+            <field name="name">Stanford Stadium</field>
+            <field name="city">San Fransisco</field>
+            <field name="capacity">85000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_234" model="wc.stadium">
+            <field name="name">Spartan Stadium</field>
+            <field name="city">San Jose</field>
+            <field name="capacity">26000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_235" model="wc.stadium">
+            <field name="name">Stanford Stadium</field>
+            <field name="city">Stanford</field>
+            <field name="capacity">84000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_236" model="wc.stadium">
+            <field name="name">Jack Kent Cooke Stadium</field>
+            <field name="city">Washington, D.C.</field>
+            <field name="capacity">80000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_237" model="wc.stadium">
+            <field name="name">RFK Stadium</field>
+            <field name="city">Washington, D.C.</field>
+            <field name="capacity">53000</field>
+            <field name="country">usa</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_238" model="wc.stadium">
+            <field name="name">Estadio Centenario</field>
+            <field name="city">Montevideo</field>
+            <field name="capacity">90000</field>
+            <field name="country">uruguay</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_239" model="wc.stadium">
+            <field name="name">Estadio Gran Parque Central</field>
+            <field name="city">Montevideo</field>
+            <field name="capacity">20000</field>
+            <field name="country">uruguay</field>
+            <field name="state">ready</field>
+        </record>
+        <record id="stadium_S_240" model="wc.stadium">
+            <field name="name">Estadio Pocitos</field>
+            <field name="city">Montevideo</field>
+            <field name="capacity">10000</field>
+            <field name="country">uruguay</field>
+            <field name="state">ready</field>
+        </record>
+    </data>
+</odoo>

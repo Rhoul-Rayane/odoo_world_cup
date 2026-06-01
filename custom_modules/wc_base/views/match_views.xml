@@ -6,7 +6,8 @@
         <field name="name">wc.match.list</field>
         <field name="model">wc.match</field>
         <field name="arch" type="xml">
-            <list>
+            <list decoration-info="state == 'ongoing'"
+                  decoration-muted="state == 'done'">
                 <field name="date_time"/>
                 <field name="team_a"/>
                 <field name="team_b"/>
@@ -91,6 +92,15 @@
                 <field name="team_b"/>
                 <field name="stadium_id"/>
                 <field name="phase"/>
+                <separator/>
+                <filter string="Planifié" name="filter_planned" domain="[('state', '=', 'planned')]"/>
+                <filter string="En cours" name="filter_ongoing" domain="[('state', '=', 'ongoing')]"/>
+                <filter string="Terminé" name="filter_done" domain="[('state', '=', 'done')]"/>
+                <filter string="Matchs du jour" name="filter_today" domain="[('date_time', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))), ('date_time', '&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59)))]"/>
+                <separator/>
+                <filter string="Phase" name="group_phase" domain="[]" context="{'group_by': 'phase'}"/>
+                <filter string="Statut" name="group_state" domain="[]" context="{'group_by': 'state'}"/>
+                <filter string="Stade" name="group_stadium" domain="[]" context="{'group_by': 'stadium_id'}"/>
             </search>
         </field>
     </record>
@@ -100,6 +110,12 @@
         <field name="name">Matchs</field>
         <field name="res_model">wc.match</field>
         <field name="view_mode">list,calendar,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Planifier votre premier match
+            </p>
+            <p>Ajoutez les matchs de la Coupe du Monde 2030.</p>
+        </field>
     </record>
 
 </odoo>

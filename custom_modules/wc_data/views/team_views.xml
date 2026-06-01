@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_wc_team_tree" model="ir.ui.view">
+        <field name="name">wc.team.tree</field>
+        <field name="model">wc.team</field>
+        <field name="arch" type="xml">
+            <list string="Équipes Nationales">
+                <field name="name"/>
+                <field name="code_fifa"/>
+                <field name="confederation"/>
+                <field name="fifa_ranking"/>
+                <field name="lpi_score"/>
+                <field name="lpi_rank"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_wc_team_form" model="ir.ui.view">
+        <field name="name">wc.team.form</field>
+        <field name="model">wc.team</field>
+        <field name="arch" type="xml">
+            <form string="Équipe Nationale">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Ex: Maroc"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Informations FIFA">
+                            <field name="code_fifa"/>
+                            <field name="confederation"/>
+                            <field name="fifa_ranking"/>
+                        </group>
+                        <group string="Logistique &amp; LPI (Banque Mondiale)">
+                            <field name="lpi_score"/>
+                            <field name="lpi_rank"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_wc_team_search" model="ir.ui.view">
+        <field name="name">wc.team.search</field>
+        <field name="model">wc.team</field>
+        <field name="arch" type="xml">
+            <search string="Rechercher Équipe">
+                <field name="name"/>
+                <field name="code_fifa"/>
+                <field name="confederation"/>
+                <separator/>
+                <filter string="Afrique (CAF)" name="filter_caf" domain="[('confederation', '=', 'CAF')]"/>
+                <filter string="Europe (UEFA)" name="filter_uefa" domain="[('confederation', '=', 'UEFA')]"/>
+                <filter string="Amérique du Sud (CONMEBOL)" name="filter_conmebol" domain="[('confederation', '=', 'CONMEBOL')]"/>
+                <filter string="Amérique du Nord (CONCACAF)" name="filter_concacaf" domain="[('confederation', '=', 'CONCACAF')]"/>
+                <filter string="Asie (AFC)" name="filter_afc" domain="[('confederation', '=', 'AFC')]"/>
+                <filter string="Océanie (OFC)" name="filter_ofc" domain="[('confederation', '=', 'OFC')]"/>
+                <separator/>
+                <filter string="Top 20 FIFA" name="filter_top20" domain="[('fifa_ranking', '&lt;=', 20), ('fifa_ranking', '&gt;', 0)]"/>
+                <filter string="Top 50 FIFA" name="filter_top50" domain="[('fifa_ranking', '&lt;=', 50), ('fifa_ranking', '&gt;', 0)]"/>
+                <separator/>
+                <filter string="Confédération" name="group_confederation" context="{'group_by': 'confederation'}" domain="[]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_wc_team" model="ir.actions.act_window">
+        <field name="name">Équipes Nationales</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wc.team</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_wc_team_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Aucune équipe nationale enregistrée.
+            </p>
+        </field>
+    </record>
+</odoo>

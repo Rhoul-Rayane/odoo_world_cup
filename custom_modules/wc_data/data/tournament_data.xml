@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="tournament_WC_1930" model="wc.tournament">
+            <field name="key">WC-1930</field>
+            <field name="name">1930 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1930</field>
+            <field name="host_country">Uruguay</field>
+            <field name="winner">Uruguay</field>
+            <field name="teams_count">13</field>
+            <field name="matches_count">18</field>
+            <field name="goals_count">70</field>
+        </record>
+        <record id="tournament_WC_1934" model="wc.tournament">
+            <field name="key">WC-1934</field>
+            <field name="name">1934 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1934</field>
+            <field name="host_country">Italy</field>
+            <field name="winner">Italy</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">17</field>
+            <field name="goals_count">70</field>
+        </record>
+        <record id="tournament_WC_1938" model="wc.tournament">
+            <field name="key">WC-1938</field>
+            <field name="name">1938 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1938</field>
+            <field name="host_country">France</field>
+            <field name="winner">Italy</field>
+            <field name="teams_count">15</field>
+            <field name="matches_count">18</field>
+            <field name="goals_count">84</field>
+        </record>
+        <record id="tournament_WC_1950" model="wc.tournament">
+            <field name="key">WC-1950</field>
+            <field name="name">1950 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1950</field>
+            <field name="host_country">Brazil</field>
+            <field name="winner">Uruguay</field>
+            <field name="teams_count">13</field>
+            <field name="matches_count">22</field>
+            <field name="goals_count">88</field>
+        </record>
+        <record id="tournament_WC_1954" model="wc.tournament">
+            <field name="key">WC-1954</field>
+            <field name="name">1954 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1954</field>
+            <field name="host_country">Switzerland</field>
+            <field name="winner">West Germany</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">26</field>
+            <field name="goals_count">140</field>
+        </record>
+        <record id="tournament_WC_1958" model="wc.tournament">
+            <field name="key">WC-1958</field>
+            <field name="name">1958 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1958</field>
+            <field name="host_country">Sweden</field>
+            <field name="winner">Brazil</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">35</field>
+            <field name="goals_count">126</field>
+        </record>
+        <record id="tournament_WC_1962" model="wc.tournament">
+            <field name="key">WC-1962</field>
+            <field name="name">1962 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1962</field>
+            <field name="host_country">Chile</field>
+            <field name="winner">Brazil</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">32</field>
+            <field name="goals_count">89</field>
+        </record>
+        <record id="tournament_WC_1966" model="wc.tournament">
+            <field name="key">WC-1966</field>
+            <field name="name">1966 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1966</field>
+            <field name="host_country">England</field>
+            <field name="winner">England</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">32</field>
+            <field name="goals_count">89</field>
+        </record>
+        <record id="tournament_WC_1970" model="wc.tournament">
+            <field name="key">WC-1970</field>
+            <field name="name">1970 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1970</field>
+            <field name="host_country">Mexico</field>
+            <field name="winner">Brazil</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">32</field>
+            <field name="goals_count">95</field>
+        </record>
+        <record id="tournament_WC_1974" model="wc.tournament">
+            <field name="key">WC-1974</field>
+            <field name="name">1974 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1974</field>
+            <field name="host_country">West Germany</field>
+            <field name="winner">West Germany</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">38</field>
+            <field name="goals_count">97</field>
+        </record>
+        <record id="tournament_WC_1978" model="wc.tournament">
+            <field name="key">WC-1978</field>
+            <field name="name">1978 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1978</field>
+            <field name="host_country">Argentina</field>
+            <field name="winner">Argentina</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">38</field>
+            <field name="goals_count">102</field>
+        </record>
+        <record id="tournament_WC_1982" model="wc.tournament">
+            <field name="key">WC-1982</field>
+            <field name="name">1982 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1982</field>
+            <field name="host_country">Spain</field>
+            <field name="winner">Italy</field>
+            <field name="teams_count">24</field>
+            <field name="matches_count">52</field>
+            <field name="goals_count">146</field>
+        </record>
+        <record id="tournament_WC_1986" model="wc.tournament">
+            <field name="key">WC-1986</field>
+            <field name="name">1986 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1986</field>
+            <field name="host_country">Mexico</field>
+            <field name="winner">Argentina</field>
+            <field name="teams_count">24</field>
+            <field name="matches_count">52</field>
+            <field name="goals_count">132</field>
+        </record>
+        <record id="tournament_WC_1990" model="wc.tournament">
+            <field name="key">WC-1990</field>
+            <field name="name">1990 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1990</field>
+            <field name="host_country">Italy</field>
+            <field name="winner">West Germany</field>
+            <field name="teams_count">24</field>
+            <field name="matches_count">52</field>
+            <field name="goals_count">115</field>
+        </record>
+        <record id="tournament_WC_1991" model="wc.tournament">
+            <field name="key">WC-1991</field>
+            <field name="name">1991 FIFA Women&#x27;s World Cup</field>
+            <field name="year">1991</field>
+            <field name="host_country">China</field>
+            <field name="winner">United States</field>
+            <field name="teams_count">12</field>
+            <field name="matches_count">26</field>
+            <field name="goals_count">99</field>
+        </record>
+        <record id="tournament_WC_1994" model="wc.tournament">
+            <field name="key">WC-1994</field>
+            <field name="name">1994 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1994</field>
+            <field name="host_country">United States</field>
+            <field name="winner">Brazil</field>
+            <field name="teams_count">24</field>
+            <field name="matches_count">52</field>
+            <field name="goals_count">141</field>
+        </record>
+        <record id="tournament_WC_1995" model="wc.tournament">
+            <field name="key">WC-1995</field>
+            <field name="name">1995 FIFA Women&#x27;s World Cup</field>
+            <field name="year">1995</field>
+            <field name="host_country">Sweden</field>
+            <field name="winner">Norway</field>
+            <field name="teams_count">12</field>
+            <field name="matches_count">26</field>
+            <field name="goals_count">99</field>
+        </record>
+        <record id="tournament_WC_1998" model="wc.tournament">
+            <field name="key">WC-1998</field>
+            <field name="name">1998 FIFA Men&#x27;s World Cup</field>
+            <field name="year">1998</field>
+            <field name="host_country">France</field>
+            <field name="winner">France</field>
+            <field name="teams_count">32</field>
+            <field name="matches_count">64</field>
+            <field name="goals_count">171</field>
+        </record>
+        <record id="tournament_WC_1999" model="wc.tournament">
+            <field name="key">WC-1999</field>
+            <field name="name">1999 FIFA Women&#x27;s World Cup</field>
+            <field name="year">1999</field>
+            <field name="host_country">United States</field>
+            <field name="winner">United States</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">32</field>
+            <field name="goals_count">123</field>
+        </record>
+        <record id="tournament_WC_2002" model="wc.tournament">
+            <field name="key">WC-2002</field>
+            <field name="name">2002 FIFA Men&#x27;s World Cup</field>
+            <field name="year">2002</field>
+            <field name="host_country">Korea, Japan</field>
+            <field name="winner">Brazil</field>
+            <field name="teams_count">32</field>
+            <field name="matches_count">64</field>
+            <field name="goals_count">161</field>
+        </record>
+        <record id="tournament_WC_2003" model="wc.tournament">
+            <field name="key">WC-2003</field>
+            <field name="name">2003 FIFA Women&#x27;s World Cup</field>
+            <field name="year">2003</field>
+            <field name="host_country">United States</field>
+            <field name="winner">Germany</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">32</field>
+            <field name="goals_count">107</field>
+        </record>
+        <record id="tournament_WC_2006" model="wc.tournament">
+            <field name="key">WC-2006</field>
+            <field name="name">2006 FIFA Men&#x27;s World Cup</field>
+            <field name="year">2006</field>
+            <field name="host_country">Germany</field>
+            <field name="winner">Italy</field>
+            <field name="teams_count">32</field>
+            <field name="matches_count">64</field>
+            <field name="goals_count">147</field>
+        </record>
+        <record id="tournament_WC_2007" model="wc.tournament">
+            <field name="key">WC-2007</field>
+            <field name="name">2007 FIFA Women&#x27;s World Cup</field>
+            <field name="year">2007</field>
+            <field name="host_country">China</field>
+            <field name="winner">Germany</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">32</field>
+            <field name="goals_count">111</field>
+        </record>
+        <record id="tournament_WC_2010" model="wc.tournament">
+            <field name="key">WC-2010</field>
+            <field name="name">2010 FIFA Men&#x27;s World Cup</field>
+            <field name="year">2010</field>
+            <field name="host_country">South Africa</field>
+            <field name="winner">Spain</field>
+            <field name="teams_count">32</field>
+            <field name="matches_count">64</field>
+            <field name="goals_count">145</field>
+        </record>
+        <record id="tournament_WC_2011" model="wc.tournament">
+            <field name="key">WC-2011</field>
+            <field name="name">2011 FIFA Women&#x27;s World Cup</field>
+            <field name="year">2011</field>
+            <field name="host_country">Germany</field>
+            <field name="winner">Japan</field>
+            <field name="teams_count">16</field>
+            <field name="matches_count">32</field>
+            <field name="goals_count">86</field>
+        </record>
+        <record id="tournament_WC_2014" model="wc.tournament">
+            <field name="key">WC-2014</field>
+            <field name="name">2014 FIFA Men&#x27;s World Cup</field>
+            <field name="year">2014</field>
+            <field name="host_country">Brazil</field>
+            <field name="winner">Germany</field>
+            <field name="teams_count">32</field>
+            <field name="matches_count">64</field>
+            <field name="goals_count">171</field>
+        </record>
+        <record id="tournament_WC_2015" model="wc.tournament">
+            <field name="key">WC-2015</field>
+            <field name="name">2015 FIFA Women&#x27;s World Cup</field>
+            <field name="year">2015</field>
+            <field name="host_country">Canada</field>
+            <field name="winner">United States</field>
+            <field name="teams_count">24</field>
+            <field name="matches_count">52</field>
+            <field name="goals_count">146</field>
+        </record>
+        <record id="tournament_WC_2018" model="wc.tournament">
+            <field name="key">WC-2018</field>
+            <field name="name">2018 FIFA Men&#x27;s World Cup</field>
+            <field name="year">2018</field>
+            <field name="host_country">Russia</field>
+            <field name="winner">France</field>
+            <field name="teams_count">32</field>
+            <field name="matches_count">64</field>
+            <field name="goals_count">169</field>
+        </record>
+        <record id="tournament_WC_2019" model="wc.tournament">
+            <field name="key">WC-2019</field>
+            <field name="name">2019 FIFA Women&#x27;s World Cup</field>
+            <field name="year">2019</field>
+            <field name="host_country">France</field>
+            <field name="winner">United States</field>
+            <field name="teams_count">24</field>
+            <field name="matches_count">52</field>
+            <field name="goals_count">146</field>
+        </record>
+        <record id="tournament_WC_2022" model="wc.tournament">
+            <field name="key">WC-2022</field>
+            <field name="name">2022 FIFA Men&#x27;s World Cup</field>
+            <field name="year">2022</field>
+            <field name="host_country">Qatar</field>
+            <field name="winner">Argentina</field>
+            <field name="teams_count">32</field>
+            <field name="matches_count">64</field>
+            <field name="goals_count">172</field>
+        </record>
+    </data>
+</odoo>

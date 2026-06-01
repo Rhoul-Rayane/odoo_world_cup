@@ -76,14 +76,34 @@
                 <field name="origin_stadium_id"/>
                 <field name="destination_stadium_id"/>
                 <field name="state"/>
+                <separator/>
+                <filter name="filter_active" string="Actifs" domain="[('state', 'in', ('planned', 'boarding', 'transit'))]"/>
+                <filter name="filter_completed" string="Terminés" domain="[('state', '=', 'arrived')]"/>
+                <filter name="group_vehicle" string="Type de véhicule" context="{'group_by': 'vehicle_type'}" domain="[]"/>
+                <filter name="group_origin" string="Origine" context="{'group_by': 'origin_stadium_id'}" domain="[]"/>
+                <filter name="group_destination" string="Destination" context="{'group_by': 'destination_stadium_id'}" domain="[]"/>
             </search>
+        </field>
+    </record>
+
+    <record id="wc_transport_view_calendar" model="ir.ui.view">
+        <field name="name">wc.logistics.transport.calendar</field>
+        <field name="model">wc.logistics.transport</field>
+        <field name="arch" type="xml">
+            <calendar string="Transports" date_start="departure_time" date_stop="arrival_time" color="vehicle_type" mode="week">
+                <field name="name"/>
+                <field name="origin_stadium_id"/>
+                <field name="destination_stadium_id"/>
+                <field name="vehicle_type"/>
+                <field name="passenger_count"/>
+            </calendar>
         </field>
     </record>
 
     <record id="wc_transport_action" model="ir.actions.act_window">
         <field name="name">Transports</field>
         <field name="res_model">wc.logistics.transport</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,calendar,form</field>
     </record>
 
 </odoo>

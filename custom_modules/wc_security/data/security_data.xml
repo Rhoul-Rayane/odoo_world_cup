@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============ ACCORDS INTERNATIONAUX ============ -->
+        <record id="agreement_france" model="wc.security.agreement">
+            <field name="name">Accord France-Maroc 2030 : Cybersécurité &amp; Anti-drone</field>
+            <field name="partner_country">france</field>
+            <field name="agreement_type">cybersecurity</field>
+            <field name="effective_date">2026-01-01</field>
+            <field name="expiration_date">2030-12-31</field>
+            <field name="personnel_deployed">150</field>
+            <field name="description">Fourniture de technologies de détection et neutralisation de drones autour des stades, audits réguliers de cybersécurité du SI de l'événement et coopération opérationnelle.</field>
+        </record>
+
+        <record id="agreement_turkey" model="wc.security.agreement">
+            <field name="name">Accord Turquie-Maroc 2030 : Sécurisation Événementielle</field>
+            <field name="partner_country">turkey</field>
+            <field name="agreement_type">personnel</field>
+            <field name="effective_date">2026-05-01</field>
+            <field name="expiration_date">2030-08-31</field>
+            <field name="personnel_deployed">1200</field>
+            <field name="description">Renforts de policiers et de brigades d'intervention spécialisées pour la gestion des périmètres extérieurs des stades et des fan zones.</field>
+        </record>
+
+        <record id="agreement_spain" model="wc.security.agreement">
+            <field name="name">Accord Espagne-Maroc 2030 : Gestion des Frontières &amp; Flux</field>
+            <field name="partner_country">spain</field>
+            <field name="agreement_type">crowd_control</field>
+            <field name="effective_date">2026-03-01</field>
+            <field name="expiration_date">2030-10-01</field>
+            <field name="personnel_deployed">400</field>
+            <field name="description">Partage de renseignements et d'effectifs pour l'encadrement des flux de supporters circulant via les lignes maritimes et aériennes trans-détroit.</field>
+        </record>
+
+        <!-- ============ MATCH DE DÉMO SÉCURITÉ ============ -->
+        <record id="match_security_demo" model="wc.match">
+            <field name="team_a">Maroc</field>
+            <field name="team_b">Espagne</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="date_time" eval="(datetime.now() + relativedelta(days=5)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="phase">quarter</field>
+            <field name="state">planned</field>
+        </record>
+
+        <!-- ============ DÉPLOIEMENTS DE SÉCURITÉ DE DÉMO ============ -->
+        <record id="dep_demo_steward" model="wc.security.deployment">
+            <field name="match_id" ref="match_security_demo"/>
+            <field name="stadium_zone_id" ref="wc_base.zone_hassan_tribune_nord"/>
+            <field name="deployment_type">steward</field>
+            <field name="agent_count">120</field>
+        </record>
+
+        <record id="dep_demo_police" model="wc.security.deployment">
+            <field name="match_id" ref="match_security_demo"/>
+            <field name="stadium_zone_id" ref="wc_base.zone_hassan_tribune_nord"/>
+            <field name="deployment_type">police</field>
+            <field name="agent_count">80</field>
+        </record>
+
+        <record id="dep_demo_private" model="wc.security.deployment">
+            <field name="match_id" ref="match_security_demo"/>
+            <field name="stadium_zone_id" ref="wc_base.zone_hassan_vip"/>
+            <field name="deployment_type">private</field>
+            <field name="agent_count">50</field>
+        </record>
+
+        <!-- ============ SUIVI DE FOULE DE DÉMO ============ -->
+        <record id="crowd_demo_nord" model="wc.crowd.monitoring">
+            <field name="match_id" ref="match_security_demo"/>
+            <field name="stadium_zone_id" ref="wc_base.zone_hassan_tribune_nord"/>
+            <field name="current_headcount">15000</field>
+            <field name="zone_area">5000</field> <!-- Densité: 3.0 (Orange) -->
+        </record>
+
+        <record id="crowd_demo_vip" model="wc.crowd.monitoring">
+            <field name="match_id" ref="match_security_demo"/>
+            <field name="stadium_zone_id" ref="wc_base.zone_hassan_vip"/>
+            <field name="current_headcount">800</field>
+            <field name="zone_area">2000</field> <!-- Densité: 0.4 (Vert) -->
+        </record>
+
+    </data>
+</odoo>

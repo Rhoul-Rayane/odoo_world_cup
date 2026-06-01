@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!--                       MENU STRUCTURE                          -->
+    <!-- ============================================================ -->
+
+    <!-- Root Menu under World Cup main menu -->
+    <menuitem id="wc_sustainability_menu_root"
+        name="🌱 Durabilité"
+        parent="wc_base.wc_main_menu"
+        sequence="70"/>
+
+    <!-- Sub-menus -->
+    <menuitem id="wc_sustainability_menu_waste"
+        name="Suivi des Déchets"
+        parent="wc_sustainability_menu_root"
+        action="action_waste_tracking"
+        sequence="10"/>
+
+    <menuitem id="wc_sustainability_menu_carbon"
+        name="Empreinte Carbone"
+        parent="wc_sustainability_menu_root"
+        action="action_carbon_footprint"
+        sequence="20"/>
+
+    <menuitem id="wc_sustainability_menu_audit"
+        name="Audits ISO 20121"
+        parent="wc_sustainability_menu_root"
+        action="action_sustainability_audit"
+        sequence="30"/>
+
+</odoo>

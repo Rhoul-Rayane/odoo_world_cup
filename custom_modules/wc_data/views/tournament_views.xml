@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_wc_tournament_tree" model="ir.ui.view">
+        <field name="name">wc.tournament.tree</field>
+        <field name="model">wc.tournament</field>
+        <field name="arch" type="xml">
+            <list string="Coupes du Monde Historiques">
+                <field name="year"/>
+                <field name="host_country"/>
+                <field name="winner"/>
+                <field name="runner_up"/>
+                <field name="teams_count"/>
+                <field name="matches_count"/>
+                <field name="goals_count"/>
+                <field name="attendance" sum="Total Attendance"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_wc_tournament_form" model="ir.ui.view">
+        <field name="name">wc.tournament.form</field>
+        <field name="model">wc.tournament</field>
+        <field name="arch" type="xml">
+            <form string="Édition de la Coupe du Monde">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Ex: 2022 FIFA World Cup"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="key"/>
+                            <field name="year"/>
+                            <field name="host_country"/>
+                        </group>
+                        <group>
+                            <field name="winner"/>
+                            <field name="runner_up"/>
+                            <field name="third_place"/>
+                            <field name="fourth_place"/>
+                        </group>
+                    </group>
+                    <group string="Statistiques Globales">
+                        <group>
+                            <field name="teams_count"/>
+                            <field name="matches_count"/>
+                        </group>
+                        <group>
+                            <field name="goals_count"/>
+                            <field name="attendance"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_wc_tournament_search" model="ir.ui.view">
+        <field name="name">wc.tournament.search</field>
+        <field name="model">wc.tournament</field>
+        <field name="arch" type="xml">
+            <search string="Rechercher Édition">
+                <field name="name"/>
+                <field name="host_country"/>
+                <field name="winner"/>
+                <field name="year"/>
+                <separator/>
+                <filter string="Avant 1950" name="filter_pre1950" domain="[('year', '&lt;', 1950)]"/>
+                <filter string="1950–1969" name="filter_1950s" domain="[('year', '&gt;=', 1950), ('year', '&lt;', 1970)]"/>
+                <filter string="1970–1989" name="filter_1970s" domain="[('year', '&gt;=', 1970), ('year', '&lt;', 1990)]"/>
+                <filter string="1990–2009" name="filter_1990s" domain="[('year', '&gt;=', 1990), ('year', '&lt;', 2010)]"/>
+                <filter string="2010+" name="filter_2010s" domain="[('year', '&gt;=', 2010)]"/>
+                <separator/>
+                <filter string="Pays Hôte" name="group_host_country" context="{'group_by': 'host_country'}" domain="[]"/>
+                <filter string="Vainqueur" name="group_winner" context="{'group_by': 'winner'}" domain="[]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_wc_tournament" model="ir.actions.act_window">
+        <field name="name">Éditions Historiques</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wc.tournament</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_wc_tournament_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Aucune édition de la Coupe du Monde enregistrée.
+            </p>
+        </field>
+    </record>
+</odoo>

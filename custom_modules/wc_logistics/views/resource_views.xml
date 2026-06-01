@@ -5,7 +5,7 @@
         <field name="name">wc.logistics.resource.list</field>
         <field name="model">wc.logistics.resource</field>
         <field name="arch" type="xml">
-            <list>
+            <list decoration-danger="state == 'out'" decoration-warning="state == 'low'">
                 <field name="name"/>
                 <field name="category"/>
                 <field name="total_qty"/>
@@ -57,6 +57,13 @@
                 <field name="name"/>
                 <field name="category"/>
                 <field name="stadium_id"/>
+                <separator/>
+                <filter name="filter_out" string="Rupture" domain="[('state', '=', 'out')]"/>
+                <filter name="filter_low" string="Stock faible" domain="[('state', '=', 'low')]"/>
+                <filter name="filter_available" string="Disponible" domain="[('state', '=', 'available')]"/>
+                <filter name="group_category" string="Catégorie" context="{'group_by': 'category'}" domain="[]"/>
+                <filter name="group_stadium" string="Stade" context="{'group_by': 'stadium_id'}" domain="[]"/>
+                <filter name="group_state" string="État" context="{'group_by': 'state'}" domain="[]"/>
             </search>
         </field>
     </record>

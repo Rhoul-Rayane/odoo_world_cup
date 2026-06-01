@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============ LIST VIEW ============ -->
+    <record id="wc_sustainability_audit_view_list" model="ir.ui.view">
+        <field name="name">wc.sustainability.audit.list</field>
+        <field name="model">wc.sustainability.audit</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state == 'non_conformity'"
+                  decoration-success="state == 'completed'"
+                  decoration-warning="state == 'in_progress'">
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="audit_date"/>
+                <field name="auditor_name"/>
+                <field name="iso_category" widget="badge" decoration-info="1"/>
+                <field name="score"/>
+                <field name="compliance_level" widget="badge"
+                    decoration-success="compliance_level == 'full'"
+                    decoration-warning="compliance_level == 'partial'"
+                    decoration-danger="compliance_level == 'non_compliant'"/>
+                <field name="state" widget="badge"
+                    decoration-info="state == 'planned'"
+                    decoration-warning="state == 'in_progress'"
+                    decoration-success="state == 'completed'"
+                    decoration-danger="state == 'non_conformity'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============ FORM VIEW ============ -->
+    <record id="wc_sustainability_audit_view_form" model="ir.ui.view">
+        <field name="name">wc.sustainability.audit.form</field>
+        <field name="model">wc.sustainability.audit</field>
+        <field name="arch" type="xml">
+            <form string="Audit ISO 20121">
+                <header>
+                    <button name="action_start" type="object"
+                        string="Démarrer" class="oe_highlight"
+                        invisible="state != 'planned'"/>
+                    <button name="action_complete" type="object"
+                        string="Terminer" class="oe_highlight"
+                        invisible="state != 'in_progress'"/>
+                    <button name="action_flag_nonconformity" type="object"
+                        string="Signaler non-conformité" class="btn-danger"
+                        invisible="state != 'in_progress'"/>
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="planned,in_progress,completed"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Non-conformité" bg_color="text-bg-danger"
+                            invisible="state != 'non_conformity'"/>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Titre de l'audit"/></h1>
+                    </div>
+                    <group>
+                        <group string="Informations générales">
+                            <field name="stadium_id"/>
+                            <field name="audit_date"/>
+                            <field name="auditor_name"/>
+                            <field name="iso_category"/>
+                            <field name="next_audit_date"/>
+                        </group>
+                        <group string="Évaluation">
+                            <field name="score"/>
+                            <field name="compliance_level" widget="badge"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Constats" name="findings">
+                            <field name="findings" placeholder="Constats de l'audit..."/>
+                        </page>
+                        <page string="Actions correctives" name="corrective_actions">
+                            <field name="corrective_actions" placeholder="Actions correctives à mettre en place..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============ SEARCH VIEW ============ -->
+    <record id="wc_sustainability_audit_view_search" model="ir.ui.view">
+        <field name="name">wc.sustainability.audit.search</field>
+        <field name="model">wc.sustainability.audit</field>
+        <field name="arch" type="xml">
+            <search string="Recherche audits">
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="auditor_name"/>
+                <separator/>
+                <filter name="filter_planned" string="Planifié" domain="[('state', '=', 'planned')]"/>
+                <filter name="filter_in_progress" string="En cours" domain="[('state', '=', 'in_progress')]"/>
+                <filter name="filter_completed" string="Terminé" domain="[('state', '=', 'completed')]"/>
+                <filter name="filter_non_conformity" string="Non-conformité" domain="[('state', '=', 'non_conformity')]"/>
+                <separator/>
+                <filter name="filter_full" string="Conforme" domain="[('compliance_level', '=', 'full')]"/>
+                <filter name="filter_partial" string="Partiellement conforme" domain="[('compliance_level', '=', 'partial')]"/>
+                <filter name="filter_non_compliant" string="Non conforme" domain="[('compliance_level', '=', 'non_compliant')]"/>
+                <separator/>
+                <filter name="groupby_iso_category" string="Catégorie ISO" context="{'group_by': 'iso_category'}"/>
+                <filter name="groupby_stadium" string="Stade" context="{'group_by': 'stadium_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============ KANBAN VIEW ============ -->
+    <record id="wc_sustainability_audit_view_kanban" model="ir.ui.view">
+        <field name="name">wc.sustainability.audit.kanban</field>
+        <field name="model">wc.sustainability.audit</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold"/>
+                        <field name="stadium_id"/>
+                        <div class="d-flex justify-content-between mt-2">
+                            <field name="iso_category" widget="badge" decoration-info="1"/>
+                            <span>Score: <field name="score"/>/100</span>
+                        </div>
+                        <field name="compliance_level" widget="badge"
+                            decoration-success="compliance_level == 'full'"
+                            decoration-warning="compliance_level == 'partial'"
+                            decoration-danger="compliance_level == 'non_compliant'"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ============ ACTION ============ -->
+    <record id="action_sustainability_audit" model="ir.actions.act_window">
+        <field name="name">Audits ISO 20121</field>
+        <field name="res_model">wc.sustainability.audit</field>
+        <field name="view_mode">list,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Planifier un nouvel audit ISO 20121
+            </p>
+            <p>
+                Effectuez des audits de conformité ISO 20121 par stade
+                et suivez les actions correctives.
+            </p>
+        </field>
+    </record>
+
+</odoo>

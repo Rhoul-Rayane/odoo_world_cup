@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============ LIST VIEW ============ -->
+    <record id="wc_carbon_footprint_view_list" model="ir.ui.view">
+        <field name="name">wc.carbon.footprint.list</field>
+        <field name="model">wc.carbon.footprint</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="net_emission &gt; 100">
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="category" widget="badge" decoration-info="1"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="emission_tons_co2"/>
+                <field name="offset_tons_co2"/>
+                <field name="net_emission"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============ FORM VIEW ============ -->
+    <record id="wc_carbon_footprint_view_form" model="ir.ui.view">
+        <field name="name">wc.carbon.footprint.form</field>
+        <field name="model">wc.carbon.footprint</field>
+        <field name="arch" type="xml">
+            <form string="Empreinte carbone">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Identification">
+                            <field name="stadium_id"/>
+                            <field name="category"/>
+                            <field name="period_start"/>
+                            <field name="period_end"/>
+                        </group>
+                        <group string="Émissions">
+                            <field name="emission_tons_co2"/>
+                            <field name="offset_tons_co2"/>
+                            <field name="net_emission"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Détails">
+                            <field name="offset_method"/>
+                            <field name="data_source"/>
+                        </group>
+                    </group>
+                    <separator string="Notes"/>
+                    <field name="notes" placeholder="Notes et commentaires..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============ SEARCH VIEW ============ -->
+    <record id="wc_carbon_footprint_view_search" model="ir.ui.view">
+        <field name="name">wc.carbon.footprint.search</field>
+        <field name="model">wc.carbon.footprint</field>
+        <field name="arch" type="xml">
+            <search string="Recherche empreinte carbone">
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="category"/>
+                <separator/>
+                <filter name="filter_energy" string="Énergie" domain="[('category', '=', 'energy')]"/>
+                <filter name="filter_transport" string="Transport" domain="[('category', '=', 'transport')]"/>
+                <filter name="filter_construction" string="Construction" domain="[('category', '=', 'construction')]"/>
+                <filter name="filter_catering" string="Restauration" domain="[('category', '=', 'catering')]"/>
+                <filter name="filter_waste" string="Déchets" domain="[('category', '=', 'waste')]"/>
+                <filter name="filter_water" string="Eau" domain="[('category', '=', 'water')]"/>
+                <separator/>
+                <filter name="groupby_stadium" string="Stade" context="{'group_by': 'stadium_id'}"/>
+                <filter name="groupby_category" string="Catégorie" context="{'group_by': 'category'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============ GRAPH VIEW ============ -->
+    <record id="wc_carbon_footprint_view_graph" model="ir.ui.view">
+        <field name="name">wc.carbon.footprint.graph</field>
+        <field name="model">wc.carbon.footprint</field>
+        <field name="arch" type="xml">
+            <graph type="pie">
+                <field name="category"/>
+                <field name="net_emission" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ============ ACTION ============ -->
+    <record id="action_carbon_footprint" model="ir.actions.act_window">
+        <field name="name">Empreinte Carbone</field>
+        <field name="res_model">wc.carbon.footprint</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Enregistrer une empreinte carbone
+            </p>
+            <p>
+                Suivez les émissions de CO₂ par stade et catégorie,
+                et documentez les compensations environnementales.
+            </p>
+        </field>
+    </record>
+
+</odoo>

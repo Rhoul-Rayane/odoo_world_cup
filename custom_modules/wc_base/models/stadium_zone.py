@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class StadiumZone(models.Model):
@@ -20,10 +20,10 @@ class StadiumZone(models.Model):
     capacity = fields.Integer(string='Capacité')
     active = fields.Boolean(default=True)
 
-    # Nom complet affiché
-    def name_get(self):
-        result = []
+    @api.depends('name', 'stadium_id')
+    def _compute_display_name(self):
         for record in self:
-            name = f"{record.stadium_id.name} - {record.name}"
-            result.append((record.id, name))
-        return result
+            if record.stadium_id:
+                record.display_name = f"{record.stadium_id.name} - {record.name}"
+            else:
+                record.display_name = record.name or ''

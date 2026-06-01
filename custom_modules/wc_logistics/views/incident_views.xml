@@ -5,7 +5,7 @@
         <field name="name">wc.logistics.incident.list</field>
         <field name="model">wc.logistics.incident</field>
         <field name="arch" type="xml">
-            <list>
+            <list decoration-danger="severity == '4'" decoration-warning="severity == '3'">
                 <field name="name"/>
                 <field name="incident_type"/>
                 <field name="severity"/>
@@ -66,6 +66,28 @@
         </field>
     </record>
 
+    <record id="wc_incident_view_kanban" model="ir.ui.view">
+        <field name="name">wc.logistics.incident.kanban</field>
+        <field name="model">wc.logistics.incident</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold fs-5"/>
+                        <field name="severity" widget="badge"
+                               decoration-danger="severity == '4'"
+                               decoration-warning="severity == '3'"
+                               decoration-info="severity == '2'"
+                               decoration-success="severity == '1'"/>
+                        <field name="stadium_id"/>
+                        <field name="reporter_id" widget="many2one_avatar_user"/>
+                        <field name="description" class="text-muted" widget="text"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="wc_incident_view_search" model="ir.ui.view">
         <field name="name">wc.logistics.incident.search</field>
         <field name="model">wc.logistics.incident</field>
@@ -76,14 +98,35 @@
                 <field name="stadium_id"/>
                 <field name="state"/>
                 <field name="severity"/>
+                <separator/>
+                <filter name="filter_critical" string="Critique" domain="[('severity', '=', '4')]"/>
+                <filter name="filter_high" string="Élevé" domain="[('severity', '=', '3')]"/>
+                <separator/>
+                <filter name="filter_open" string="Ouverts" domain="[('state', 'in', ('reported', 'in_progress'))]"/>
+                <filter name="filter_resolved" string="Résolus" domain="[('state', '=', 'resolved')]"/>
+                <filter name="group_severity" string="Sévérité" context="{'group_by': 'severity'}" domain="[]"/>
+                <filter name="group_state" string="Statut" context="{'group_by': 'state'}" domain="[]"/>
+                <filter name="group_stadium" string="Stade" context="{'group_by': 'stadium_id'}" domain="[]"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'incident_type'}" domain="[]"/>
             </search>
+        </field>
+    </record>
+
+    <record id="wc_incident_view_graph" model="ir.ui.view">
+        <field name="name">wc.logistics.incident.graph</field>
+        <field name="model">wc.logistics.incident</field>
+        <field name="arch" type="xml">
+            <graph string="Incidents par sévérité" type="bar">
+                <field name="severity" type="row"/>
+                <field name="id" type="measure"/>
+            </graph>
         </field>
     </record>
 
     <record id="wc_incident_action" model="ir.actions.act_window">
         <field name="name">Incidents</field>
         <field name="res_model">wc.logistics.incident</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,kanban,graph,form</field>
     </record>
 
 </odoo>

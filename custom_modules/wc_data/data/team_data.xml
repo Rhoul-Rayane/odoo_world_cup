@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="team_DZA" model="wc.team">
+            <field name="name">Algeria</field>
+            <field name="code_fifa">DZA</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">2.50</field>
+            <field name="lpi_rank">113</field>
+        </record>
+        <record id="team_AGO" model="wc.team">
+            <field name="name">Angola</field>
+            <field name="code_fifa">AGO</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">2.10</field>
+            <field name="lpi_rank">161</field>
+        </record>
+        <record id="team_ARG" model="wc.team">
+            <field name="name">Argentina</field>
+            <field name="code_fifa">ARG</field>
+            <field name="confederation">CONMEBOL</field>
+            <field name="lpi_score">2.80</field>
+            <field name="lpi_rank">78</field>
+        </record>
+        <record id="team_AUS" model="wc.team">
+            <field name="name">Australia</field>
+            <field name="code_fifa">AUS</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">3.70</field>
+            <field name="lpi_rank">20</field>
+        </record>
+        <record id="team_AUT" model="wc.team">
+            <field name="name">Austria</field>
+            <field name="code_fifa">AUT</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">4.00</field>
+            <field name="lpi_rank">8</field>
+        </record>
+        <record id="team_BEL" model="wc.team">
+            <field name="name">Belgium</field>
+            <field name="code_fifa">BEL</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">4.00</field>
+            <field name="lpi_rank">7</field>
+        </record>
+        <record id="team_BOL" model="wc.team">
+            <field name="name">Bolivia</field>
+            <field name="code_fifa">BOL</field>
+            <field name="confederation">CONMEBOL</field>
+            <field name="lpi_score">2.40</field>
+            <field name="lpi_rank">139</field>
+        </record>
+        <record id="team_BIH" model="wc.team">
+            <field name="name">Bosnia and Herzegovina</field>
+            <field name="code_fifa">BIH</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.00</field>
+            <field name="lpi_rank">66</field>
+        </record>
+        <record id="team_BRA" model="wc.team">
+            <field name="name">Brazil</field>
+            <field name="code_fifa">BRA</field>
+            <field name="confederation">CONMEBOL</field>
+            <field name="lpi_score">3.20</field>
+            <field name="lpi_rank">53</field>
+        </record>
+        <record id="team_BGR" model="wc.team">
+            <field name="name">Bulgaria</field>
+            <field name="code_fifa">BGR</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.20</field>
+            <field name="lpi_rank">56</field>
+        </record>
+        <record id="team_CMR" model="wc.team">
+            <field name="name">Cameroon</field>
+            <field name="code_fifa">CMR</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">2.10</field>
+            <field name="lpi_rank">162</field>
+        </record>
+        <record id="team_CAN" model="wc.team">
+            <field name="name">Canada</field>
+            <field name="code_fifa">CAN</field>
+            <field name="confederation">CONCACAF</field>
+            <field name="lpi_score">4.00</field>
+            <field name="lpi_rank">11</field>
+        </record>
+        <record id="team_CHL" model="wc.team">
+            <field name="name">Chile</field>
+            <field name="code_fifa">CHL</field>
+            <field name="confederation">CONMEBOL</field>
+            <field name="lpi_score">3.00</field>
+            <field name="lpi_rank">62</field>
+        </record>
+        <record id="team_CHN" model="wc.team">
+            <field name="name">China</field>
+            <field name="code_fifa">CHN</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">3.70</field>
+            <field name="lpi_rank">24</field>
+        </record>
+        <record id="team_TWN" model="wc.team">
+            <field name="name">Chinese Taipei</field>
+            <field name="code_fifa">TWN</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">3.90</field>
+            <field name="lpi_rank">16</field>
+        </record>
+        <record id="team_COL" model="wc.team">
+            <field name="name">Colombia</field>
+            <field name="code_fifa">COL</field>
+            <field name="confederation">CONMEBOL</field>
+            <field name="lpi_score">2.90</field>
+            <field name="lpi_rank">70</field>
+        </record>
+        <record id="team_CRI" model="wc.team">
+            <field name="name">Costa Rica</field>
+            <field name="code_fifa">CRI</field>
+            <field name="confederation">CONCACAF</field>
+            <field name="lpi_score">2.90</field>
+            <field name="lpi_rank">69</field>
+        </record>
+        <record id="team_HRV" model="wc.team">
+            <field name="name">Croatia</field>
+            <field name="code_fifa">HRV</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.30</field>
+            <field name="lpi_rank">47</field>
+        </record>
+        <record id="team_CUB" model="wc.team">
+            <field name="name">Cuba</field>
+            <field name="code_fifa">CUB</field>
+            <field name="confederation">CONCACAF</field>
+            <field name="lpi_score">2.20</field>
+            <field name="lpi_rank">158</field>
+        </record>
+        <record id="team_CZE" model="wc.team">
+            <field name="name">Czech Republic</field>
+            <field name="code_fifa">CZE</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.30</field>
+            <field name="lpi_rank">43</field>
+        </record>
+        <record id="team_CSK" model="wc.team">
+            <field name="name">Czechoslovakia</field>
+            <field name="code_fifa">CSK</field>
+            <field name="confederation">UEFA</field>
+        </record>
+        <record id="team_DNK" model="wc.team">
+            <field name="name">Denmark</field>
+            <field name="code_fifa">DNK</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">4.10</field>
+            <field name="lpi_rank">4</field>
+        </record>
+        <record id="team_IDN" model="wc.team">
+            <field name="name">Dutch East Indies</field>
+            <field name="code_fifa">IDN</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">3.00</field>
+            <field name="lpi_rank">63</field>
+        </record>
+        <record id="team_DDR" model="wc.team">
+            <field name="name">East Germany</field>
+            <field name="code_fifa">DDR</field>
+            <field name="confederation">UEFA</field>
+        </record>
+        <record id="team_ECU" model="wc.team">
+            <field name="name">Ecuador</field>
+            <field name="code_fifa">ECU</field>
+            <field name="confederation">CONMEBOL</field>
+            <field name="lpi_score">2.88</field>
+            <field name="lpi_rank">75</field>
+        </record>
+        <record id="team_EGY" model="wc.team">
+            <field name="name">Egypt</field>
+            <field name="code_fifa">EGY</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">3.10</field>
+            <field name="lpi_rank">58</field>
+        </record>
+        <record id="team_SLV" model="wc.team">
+            <field name="name">El Salvador</field>
+            <field name="code_fifa">SLV</field>
+            <field name="confederation">CONCACAF</field>
+            <field name="lpi_score">2.70</field>
+            <field name="lpi_rank">88</field>
+        </record>
+        <record id="team_ENG" model="wc.team">
+            <field name="name">England</field>
+            <field name="code_fifa">ENG</field>
+            <field name="confederation">UEFA</field>
+        </record>
+        <record id="team_GNQ" model="wc.team">
+            <field name="name">Equatorial Guinea</field>
+            <field name="code_fifa">GNQ</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">2.32</field>
+            <field name="lpi_rank">144</field>
+        </record>
+        <record id="team_FRA" model="wc.team">
+            <field name="name">France</field>
+            <field name="code_fifa">FRA</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.90</field>
+            <field name="lpi_rank">14</field>
+        </record>
+        <record id="team_DEU" model="wc.team">
+            <field name="name">Germany</field>
+            <field name="code_fifa">DEU</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">4.10</field>
+            <field name="lpi_rank">5</field>
+        </record>
+        <record id="team_GHA" model="wc.team">
+            <field name="name">Ghana</field>
+            <field name="code_fifa">GHA</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">2.50</field>
+            <field name="lpi_rank">114</field>
+        </record>
+        <record id="team_GRC" model="wc.team">
+            <field name="name">Greece</field>
+            <field name="code_fifa">GRC</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.70</field>
+            <field name="lpi_rank">25</field>
+        </record>
+        <record id="team_HTI" model="wc.team">
+            <field name="name">Haiti</field>
+            <field name="code_fifa">HTI</field>
+            <field name="confederation">CONCACAF</field>
+            <field name="lpi_score">2.10</field>
+            <field name="lpi_rank">163</field>
+        </record>
+        <record id="team_HND" model="wc.team">
+            <field name="name">Honduras</field>
+            <field name="code_fifa">HND</field>
+            <field name="confederation">CONCACAF</field>
+            <field name="lpi_score">2.90</field>
+            <field name="lpi_rank">71</field>
+        </record>
+        <record id="team_HUN" model="wc.team">
+            <field name="name">Hungary</field>
+            <field name="code_fifa">HUN</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.20</field>
+            <field name="lpi_rank">51</field>
+        </record>
+        <record id="team_ISL" model="wc.team">
+            <field name="name">Iceland</field>
+            <field name="code_fifa">ISL</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.60</field>
+            <field name="lpi_rank">32</field>
+        </record>
+        <record id="team_IRN" model="wc.team">
+            <field name="name">Iran</field>
+            <field name="code_fifa">IRN</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">2.30</field>
+            <field name="lpi_rank">146</field>
+        </record>
+        <record id="team_IRQ" model="wc.team">
+            <field name="name">Iraq</field>
+            <field name="code_fifa">IRQ</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">2.40</field>
+            <field name="lpi_rank">142</field>
+        </record>
+        <record id="team_ISR" model="wc.team">
+            <field name="name">Israel</field>
+            <field name="code_fifa">ISR</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.60</field>
+            <field name="lpi_rank">27</field>
+        </record>
+        <record id="team_ITA" model="wc.team">
+            <field name="name">Italy</field>
+            <field name="code_fifa">ITA</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.70</field>
+            <field name="lpi_rank">22</field>
+        </record>
+        <record id="team_CIV" model="wc.team">
+            <field name="name">Ivory Coast</field>
+            <field name="code_fifa">CIV</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">3.08</field>
+            <field name="lpi_rank">61</field>
+        </record>
+        <record id="team_JAM" model="wc.team">
+            <field name="name">Jamaica</field>
+            <field name="code_fifa">JAM</field>
+            <field name="confederation">CONCACAF</field>
+            <field name="lpi_score">2.50</field>
+            <field name="lpi_rank">120</field>
+        </record>
+        <record id="team_JPN" model="wc.team">
+            <field name="name">Japan</field>
+            <field name="code_fifa">JPN</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">3.90</field>
+            <field name="lpi_rank">13</field>
+        </record>
+        <record id="team_KWT" model="wc.team">
+            <field name="name">Kuwait</field>
+            <field name="code_fifa">KWT</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">3.20</field>
+            <field name="lpi_rank">52</field>
+        </record>
+        <record id="team_MEX" model="wc.team">
+            <field name="name">Mexico</field>
+            <field name="code_fifa">MEX</field>
+            <field name="confederation">CONCACAF</field>
+            <field name="lpi_score">2.90</field>
+            <field name="lpi_rank">67</field>
+        </record>
+        <record id="team_MAR" model="wc.team">
+            <field name="name">Morocco</field>
+            <field name="code_fifa">MAR</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">2.54</field>
+            <field name="lpi_rank">110</field>
+        </record>
+        <record id="team_NLD" model="wc.team">
+            <field name="name">Netherlands</field>
+            <field name="code_fifa">NLD</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">4.10</field>
+            <field name="lpi_rank">6</field>
+        </record>
+        <record id="team_NZL" model="wc.team">
+            <field name="name">New Zealand</field>
+            <field name="code_fifa">NZL</field>
+            <field name="confederation">OFC</field>
+            <field name="lpi_score">3.60</field>
+            <field name="lpi_rank">30</field>
+        </record>
+        <record id="team_NGA" model="wc.team">
+            <field name="name">Nigeria</field>
+            <field name="code_fifa">NGA</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">2.60</field>
+            <field name="lpi_rank">98</field>
+        </record>
+        <record id="team_PRK" model="wc.team">
+            <field name="name">North Korea</field>
+            <field name="code_fifa">PRK</field>
+            <field name="confederation">AFC</field>
+        </record>
+        <record id="team_NIR" model="wc.team">
+            <field name="name">Northern Ireland</field>
+            <field name="code_fifa">NIR</field>
+            <field name="confederation">UEFA</field>
+        </record>
+        <record id="team_NOR" model="wc.team">
+            <field name="name">Norway</field>
+            <field name="code_fifa">NOR</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.70</field>
+            <field name="lpi_rank">23</field>
+        </record>
+        <record id="team_PAN" model="wc.team">
+            <field name="name">Panama</field>
+            <field name="code_fifa">PAN</field>
+            <field name="confederation">CONCACAF</field>
+            <field name="lpi_score">3.10</field>
+            <field name="lpi_rank">57</field>
+        </record>
+        <record id="team_PRY" model="wc.team">
+            <field name="name">Paraguay</field>
+            <field name="code_fifa">PRY</field>
+            <field name="confederation">CONMEBOL</field>
+            <field name="lpi_score">2.70</field>
+            <field name="lpi_rank">89</field>
+        </record>
+        <record id="team_PER" model="wc.team">
+            <field name="name">Peru</field>
+            <field name="code_fifa">PER</field>
+            <field name="confederation">CONMEBOL</field>
+            <field name="lpi_score">3.00</field>
+            <field name="lpi_rank">65</field>
+        </record>
+        <record id="team_POL" model="wc.team">
+            <field name="name">Poland</field>
+            <field name="code_fifa">POL</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.60</field>
+            <field name="lpi_rank">29</field>
+        </record>
+        <record id="team_PRT" model="wc.team">
+            <field name="name">Portugal</field>
+            <field name="code_fifa">PRT</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.40</field>
+            <field name="lpi_rank">41</field>
+        </record>
+        <record id="team_QAT" model="wc.team">
+            <field name="name">Qatar</field>
+            <field name="code_fifa">QAT</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">3.50</field>
+            <field name="lpi_rank">34</field>
+        </record>
+        <record id="team_IRL" model="wc.team">
+            <field name="name">Republic of Ireland</field>
+            <field name="code_fifa">IRL</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.60</field>
+            <field name="lpi_rank">26</field>
+        </record>
+        <record id="team_ROU" model="wc.team">
+            <field name="name">Romania</field>
+            <field name="code_fifa">ROU</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.20</field>
+            <field name="lpi_rank">55</field>
+        </record>
+        <record id="team_RUS" model="wc.team">
+            <field name="name">Russia</field>
+            <field name="code_fifa">RUS</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">2.60</field>
+            <field name="lpi_rank">100</field>
+        </record>
+        <record id="team_SAU" model="wc.team">
+            <field name="name">Saudi Arabia</field>
+            <field name="code_fifa">SAU</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">3.40</field>
+            <field name="lpi_rank">42</field>
+        </record>
+        <record id="team_SCO" model="wc.team">
+            <field name="name">Scotland</field>
+            <field name="code_fifa">SCO</field>
+            <field name="confederation">UEFA</field>
+        </record>
+        <record id="team_SEN" model="wc.team">
+            <field name="name">Senegal</field>
+            <field name="code_fifa">SEN</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">2.25</field>
+            <field name="lpi_rank">157</field>
+        </record>
+        <record id="team_SRB" model="wc.team">
+            <field name="name">Serbia</field>
+            <field name="code_fifa">SRB</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">2.80</field>
+            <field name="lpi_rank">79</field>
+        </record>
+        <record id="team_SCG" model="wc.team">
+            <field name="name">Serbia and Montenegro</field>
+            <field name="code_fifa">SCG</field>
+            <field name="confederation">UEFA</field>
+        </record>
+        <record id="team_SVK" model="wc.team">
+            <field name="name">Slovakia</field>
+            <field name="code_fifa">SVK</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.30</field>
+            <field name="lpi_rank">44</field>
+        </record>
+        <record id="team_SVN" model="wc.team">
+            <field name="name">Slovenia</field>
+            <field name="code_fifa">SVN</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.30</field>
+            <field name="lpi_rank">46</field>
+        </record>
+        <record id="team_ZAF" model="wc.team">
+            <field name="name">South Africa</field>
+            <field name="code_fifa">ZAF</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">3.70</field>
+            <field name="lpi_rank">21</field>
+        </record>
+        <record id="team_KOR" model="wc.team">
+            <field name="name">South Korea</field>
+            <field name="code_fifa">KOR</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">3.80</field>
+            <field name="lpi_rank">18</field>
+        </record>
+        <record id="team_SUN" model="wc.team">
+            <field name="name">Soviet Union</field>
+            <field name="code_fifa">SUN</field>
+            <field name="confederation">UEFA</field>
+        </record>
+        <record id="team_ESP" model="wc.team">
+            <field name="name">Spain</field>
+            <field name="code_fifa">ESP</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.90</field>
+            <field name="lpi_rank">15</field>
+        </record>
+        <record id="team_SWE" model="wc.team">
+            <field name="name">Sweden</field>
+            <field name="code_fifa">SWE</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">4.00</field>
+            <field name="lpi_rank">12</field>
+        </record>
+        <record id="team_CHE" model="wc.team">
+            <field name="name">Switzerland</field>
+            <field name="code_fifa">CHE</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">4.10</field>
+            <field name="lpi_rank">3</field>
+        </record>
+        <record id="team_THA" model="wc.team">
+            <field name="name">Thailand</field>
+            <field name="code_fifa">THA</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">3.50</field>
+            <field name="lpi_rank">37</field>
+        </record>
+        <record id="team_TGO" model="wc.team">
+            <field name="name">Togo</field>
+            <field name="code_fifa">TGO</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">2.50</field>
+            <field name="lpi_rank">115</field>
+        </record>
+        <record id="team_TTO" model="wc.team">
+            <field name="name">Trinidad and Tobago</field>
+            <field name="code_fifa">TTO</field>
+            <field name="confederation">CONCACAF</field>
+            <field name="lpi_score">2.50</field>
+            <field name="lpi_rank">121</field>
+        </record>
+        <record id="team_TUN" model="wc.team">
+            <field name="name">Tunisia</field>
+            <field name="code_fifa">TUN</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">2.57</field>
+            <field name="lpi_rank">108</field>
+        </record>
+        <record id="team_TUR" model="wc.team">
+            <field name="name">Turkey</field>
+            <field name="code_fifa">TUR</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">3.40</field>
+            <field name="lpi_rank">39</field>
+        </record>
+        <record id="team_UKR" model="wc.team">
+            <field name="name">Ukraine</field>
+            <field name="code_fifa">UKR</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">2.70</field>
+            <field name="lpi_rank">87</field>
+        </record>
+        <record id="team_ARE" model="wc.team">
+            <field name="name">United Arab Emirates</field>
+            <field name="code_fifa">ARE</field>
+            <field name="confederation">AFC</field>
+            <field name="lpi_score">4.00</field>
+            <field name="lpi_rank">10</field>
+        </record>
+        <record id="team_USA" model="wc.team">
+            <field name="name">United States</field>
+            <field name="code_fifa">USA</field>
+            <field name="confederation">CONCACAF</field>
+            <field name="lpi_score">3.80</field>
+            <field name="lpi_rank">17</field>
+        </record>
+        <record id="team_URY" model="wc.team">
+            <field name="name">Uruguay</field>
+            <field name="code_fifa">URY</field>
+            <field name="confederation">CONMEBOL</field>
+            <field name="lpi_score">3.00</field>
+            <field name="lpi_rank">64</field>
+        </record>
+        <record id="team_WAL" model="wc.team">
+            <field name="name">Wales</field>
+            <field name="code_fifa">WAL</field>
+            <field name="confederation">UEFA</field>
+        </record>
+        <record id="team_YUG" model="wc.team">
+            <field name="name">Yugoslavia</field>
+            <field name="code_fifa">YUG</field>
+            <field name="confederation">UEFA</field>
+            <field name="lpi_score">2.28</field>
+            <field name="lpi_rank">155</field>
+        </record>
+        <record id="team_COD" model="wc.team">
+            <field name="name">Zaire</field>
+            <field name="code_fifa">COD</field>
+            <field name="confederation">CAF</field>
+            <field name="lpi_score">2.50</field>
+            <field name="lpi_rank">122</field>
+        </record>
+    </data>
+</odoo>

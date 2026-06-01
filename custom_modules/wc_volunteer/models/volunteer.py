@@ -67,6 +67,8 @@ class Volunteer(models.Model):
     assigned_zone_id = fields.Many2one(
         'wc.stadium.zone', string='Zone affectée',
         domain="[('stadium_id', '=', assigned_stadium_id)]", tracking=True)
+    role_id = fields.Many2one('wc.volunteer.role', string='Rôle affecté', tracking=True)
+    badge_ids = fields.Many2many('wc.volunteer.badge', 'wc_volunteer_badge_rel', 'volunteer_id', 'badge_id', string='Badges', tracking=True)
 
     # ============ PIPELINE ============
     state = fields.Selection([
@@ -80,7 +82,7 @@ class Volunteer(models.Model):
 
     # ============ SCORING & GAMIFICATION ============
     matching_score = fields.Float(string='Score de matching', compute='_compute_matching_score', store=True)
-    badge_count = fields.Integer(string='Badges gagnés', default=0)
+    badge_count = fields.Integer(string='Badges gagnés', compute='_compute_badge_count', store=True)
     points = fields.Integer(string='Points de gamification', default=0)
 
     # ============ DATES ============
@@ -89,9 +91,10 @@ class Volunteer(models.Model):
     active = fields.Boolean(default=True)
 
     # ============ CONTRAINTES ============
-    _sql_constraints = [
-        ('email_unique', 'UNIQUE(email)', 'Cet email est déjà utilisé par un autre volontaire.'),
-    ]
+    _email_unique = models.Constraint(
+        'unique(email)',
+        'Cet email est déjà utilisé par un autre volontaire.',
+    )
 
     @api.constrains('date_of_birth')
     def _check_age(self):
@@ -182,6 +185,29 @@ class Volunteer(models.Model):
 
     def action_reset_to_candidate(self):
         self.write({'state': 'candidate'})
+
+    @api.depends('badge_ids')
+    def _compute_badge_count(self):
+        for record in self:
+            record.badge_count = len(record.badge_ids)
+
+    def action_view_badges(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Badges',
+            'res_model': 'wc.volunteer.badge',
+            'view_mode': 'list,form',
+            'domain': [('id', 'in', self.badge_ids.ids)],
+        }
+
+    def action_add_badge(self, badge):
+        self.ensure_one()
+        if badge not in self.badge_ids:
+            self.write({
+                'badge_ids': [(4, badge.id)],
+                'points': self.points + badge.points_reward
+            })
 
     # ============ GROUP EXPAND (Kanban) ============
     @api.model

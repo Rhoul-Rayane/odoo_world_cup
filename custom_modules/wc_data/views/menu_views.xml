@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Catégorie Données de Référence -->
+    <menuitem id="wc_data_menu_root"
+              name="Données Réelles"
+              parent="wc_base.wc_main_menu"
+              sequence="40"/>
+
+    <menuitem id="wc_data_menu_tournaments"
+              name="Éditions Historiques"
+              parent="wc_data_menu_root"
+              action="action_wc_tournament"
+              sequence="10"/>
+
+    <menuitem id="wc_data_menu_teams"
+              name="Équipes Nationales"
+              parent="wc_data_menu_root"
+              action="action_wc_team"
+              sequence="20"/>
+</odoo>

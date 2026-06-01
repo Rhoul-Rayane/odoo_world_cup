@@ -10,68 +10,212 @@
                 <header>
                     <button name="action_refresh" type="object" string="🔄 Actualiser les KPIs"
                             class="btn-primary"/>
+                    <button name="action_open_critical_incidents" type="object"
+                            string="🚨 Incidents critiques" class="btn-danger"/>
+                    <button name="action_open_crowd_alerts" type="object"
+                            string="🔴 Alertes foule" class="btn-warning"/>
+                    <button name="action_open_out_of_stock" type="object"
+                            string="⚠️ Ruptures stock" class="btn-warning"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
-                        <h1>🏆 Tableau de Bord — Coupe du Monde 2030</h1>
+                        <h1>🏆 Tableau de Bord — Coupe du Monde Maroc 2030</h1>
                         <field name="date_refresh" string="Dernière actualisation"/>
                     </div>
 
-                    <!-- VOLONTAIRES -->
-                    <group string="👥 Volontaires">
-                        <group>
-                            <field name="vol_total"/>
-                            <field name="vol_candidates"/>
-                            <field name="vol_preselected"/>
-                        </group>
-                        <group>
-                            <field name="vol_trained"/>
-                            <field name="vol_assigned"/>
-                            <field name="vol_active"/>
-                            <field name="vol_avg_score" widget="progressbar"/>
-                        </group>
-                    </group>
+                    <notebook>
+                        <!-- TAB 1 : OPÉRATIONNEL -->
+                        <page string="🏟️ Opérationnel" name="operational">
+                            <!-- STADES & MATCHS -->
+                            <group string="🏟️ Stades &amp; Matchs">
+                                <group>
+                                    <field name="stadium_total"/>
+                                    <field name="stadium_ready"/>
+                                    <field name="stadium_total_capacity"/>
+                                </group>
+                                <group>
+                                    <field name="match_total"/>
+                                    <field name="match_planned"/>
+                                    <field name="match_done"/>
+                                </group>
+                            </group>
 
-                    <!-- STADES & MATCHS -->
-                    <group string="🏟️ Stades &amp; Matchs">
-                        <group>
-                            <field name="stadium_total"/>
-                            <field name="stadium_ready"/>
-                            <field name="stadium_total_capacity"/>
-                        </group>
-                        <group>
-                            <field name="match_total"/>
-                            <field name="match_planned"/>
-                            <field name="match_done"/>
-                        </group>
-                    </group>
+                            <!-- VOLONTAIRES -->
+                            <group string="👥 Volontaires">
+                                <group>
+                                    <field name="vol_total"/>
+                                    <field name="vol_candidates"/>
+                                    <field name="vol_preselected"/>
+                                    <field name="vol_trained"/>
+                                </group>
+                                <group>
+                                    <field name="vol_assigned"/>
+                                    <field name="vol_active"/>
+                                    <field name="vol_avg_score" widget="progressbar"/>
+                                </group>
+                            </group>
 
-                    <!-- ACCRÉDITATIONS -->
-                    <group string="🎫 Accréditations">
-                        <group>
-                            <field name="badge_total"/>
-                            <field name="badge_active"/>
-                        </group>
-                        <group>
-                            <field name="badge_expired"/>
-                            <field name="badge_revoked"/>
-                            <field name="badge_total_scans"/>
-                        </group>
-                    </group>
+                            <!-- ACCRÉDITATIONS -->
+                            <group string="🎫 Accréditations">
+                                <group>
+                                    <field name="badge_total"/>
+                                    <field name="badge_active"/>
+                                </group>
+                                <group>
+                                    <field name="badge_expired"/>
+                                    <field name="badge_revoked"/>
+                                    <field name="badge_total_scans"/>
+                                </group>
+                            </group>
+                        </page>
 
-                    <!-- LOGISTIQUE -->
-                    <group string="📦 Logistique">
-                        <group>
-                            <field name="incident_total"/>
-                            <field name="incident_open"/>
-                            <field name="incident_critical"/>
-                        </group>
-                        <group>
-                            <field name="resource_out_of_stock"/>
-                            <field name="transport_planned"/>
-                            <field name="request_pending"/>
-                        </group>
-                    </group>
+                        <!-- TAB 2 : TRANSPORT & SÉCURITÉ -->
+                        <page string="🚌 Transport &amp; Sécurité" name="transport_security">
+                            <!-- TRANSPORT -->
+                            <group string="🚌 Transport Multimodal">
+                                <group>
+                                    <field name="transport_line_total"/>
+                                    <field name="transport_station_total"/>
+                                    <field name="schedule_total"/>
+                                </group>
+                                <group>
+                                    <field name="parking_total"/>
+                                    <field name="parking_avg_occupancy" widget="progressbar"/>
+                                    <field name="parking_full"/>
+                                    <button name="action_open_parking_full" type="object"
+                                            string="🅿️ Voir parkings pleins"
+                                            class="btn-link" icon="fa-car"/>
+                                </group>
+                            </group>
+
+                            <!-- SÉCURITÉ -->
+                            <group string="🛡️ Sécurité">
+                                <group>
+                                    <field name="security_deployment_total"/>
+                                    <field name="security_agents_total"/>
+                                    <field name="security_agreement_total"/>
+                                </group>
+                                <group>
+                                    <field name="crowd_monitoring_total"/>
+                                    <field name="crowd_alert_red"/>
+                                    <field name="crowd_alert_orange"/>
+                                    <button name="action_open_crowd_alerts" type="object"
+                                            string="🔴 Voir alertes foule"
+                                            class="btn-link" icon="fa-warning"/>
+                                </group>
+                            </group>
+
+                            <!-- LOGISTIQUE -->
+                            <group string="📦 Logistique">
+                                <group>
+                                    <field name="incident_total"/>
+                                    <field name="incident_open"/>
+                                    <field name="incident_critical"/>
+                                    <button name="action_open_critical_incidents" type="object"
+                                            string="🚨 Voir incidents critiques"
+                                            class="btn-link" icon="fa-exclamation-triangle"/>
+                                </group>
+                                <group>
+                                    <field name="resource_out_of_stock"/>
+                                    <field name="transport_planned"/>
+                                    <field name="request_pending"/>
+                                    <button name="action_open_pending_requests" type="object"
+                                            string="📋 Voir demandes"
+                                            class="btn-link" icon="fa-list"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- TAB 3 : DURABILITÉ -->
+                        <page string="🌱 Durabilité" name="sustainability">
+                            <group string="♻️ Gestion des Déchets">
+                                <group>
+                                    <field name="waste_total_kg"/>
+                                    <field name="waste_diversion_avg" widget="progressbar"/>
+                                </group>
+                                <group>
+                                    <field name="audit_total"/>
+                                    <field name="audit_compliant"/>
+                                    <field name="audit_non_conformity"/>
+                                    <button name="action_open_non_conformity" type="object"
+                                            string="❌ Voir non-conformités"
+                                            class="btn-link" icon="fa-flag"/>
+                                </group>
+                            </group>
+
+                            <group string="🌍 Empreinte Carbone">
+                                <group>
+                                    <field name="carbon_total_emission"/>
+                                    <field name="carbon_total_offset"/>
+                                    <field name="carbon_net"/>
+                                </group>
+                                <group string="📊 Benchmark Qatar 2022">
+                                    <field name="qatar_carbon_tons"/>
+                                    <field name="qatar_waste_diverted_pct"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- TAB 4 : FINANCE -->
+                        <page string="💰 Finance" name="finance">
+                            <group string="📊 Budget">
+                                <group>
+                                    <field name="budget_total_planned"/>
+                                    <field name="budget_total_spent"/>
+                                    <field name="budget_consumption_avg" widget="progressbar"/>
+                                </group>
+                                <group>
+                                    <button name="action_open_budget_overspent" type="object"
+                                            string="💸 Budgets en alerte (&gt;80%)"
+                                            class="btn-link" icon="fa-money"/>
+                                </group>
+                            </group>
+
+                            <group string="💵 Revenus">
+                                <group>
+                                    <field name="revenue_total_projected"/>
+                                    <field name="revenue_total_actual"/>
+                                    <field name="revenue_variance_pct"/>
+                                </group>
+                                <group string="📊 Benchmark Qatar 2022">
+                                    <field name="qatar_budget_usd_bn"/>
+                                </group>
+                            </group>
+
+                            <group string="🎫 Billetterie">
+                                <group>
+                                    <field name="ticket_total_available"/>
+                                    <field name="ticket_total_sold"/>
+                                    <field name="ticket_fill_rate" widget="progressbar"/>
+                                </group>
+                                <group string="📊 Benchmark Qatar 2022">
+                                    <field name="qatar_attendance"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- TAB 5 : BENCHMARKS QATAR 2022 -->
+                        <page string="🏆 Benchmarks Qatar 2022" name="benchmarks">
+                            <group string="📈 Comparaison Maroc 2030 vs Qatar 2022">
+                                <group string="Maroc 2030 (actuel)">
+                                    <field name="vol_total" string="Volontaires"/>
+                                    <field name="stadium_total" string="Stades"/>
+                                    <field name="stadium_total_capacity" string="Capacité totale"/>
+                                    <field name="match_total" string="Matchs"/>
+                                    <field name="carbon_net" string="CO₂ net (tonnes)"/>
+                                    <field name="waste_diversion_avg" string="Recyclage (%)" widget="progressbar"/>
+                                </group>
+                                <group string="Qatar 2022 (référence)">
+                                    <field name="qatar_volunteers"/>
+                                    <field name="qatar_stadiums"/>
+                                    <field name="qatar_capacity"/>
+                                    <field name="qatar_matches"/>
+                                    <field name="qatar_carbon_tons"/>
+                                    <field name="qatar_waste_diverted_pct"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -141,6 +285,93 @@
     <record id="wc_incident_severity_action" model="ir.actions.act_window">
         <field name="name">📊 Incidents par Sévérité</field>
         <field name="res_model">wc.dashboard.incident.severity</field>
+        <field name="view_mode">graph,pivot</field>
+    </record>
+
+    <!-- ============ GRAPH : BUDGET PAR CATÉGORIE ============ -->
+    <record id="wc_budget_category_graph" model="ir.ui.view">
+        <field name="name">wc.dashboard.budget.category.graph</field>
+        <field name="model">wc.dashboard.budget.category</field>
+        <field name="arch" type="xml">
+            <graph string="Budget par Catégorie" type="bar">
+                <field name="category" type="row"/>
+                <field name="total_planned" type="measure"/>
+                <field name="total_spent" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="wc_budget_category_pivot" model="ir.ui.view">
+        <field name="name">wc.dashboard.budget.category.pivot</field>
+        <field name="model">wc.dashboard.budget.category</field>
+        <field name="arch" type="xml">
+            <pivot string="Budget par Catégorie">
+                <field name="category" type="row"/>
+                <field name="total_planned" type="measure"/>
+                <field name="total_spent" type="measure"/>
+                <field name="avg_consumption" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="wc_budget_category_action" model="ir.actions.act_window">
+        <field name="name">📊 Budget par Catégorie</field>
+        <field name="res_model">wc.dashboard.budget.category</field>
+        <field name="view_mode">graph,pivot</field>
+    </record>
+
+    <!-- ============ GRAPH : DÉCHETS PAR TYPE ============ -->
+    <record id="wc_waste_type_graph" model="ir.ui.view">
+        <field name="name">wc.dashboard.waste.type.graph</field>
+        <field name="model">wc.dashboard.waste.type</field>
+        <field name="arch" type="xml">
+            <graph string="Déchets par Type" type="pie">
+                <field name="waste_type" type="row"/>
+                <field name="total_kg" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="wc_waste_type_action" model="ir.actions.act_window">
+        <field name="name">📊 Déchets par Type</field>
+        <field name="res_model">wc.dashboard.waste.type</field>
+        <field name="view_mode">graph,pivot</field>
+    </record>
+
+    <!-- ============ GRAPH : CARBONE PAR CATÉGORIE ============ -->
+    <record id="wc_carbon_category_graph" model="ir.ui.view">
+        <field name="name">wc.dashboard.carbon.category.graph</field>
+        <field name="model">wc.dashboard.carbon.category</field>
+        <field name="arch" type="xml">
+            <graph string="Émissions CO₂ par Catégorie" type="bar">
+                <field name="category" type="row"/>
+                <field name="total_emission" type="measure"/>
+                <field name="total_offset" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="wc_carbon_category_action" model="ir.actions.act_window">
+        <field name="name">📊 Émissions Carbone</field>
+        <field name="res_model">wc.dashboard.carbon.category</field>
+        <field name="view_mode">graph,pivot</field>
+    </record>
+
+    <!-- ============ GRAPH : TRANSPORT PAR TYPE ============ -->
+    <record id="wc_transport_type_graph" model="ir.ui.view">
+        <field name="name">wc.dashboard.transport.type.graph</field>
+        <field name="model">wc.dashboard.transport.type</field>
+        <field name="arch" type="xml">
+            <graph string="Transport par Type" type="pie">
+                <field name="line_type" type="row"/>
+                <field name="total_capacity" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="wc_transport_type_action" model="ir.actions.act_window">
+        <field name="name">📊 Transport par Type</field>
+        <field name="res_model">wc.dashboard.transport.type</field>
         <field name="view_mode">graph,pivot</field>
     </record>
 

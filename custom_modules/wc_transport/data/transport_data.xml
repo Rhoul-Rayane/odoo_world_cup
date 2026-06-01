@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============ LIGNES DE TRANSPORT ============ -->
+        <record id="line_boraq" model="wc.transport.line">
+            <field name="name">Ligne Grande Vitesse - Al Boraq</field>
+            <field name="line_type">train</field>
+            <field name="capacity_per_hour">4000</field>
+            <field name="color">#0055A5</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="line_tram_casa_t1" model="wc.transport.line">
+            <field name="name">Tramway Casablanca - Ligne T1</field>
+            <field name="line_type">tram</field>
+            <field name="capacity_per_hour">6000</field>
+            <field name="color">#E30613</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="line_tram_rabat_l1" model="wc.transport.line">
+            <field name="name">Tramway Rabat-Salé - Ligne L1</field>
+            <field name="line_type">tram</field>
+            <field name="capacity_per_hour">5000</field>
+            <field name="color">#FF5F00</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="line_brt_marrakech" model="wc.transport.line">
+            <field name="name">Bus à Haut Niveau de Service - Marrakech L1</field>
+            <field name="line_type">bus</field>
+            <field name="capacity_per_hour">3000</field>
+            <field name="color">#009639</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- ============ STATIONS DE TRANSPORT ============ -->
+        <record id="station_tanger_ville" model="wc.transport.station">
+            <field name="name">Gare Tanger Ville</field>
+            <field name="code">TNGV</field>
+            <field name="gps_lat">35.7725</field>
+            <field name="gps_lng">-5.7997</field>
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="line_ids" eval="[(4, ref('line_boraq'))]"/>
+        </record>
+
+        <record id="station_benslimane_stade" model="wc.transport.station">
+            <field name="name">Gare Benslimane Grand Stade</field>
+            <field name="code">BESS</field>
+            <field name="gps_lat">33.6214</field>
+            <field name="gps_lng">-7.5028</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="line_ids" eval="[(4, ref('line_boraq')), (4, ref('line_tram_casa_t1'))]"/>
+        </record>
+
+        <record id="station_rabat_ville" model="wc.transport.station">
+            <field name="name">Gare Rabat Agdal</field>
+            <field name="code">RABA</field>
+            <field name="gps_lat">33.9984</field>
+            <field name="gps_lng">-6.8569</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="line_ids" eval="[(4, ref('line_boraq')), (4, ref('line_tram_rabat_l1'))]"/>
+        </record>
+
+        <record id="station_marrakech_gare" model="wc.transport.station">
+            <field name="name">Gare de Marrakech</field>
+            <field name="code">RAKE</field>
+            <field name="gps_lat">31.6295</field>
+            <field name="gps_lng">-8.0194</field>
+            <field name="stadium_id" ref="wc_base.stadium_marrakech"/>
+            <field name="line_ids" eval="[(4, ref('line_brt_marrakech'))]"/>
+        </record>
+
+        <!-- ============ ZONES DE PARKING ============ -->
+        <record id="parking_hassan_vip" model="wc.parking.zone">
+            <field name="name">Parking P1 - VIP &amp; Protocole</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="zone_type">vip</field>
+            <field name="total_capacity">1000</field>
+            <field name="available_capacity">1000</field>
+        </record>
+
+        <record id="parking_hassan_public" model="wc.parking.zone">
+            <field name="name">Parking P2 - Public Général</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="zone_type">public</field>
+            <field name="total_capacity">8000</field>
+            <field name="available_capacity">8000</field>
+        </record>
+
+        <record id="parking_hassan_media" model="wc.parking.zone">
+            <field name="name">Parking P3 - Presse &amp; Médias</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="zone_type">media</field>
+            <field name="total_capacity">500</field>
+            <field name="available_capacity">500</field>
+        </record>
+
+        <record id="parking_hassan_staff" model="wc.parking.zone">
+            <field name="name">Parking P4 - Staff &amp; Volontaires</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="zone_type">work</field>
+            <field name="total_capacity">2000</field>
+            <field name="available_capacity">2000</field>
+        </record>
+
+    </data>
+</odoo>

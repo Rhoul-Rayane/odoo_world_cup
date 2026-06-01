@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============ LIST VIEW ============ -->
+    <record id="wc_waste_tracking_view_list" model="ir.ui.view">
+        <field name="name">wc.waste.tracking.list</field>
+        <field name="model">wc.waste.tracking</field>
+        <field name="arch" type="xml">
+            <list decoration-warning="state == 'draft'"
+                  decoration-success="state == 'validated'">
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="date"/>
+                <field name="waste_type" widget="badge"
+                    decoration-info="waste_type == 'organic'"
+                    decoration-warning="waste_type == 'plastic'"
+                    decoration-success="waste_type == 'paper'"
+                    decoration-primary="waste_type == 'glass'"/>
+                <field name="quantity_kg" sum="Total (kg)"/>
+                <field name="diversion_rate" widget="progressbar"/>
+                <field name="state" widget="badge"
+                    decoration-warning="state == 'draft'"
+                    decoration-info="state == 'confirmed'"
+                    decoration-success="state == 'validated'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============ FORM VIEW ============ -->
+    <record id="wc_waste_tracking_view_form" model="ir.ui.view">
+        <field name="name">wc.waste.tracking.form</field>
+        <field name="model">wc.waste.tracking</field>
+        <field name="arch" type="xml">
+            <form string="Suivi des déchets">
+                <header>
+                    <button name="action_confirm" type="object"
+                        string="Confirmer" class="oe_highlight"
+                        invisible="state != 'draft'"/>
+                    <button name="action_validate" type="object"
+                        string="Valider" class="oe_highlight"
+                        invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,confirmed,validated"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Informations générales">
+                            <field name="stadium_id"/>
+                            <field name="zone_id"/>
+                            <field name="date"/>
+                            <field name="waste_type"/>
+                            <field name="match_id"/>
+                        </group>
+                        <group string="Quantités">
+                            <field name="quantity_kg"/>
+                            <field name="recycled_kg"/>
+                            <field name="diverted_kg"/>
+                            <field name="diversion_rate" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Détails" name="details">
+                            <group>
+                                <field name="collector_company"/>
+                            </group>
+                            <separator string="Notes"/>
+                            <field name="notes" placeholder="Notes additionnelles..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============ SEARCH VIEW ============ -->
+    <record id="wc_waste_tracking_view_search" model="ir.ui.view">
+        <field name="name">wc.waste.tracking.search</field>
+        <field name="model">wc.waste.tracking</field>
+        <field name="arch" type="xml">
+            <search string="Recherche déchets">
+                <field name="name"/>
+                <field name="stadium_id"/>
+                <field name="collector_company"/>
+                <separator/>
+                <filter name="filter_organic" string="Organique" domain="[('waste_type', '=', 'organic')]"/>
+                <filter name="filter_plastic" string="Plastique" domain="[('waste_type', '=', 'plastic')]"/>
+                <filter name="filter_paper" string="Papier/Carton" domain="[('waste_type', '=', 'paper')]"/>
+                <filter name="filter_glass" string="Verre" domain="[('waste_type', '=', 'glass')]"/>
+                <filter name="filter_metal" string="Métal" domain="[('waste_type', '=', 'metal')]"/>
+                <filter name="filter_electronic" string="Électronique" domain="[('waste_type', '=', 'electronic')]"/>
+                <filter name="filter_mixed" string="Déchets mélangés" domain="[('waste_type', '=', 'mixed')]"/>
+                <separator/>
+                <filter name="filter_draft" string="Brouillon" domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_confirmed" string="Confirmé" domain="[('state', '=', 'confirmed')]"/>
+                <filter name="filter_validated" string="Validé" domain="[('state', '=', 'validated')]"/>
+                <separator/>
+                <filter name="groupby_stadium" string="Stade" context="{'group_by': 'stadium_id'}"/>
+                <filter name="groupby_waste_type" string="Type de déchet" context="{'group_by': 'waste_type'}"/>
+                <filter name="groupby_date_month" string="Date (mois)" context="{'group_by': 'date:month'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============ KANBAN VIEW ============ -->
+    <record id="wc_waste_tracking_view_kanban" model="ir.ui.view">
+        <field name="name">wc.waste.tracking.kanban</field>
+        <field name="model">wc.waste.tracking</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold"/>
+                        <field name="stadium_id"/>
+                        <div class="d-flex justify-content-between mt-2">
+                            <span><i class="fa fa-balance-scale me-1"/><field name="quantity_kg"/> kg</span>
+                            <span><i class="fa fa-recycle me-1"/><field name="diversion_rate"/>%</span>
+                        </div>
+                        <field name="waste_type" widget="badge"
+                            decoration-info="waste_type == 'organic'"
+                            decoration-warning="waste_type == 'plastic'"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ============ GRAPH VIEW ============ -->
+    <record id="wc_waste_tracking_view_graph" model="ir.ui.view">
+        <field name="name">wc.waste.tracking.graph</field>
+        <field name="model">wc.waste.tracking</field>
+        <field name="arch" type="xml">
+            <graph string="Déchets par stade" type="bar">
+                <field name="stadium_id"/>
+                <field name="quantity_kg" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ============ ACTION ============ -->
+    <record id="action_waste_tracking" model="ir.actions.act_window">
+        <field name="name">Suivi des Déchets</field>
+        <field name="res_model">wc.waste.tracking</field>
+        <field name="view_mode">list,form,kanban,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Commencez le suivi des déchets
+            </p>
+            <p>
+                Enregistrez les volumes de déchets par stade, type et date
+                pour suivre les performances de recyclage et de détournement.
+            </p>
+        </field>
+    </record>
+
+</odoo>

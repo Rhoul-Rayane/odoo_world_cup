@@ -6,7 +6,9 @@
         <field name="name">wc.stadium.list</field>
         <field name="model">wc.stadium</field>
         <field name="arch" type="xml">
-            <list>
+            <list decoration-success="state == 'ready'"
+                  decoration-warning="state == 'maintenance'"
+                  decoration-muted="state == 'construction'">
                 <field name="name"/>
                 <field name="city"/>
                 <field name="country"/>
@@ -35,6 +37,16 @@
                     <field name="state" widget="statusbar" statusbar_visible="construction,ready"/>
                 </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-th-large"
+                                type="object" name="action_view_zones">
+                            <field name="zone_count" string="Zones" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-futbol-o"
+                                type="object" name="action_view_matches">
+                            <field name="match_count" string="Matchs" widget="statinfo"/>
+                        </button>
+                    </div>
                     <field name="image" widget="image" class="oe_avatar"/>
                     <div class="oe_title">
                         <h1><field name="name" placeholder="Nom du stade"/></h1>
@@ -113,6 +125,12 @@
                 <field name="city"/>
                 <field name="country"/>
                 <field name="state"/>
+                <separator/>
+                <filter string="Prêt" name="filter_ready" domain="[('state', '=', 'ready')]"/>
+                <filter string="En construction" name="filter_construction" domain="[('state', '=', 'construction')]"/>
+                <filter string="En maintenance" name="filter_maintenance" domain="[('state', '=', 'maintenance')]"/>
+                <filter string="Pays" name="group_country" context="{'group_by': 'country'}" domain="[]"/>
+                <filter string="Statut" name="group_state" context="{'group_by': 'state'}" domain="[]"/>
             </search>
         </field>
     </record>
@@ -122,6 +140,12 @@
         <field name="name">Stades</field>
         <field name="res_model">wc.stadium</field>
         <field name="view_mode">list,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer votre premier stade
+            </p>
+            <p>Ajoutez les stades de la Coupe du Monde 2030.</p>
+        </field>
     </record>
 
 </odoo>
