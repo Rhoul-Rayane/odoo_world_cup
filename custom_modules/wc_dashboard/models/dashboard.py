@@ -107,9 +107,9 @@ class WcDashboard(models.Model):
     def _compute_stadium_kpis(self):
         Stadium = self.env['wc.stadium']
         for rec in self:
-            all_stadiums = Stadium.search([])
+            all_stadiums = Stadium.search([('country', '=', 'morocco')])
             rec.stadium_total = len(all_stadiums)
-            rec.stadium_ready = Stadium.search_count([('state', '=', 'ready')])
+            rec.stadium_ready = Stadium.search_count([('country', '=', 'morocco'), ('state', '=', 'ready')])
             rec.stadium_total_capacity = sum(all_stadiums.mapped('capacity'))
 
     def _compute_match_kpis(self):
