@@ -12,6 +12,9 @@
                 <field name="name"/>
                 <field name="city"/>
                 <field name="country"/>
+                <field name="stadium_type" widget="badge"
+                       decoration-info="stadium_type == 'match'"
+                       decoration-warning="stadium_type == 'training'"/>
                 <field name="capacity"/>
                 <field name="zone_count"/>
                 <field name="match_count"/>
@@ -55,9 +58,12 @@
                         <group>
                             <field name="city"/>
                             <field name="country"/>
-                            <field name="capacity"/>
+                            <field name="stadium_type"/>
                         </group>
                         <group>
+                            <field name="capacity"/>
+                            <field name="gross_capacity"/>
+                            <field name="net_capacity"/>
                             <field name="address"/>
                         </group>
                     </group>
@@ -125,11 +131,16 @@
                 <field name="city"/>
                 <field name="country"/>
                 <field name="state"/>
+                <field name="stadium_type"/>
                 <separator/>
                 <filter string="Prêt" name="filter_ready" domain="[('state', '=', 'ready')]"/>
                 <filter string="En construction" name="filter_construction" domain="[('state', '=', 'construction')]"/>
                 <filter string="En maintenance" name="filter_maintenance" domain="[('state', '=', 'maintenance')]"/>
+                <separator/>
+                <filter string="Stades de Match" name="filter_match" domain="[('stadium_type', '=', 'match')]"/>
+                <filter string="Sites d'entraînement" name="filter_training" domain="[('stadium_type', '=', 'training')]"/>
                 <filter string="Pays" name="group_country" context="{'group_by': 'country'}" domain="[]"/>
+                <filter string="Usage" name="group_type" context="{'group_by': 'stadium_type'}" domain="[]"/>
                 <filter string="Statut" name="group_state" context="{'group_by': 'state'}" domain="[]"/>
             </search>
         </field>

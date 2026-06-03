@@ -17,8 +17,6 @@
         'security/ir.model.access.csv',
         'data/tournament_data.xml',
         'data/team_data.xml',
-        'data/stadium_historical_data.xml',
-        'data/match_historical_data.xml',
         'views/tournament_views.xml',
         'views/team_views.xml',
         'views/menu_views.xml',

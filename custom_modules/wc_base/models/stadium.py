@@ -10,8 +10,14 @@ class Stadium(models.Model):
     name = fields.Char(string='Nom du stade', required=True, tracking=True)
     city = fields.Char(string='Ville', required=True, tracking=True)
     capacity = fields.Integer(string='Capacité', required=True, tracking=True)
+    gross_capacity = fields.Integer(string='Capacité brute')
+    net_capacity = fields.Integer(string='Capacité nette')
     address = fields.Text(string='Adresse')
     image = fields.Binary(string='Photo du stade', attachment=True)
+    stadium_type = fields.Selection([
+        ('match', 'Stade de Match (FIFA Official)'),
+        ('training', 'Site d\'entraînement / Camp de base'),
+    ], string='Usage du stade', default='match', required=True, tracking=True)
     state = fields.Selection([
         ('construction', 'En construction'),
         ('ready', 'Prêt'),
