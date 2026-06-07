@@ -12,7 +12,7 @@
     """,
     'author': 'RHOUL Rayane - ENSAO/MGSI',
     'license': 'LGPL-3',
-    'depends': ['wc_base', 'mail'],
+    'depends': ['wc_base', 'mail', 'stock'],
     'data': [
         'security/ir.model.access.csv',
         'data/logistics_data.xml',
@@ -20,6 +20,7 @@
         'views/request_views.xml',
         'views/transport_views.xml',
         'views/incident_views.xml',
+        'views/stadium_views.xml',
         'views/menu_views.xml',
     ],
     'installable': True,

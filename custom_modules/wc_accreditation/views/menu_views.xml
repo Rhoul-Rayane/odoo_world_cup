@@ -5,6 +5,7 @@
               name="Accréditations"
               parent="wc_base.wc_main_menu"
               action="wc_accreditation_action"
+              groups="wc_base.group_wc_supervisor"
               sequence="50"/>
 
 </odoo>

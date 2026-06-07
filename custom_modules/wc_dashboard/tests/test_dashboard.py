@@ -50,25 +50,7 @@ class TestWcDashboard(TransactionCase):
             'state': 'active',
         })
 
-        # ---- Transport data ----
-        cls.transport_line = cls.env['wc.transport.line'].create({
-            'name': 'Ligne Bus Dashboard',
-            'line_type': 'bus',
-            'capacity_per_hour': 500,
-        })
 
-        cls.station = cls.env['wc.transport.station'].create({
-            'name': 'Station Dashboard',
-            'code': 'SDASH',
-        })
-
-        cls.parking = cls.env['wc.parking.zone'].create({
-            'name': 'Parking Dashboard',
-            'stadium_id': cls.stadium.id,
-            'zone_type': 'public',
-            'total_capacity': 1000,
-            'available_capacity': 100,
-        })
 
         # ---- Security data ----
         zone = cls.env['wc.stadium.zone'].create({
@@ -167,14 +149,7 @@ class TestWcDashboard(TransactionCase):
         # Badges
         self.assertGreaterEqual(dashboard.badge_active, 1)
 
-    def test_transport_kpis(self):
-        """Test transport KPIs."""
-        dashboard = self.env['wc.dashboard'].create({'name': 'Test Transport'})
 
-        self.assertGreaterEqual(dashboard.transport_line_total, 1)
-        self.assertGreaterEqual(dashboard.transport_station_total, 1)
-        self.assertGreaterEqual(dashboard.parking_total, 1)
-        self.assertGreater(dashboard.parking_avg_occupancy, 0)
 
     def test_security_kpis(self):
         """Test security KPIs."""
@@ -235,7 +210,7 @@ class TestWcDashboard(TransactionCase):
             dashboard.action_open_critical_incidents(),
             dashboard.action_open_out_of_stock(),
             dashboard.action_open_crowd_alerts(),
-            dashboard.action_open_parking_full(),
+
             dashboard.action_open_non_conformity(),
             dashboard.action_open_budget_overspent(),
             dashboard.action_open_pending_requests(),
@@ -277,8 +252,4 @@ class TestWcDashboard(TransactionCase):
         self.assertTrue(energy)
         self.assertGreater(energy.total_emission, 0)
 
-        # Transport by type
-        transports = self.env['wc.dashboard.transport.type'].search([])
-        bus = transports.filtered(lambda r: r.line_type == 'bus')
-        self.assertTrue(bus)
-        self.assertGreater(bus.total_capacity, 0)
+

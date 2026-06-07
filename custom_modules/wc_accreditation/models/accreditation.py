@@ -45,6 +45,7 @@ class Accreditation(models.Model):
     ], string='Catégorie', required=True, tracking=True)
 
     badge_color = fields.Char(string='Couleur du badge', compute='_compute_badge_color', store=True)
+    category_label = fields.Char(string='Label Catégorie', compute='_compute_category_label', store=True)
 
     zone_ids = fields.Many2many('wc.stadium.zone', string='Zones autorisées', required=True)
     match_ids = fields.Many2many('wc.match', string='Matchs autorisés')
@@ -77,6 +78,25 @@ class Accreditation(models.Model):
     last_scan_date = fields.Datetime(string='Dernier scan', readonly=True)
     notes = fields.Text(string='Notes internes')
     active = fields.Boolean(default=True)
+
+    # ============ ONCHANGES ============
+    @api.onchange('volunteer_id')
+    def _onchange_volunteer_id(self):
+        if self.volunteer_id:
+            self.holder_name = self.volunteer_id.name
+            self.holder_email = self.volunteer_id.email
+            self.holder_phone = self.volunteer_id.phone
+            self.holder_photo = self.volunteer_id.photo
+            self.organization = "FIFA World Cup 2030 Volunteers"
+            self.category = 'volunteer'
+            if self.volunteer_id.role_id:
+                self.function = self.volunteer_id.role_id.name
+            
+            # Prefill stadium and zones based on volunteer's assignment
+            if self.volunteer_id.assigned_stadium_id:
+                self.stadium_ids = [(6, 0, [self.volunteer_id.assigned_stadium_id.id])]
+            if self.volunteer_id.assigned_zone_id:
+                self.zone_ids = [(6, 0, [self.volunteer_id.assigned_zone_id.id])]
 
     # ============ CONTRAINTES ============
     _qr_token_unique = models.Constraint(
@@ -111,6 +131,20 @@ class Accreditation(models.Model):
         }
         for record in self:
             record.badge_color = color_map.get(record.category, '#6B7280')
+
+    @api.depends('category')
+    def _compute_category_label(self):
+        category_map = {
+            'fifa': 'OFFICIEL FIFA',
+            'team': '\u00c9QUIPE / STAFF',
+            'media': 'M\u00c9DIA / PRESSE',
+            'volunteer': 'VOLONTAIRE',
+            'vip': 'INVIT\u00c9 VIP',
+            'logistics': 'LOGISTIQUE / S\u00c9CURIT\u00c9',
+            'medical': 'SERVICES M\u00c9DICAUX',
+        }
+        for record in self:
+            record.category_label = category_map.get(record.category, '').upper()
 
     @api.depends('date_end')
     def _compute_is_expired(self):
@@ -232,3 +266,12 @@ class Accreditation(models.Model):
     @api.model
     def _expand_states(self, states, domain):
         return [key for key, val in type(self).state.selection]
+
+    def to_html_entities(self, text):
+        if not text:
+            from markupsafe import Markup
+            return Markup("")
+        from markupsafe import Markup
+        # Convert non-ASCII characters into safe HTML entities
+        escaped = "".join(f"&#{ord(c)};" if ord(c) > 127 else c for c in text)
+        return Markup(escaped)

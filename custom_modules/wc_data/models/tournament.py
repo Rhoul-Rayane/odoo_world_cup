@@ -10,13 +10,9 @@ class Tournament(models.Model):
     year = fields.Integer(string='Année', required=True)
     host_country = fields.Char(string='Pays Hôte')
     winner = fields.Char(string='Vainqueur')
-    runner_up = fields.Char(string='Finaliste')
-    third_place = fields.Char(string='Troisième')
-    fourth_place = fields.Char(string='Quatrième')
     teams_count = fields.Integer(string="Nombre d'équipes")
     matches_count = fields.Integer(string='Nombre de matchs')
     goals_count = fields.Integer(string='Nombre de buts')
-    attendance = fields.Integer(string='Spectateurs cumulés')
 
     _key_uniq = models.Constraint(
         'unique(key)',

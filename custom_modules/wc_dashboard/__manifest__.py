@@ -22,7 +22,6 @@
         'wc_volunteer',
         'wc_accreditation',
         'wc_logistics',
-        'wc_transport',
         'wc_security',
         'wc_sustainability',
         'wc_finance',

@@ -117,7 +117,7 @@
             <field name="organization">FIFA</field>
             <field name="function">Président FIFA</field>
             <field name="category">fifa</field>
-            <field name="zone_ids" eval="[(6, 0, [ref('wc_base.zone_hassan_vip'), ref('wc_base.zone_hassan_presse'), ref('wc_base.zone_hassan_medical')])]"/>
+            <field name="zone_ids" eval="[(6, 0, [ref('wc_base.zone_hassan_vip'), ref('wc_base.zone_hassan_presse')])]"/>
             <field name="date_start" eval="datetime.now().strftime('%Y-%m-%d')"/>
             <field name="date_end" eval="(datetime.now() + timedelta(days=30)).strftime('%Y-%m-%d')"/>
             <field name="state">active</field>
@@ -141,7 +141,7 @@
             <field name="holder_name">Youssef Benjelloun</field>
             <field name="volunteer_id" ref="volunteer_test_3"/>
             <field name="category">volunteer</field>
-            <field name="zone_ids" eval="[(6, 0, [ref('wc_base.zone_hassan_tribune_nord'), ref('wc_base.zone_hassan_tribune_sud')])]"/>
+            <field name="zone_ids" eval="[(6, 0, [ref('wc_base.zone_hassan_tribune_nord'), ref('wc_base.zone_cas_d')])]"/>
             <field name="date_start" eval="datetime.now().strftime('%Y-%m-%d')"/>
             <field name="date_end" eval="(datetime.now() + timedelta(days=20)).strftime('%Y-%m-%d')"/>
             <field name="state">active</field>

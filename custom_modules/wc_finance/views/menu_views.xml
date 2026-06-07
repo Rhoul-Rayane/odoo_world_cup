@@ -5,7 +5,15 @@
     <menuitem id="wc_finance_menu_root"
               name="💰 Finance &amp; Billetterie"
               parent="wc_base.wc_main_menu"
+              groups="wc_base.group_wc_admin"
               sequence="80"/>
+
+    <!-- Sous-menu Billets (dans Finance pour Admins) -->
+    <menuitem id="wc_finance_menu_tickets"
+              name="Billets"
+              parent="wc_finance_menu_root"
+              action="action_wc_ticket"
+              sequence="5"/>
 
     <!-- Sous-menu Budget -->
     <menuitem id="wc_finance_menu_budget"
@@ -27,5 +35,18 @@
               parent="wc_finance_menu_root"
               action="action_ticket_pricing"
               sequence="30"/>
+
+    <!-- ============ MENU BILLETTERIE (Accessible aux Volontaires) ============ -->
+    <menuitem id="wc_ticketing_menu_root"
+              name="🎟️ Billetterie"
+              parent="wc_base.wc_main_menu"
+              groups="wc_base.group_wc_volunteer"
+              sequence="15"/>
+
+    <menuitem id="wc_ticketing_menu_tickets"
+              name="Billets"
+              parent="wc_ticketing_menu_root"
+              action="action_wc_ticket"
+              sequence="10"/>
 
 </odoo>

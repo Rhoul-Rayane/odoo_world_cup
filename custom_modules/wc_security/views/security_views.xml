@@ -281,12 +281,12 @@
                         <h1><field name="name" readonly="1"/></h1>
                     </div>
                     <group>
-                        <group>
+                        <group string="Localisation">
                             <field name="match_id"/>
                             <field name="match_stadium_id"/>
                             <field name="stadium_zone_id"/>
                         </group>
-                        <group>
+                        <group string="Mesures en temps réel">
                             <field name="current_headcount"/>
                             <field name="zone_area"/>
                             <field name="density_per_sqm" readonly="1"/>
@@ -295,9 +295,36 @@
                                    decoration-warning="safety_status == 'orange'"
                                    decoration-danger="safety_status == 'red'"/>
                             <field name="last_updated"/>
+                            <field name="last_alert_level" widget="badge"
+                                   decoration-muted="last_alert_level == 'none'"
+                                   decoration-warning="last_alert_level == 'orange'"
+                                   decoration-danger="last_alert_level == 'red'"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Aide à la décision — Agents" name="decision_support">
+                            <group>
+                                <group string="Effectifs déployés">
+                                    <field name="security_agents_deployed"/>
+                                    <field name="agent_ratio" readonly="1"/>
+                                </group>
+                                <group string="Recommandations">
+                                    <field name="recommended_agents" readonly="1"/>
+                                    <field name="agent_deficit" readonly="1"
+                                           decoration-danger="agent_deficit > 0"
+                                           decoration-success="agent_deficit == 0"/>
+                                </group>
+                            </group>
+                            <div class="alert alert-info" role="alert"
+                                 invisible="agent_deficit == 0">
+                                <strong>⚠️ Déficit d'agents :</strong>
+                                Il manque <field name="agent_deficit" readonly="1" class="d-inline"/> agent(s)
+                                pour atteindre le ratio recommandé de 1 agent pour 50 spectateurs.
+                            </div>
+                        </page>
+                    </notebook>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>

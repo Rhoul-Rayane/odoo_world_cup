@@ -16,6 +16,8 @@
     'depends': ['wc_base', 'wc_volunteer', 'mail'],
     'data': [
         'security/ir.model.access.csv',
+        'data/accreditation_test_data.xml',
+        'views/accreditation_report.xml',
         'views/accreditation_views.xml',
         'views/menu_views.xml',
     ],

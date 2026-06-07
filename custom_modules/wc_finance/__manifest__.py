@@ -18,9 +18,12 @@ Fonctionnalités :
     """,
     'author': 'RHOUL Rayane - ENSAO/MGSI',
     'license': 'LGPL-3',
-    'depends': ['wc_base', 'mail'],
+    'depends': ['wc_base', 'wc_security', 'mail'],
     'data': [
         'security/ir.model.access.csv',
+        'data/ticket_data.xml',
+        'views/ticket_views.xml',
+        'views/ticket_scan_templates.xml',
         'views/budget_views.xml',
         'views/revenue_views.xml',
         'views/pricing_views.xml',

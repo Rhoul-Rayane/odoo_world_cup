@@ -15,7 +15,6 @@ class Team(models.Model):
         ('AFC', 'Asie (AFC)'),
         ('OFC', 'Océanie (OFC)'),
     ], string='Confédération')
-    fifa_ranking = fields.Integer(string='Classement FIFA')
     lpi_score = fields.Float(string='Score LPI (World Bank)', digits=(4, 2),
                              help='World Bank Logistics Performance Index Score')
     lpi_rank = fields.Integer(string='Rang LPI (World Bank)')

@@ -54,6 +54,7 @@
                             <field name="priority" widget="priority"/>
                             <field name="requester_id"/>
                             <field name="total_items"/>
+                            <field name="picking_id" readonly="1" invisible="not picking_id"/>
                         </group>
                     </group>
                     <notebook>

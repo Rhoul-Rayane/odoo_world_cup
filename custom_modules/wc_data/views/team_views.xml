@@ -8,7 +8,6 @@
                 <field name="name"/>
                 <field name="code_fifa"/>
                 <field name="confederation"/>
-                <field name="fifa_ranking"/>
                 <field name="lpi_score"/>
                 <field name="lpi_rank"/>
             </list>
@@ -31,7 +30,6 @@
                         <group string="Informations FIFA">
                             <field name="code_fifa"/>
                             <field name="confederation"/>
-                            <field name="fifa_ranking"/>
                         </group>
                         <group string="Logistique &amp; LPI (Banque Mondiale)">
                             <field name="lpi_score"/>
@@ -59,8 +57,8 @@
                 <filter string="Asie (AFC)" name="filter_afc" domain="[('confederation', '=', 'AFC')]"/>
                 <filter string="Océanie (OFC)" name="filter_ofc" domain="[('confederation', '=', 'OFC')]"/>
                 <separator/>
-                <filter string="Top 20 FIFA" name="filter_top20" domain="[('fifa_ranking', '&lt;=', 20), ('fifa_ranking', '&gt;', 0)]"/>
-                <filter string="Top 50 FIFA" name="filter_top50" domain="[('fifa_ranking', '&lt;=', 50), ('fifa_ranking', '&gt;', 0)]"/>
+                <filter string="Top 20 LPI" name="filter_top20" domain="[('lpi_rank', '&lt;=', 20), ('lpi_rank', '&gt;', 0)]"/>
+                <filter string="Top 50 LPI" name="filter_top50" domain="[('lpi_rank', '&lt;=', 50), ('lpi_rank', '&gt;', 0)]"/>
                 <separator/>
                 <filter string="Confédération" name="group_confederation" context="{'group_by': 'confederation'}" domain="[]"/>
             </search>

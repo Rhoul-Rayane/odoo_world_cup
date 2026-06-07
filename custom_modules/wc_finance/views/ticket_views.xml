@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ============ Séquence pour les numéros de billets ============ -->
+    <record id="seq_wc_ticket" model="ir.sequence">
+        <field name="name">WC Ticket Sequence</field>
+        <field name="code">wc.ticket</field>
+        <field name="prefix">TKT-2030-</field>
+        <field name="padding">5</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+    </record>
+
+    <!-- ============ VUE LISTE ============ -->
+    <record id="view_wc_ticket_list" model="ir.ui.view">
+        <field name="name">wc.ticket.list</field>
+        <field name="model">wc.ticket</field>
+        <field name="arch" type="xml">
+            <list string="Billets" decoration-success="state == 'scanned'" decoration-muted="state == 'cancelled'">
+                <field name="name"/>
+                <field name="match_id"/>
+                <field name="stadium_id"/>
+                <field name="stadium_zone_id"/>
+                <field name="holder_name"/>
+                <field name="category"/>
+                <field name="barcode"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'scanned'"
+                       decoration-info="state == 'purchased'"
+                       decoration-danger="state == 'cancelled'"/>
+                <field name="scan_datetime"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============ VUE FORMULAIRE ============ -->
+    <record id="view_wc_ticket_form" model="ir.ui.view">
+        <field name="name">wc.ticket.form</field>
+        <field name="model">wc.ticket</field>
+        <field name="arch" type="xml">
+            <form string="Billet">
+                <header>
+                    <button name="action_scan" type="object" string="✅ Scanner" class="btn-primary"
+                            invisible="state != 'purchased'"/>
+                    <button name="action_cancel" type="object" string="❌ Annuler" class="btn-danger"
+                            invisible="state != 'purchased'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="purchased,scanned"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Informations du billet">
+                            <field name="name"/>
+                            <field name="barcode"/>
+                            <field name="holder_name"/>
+                            <field name="category"/>
+                        </group>
+                        <group string="Match &amp; Localisation">
+                            <field name="match_id"/>
+                            <field name="stadium_id"/>
+                            <field name="stadium_zone_id"/>
+                        </group>
+                    </group>
+                    <group string="Détails du scannage" invisible="state != 'scanned'">
+                        <field name="scan_datetime"/>
+                        <field name="scanned_by_id"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============ VUE RECHERCHE ============ -->
+    <record id="view_wc_ticket_search" model="ir.ui.view">
+        <field name="name">wc.ticket.search</field>
+        <field name="model">wc.ticket</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Billets">
+                <field name="name"/>
+                <field name="barcode"/>
+                <field name="match_id"/>
+                <field name="holder_name"/>
+                <filter string="Achetés" name="filter_purchased" domain="[('state', '=', 'purchased')]"/>
+                <filter string="Scannés" name="filter_scanned" domain="[('state', '=', 'scanned')]"/>
+                <filter string="Annulés" name="filter_cancelled" domain="[('state', '=', 'cancelled')]"/>
+                <group name="group_by">
+                    <filter string="Match" name="group_match" context="{'group_by': 'match_id'}"/>
+                    <filter string="Zone" name="group_zone" context="{'group_by': 'stadium_zone_id'}"/>
+                    <filter string="Catégorie" name="group_category" context="{'group_by': 'category'}"/>
+                    <filter string="Statut" name="group_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============ ACTION ============ -->
+    <record id="action_wc_ticket" model="ir.actions.act_window">
+        <field name="name">Billets</field>
+        <field name="res_model">wc.ticket</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_wc_ticket_search"/>
+    </record>
+
+</odoo>

@@ -4,6 +4,7 @@
     <menuitem id="wc_security_menu_root"
               name="Sécurité &amp; Foules"
               parent="wc_base.wc_main_menu"
+              groups="wc_base.group_wc_supervisor"
               sequence="60"/>
 
     <menuitem id="wc_security_menu_deployments"

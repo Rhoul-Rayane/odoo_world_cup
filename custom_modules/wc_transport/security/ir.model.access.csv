@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_wc_transport_line,access_wc_transport_line,model_wc_transport_line,base.group_user,1,1,1,1
-access_wc_transport_station,access_wc_transport_station,model_wc_transport_station,base.group_user,1,1,1,1
-access_wc_parking_zone,access_wc_parking_zone,model_wc_parking_zone,base.group_user,1,1,1,1
-access_wc_transport_schedule,access_wc_transport_schedule,model_wc_transport_schedule,base.group_user,1,1,1,1

@@ -5,12 +5,13 @@
     <menuitem id="wc_menu_dashboard"
               name="📊 Dashboard"
               parent="wc_base.wc_main_menu"
+              groups="wc_base.group_wc_supervisor"
               sequence="5"/>
 
     <menuitem id="wc_menu_dashboard_main"
               name="Tableau de Bord"
               parent="wc_menu_dashboard"
-              action="wc_dashboard_action"
+              action="action_wc_dashboard_server"
               sequence="10"/>
 
     <!-- Sous-menu : Graphiques Opérationnels -->
@@ -37,11 +38,7 @@
               action="wc_incident_severity_action"
               sequence="30"/>
 
-    <menuitem id="wc_menu_dashboard_transport_graph"
-              name="Transport par Type"
-              parent="wc_menu_dashboard_graphs_operational"
-              action="wc_transport_type_action"
-              sequence="40"/>
+
 
     <!-- Sous-menu : Graphiques Finance & Durabilité -->
     <menuitem id="wc_menu_dashboard_graphs_analytics"

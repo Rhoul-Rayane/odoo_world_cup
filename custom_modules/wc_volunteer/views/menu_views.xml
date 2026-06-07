@@ -5,6 +5,7 @@
     <menuitem id="wc_menu_volunteers"
               name="Volontaires"
               parent="wc_base.wc_main_menu"
+              groups="wc_base.group_wc_supervisor"
               sequence="40"/>
 
     <menuitem id="wc_menu_volunteers_list"

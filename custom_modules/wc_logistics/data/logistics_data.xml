@@ -10,42 +10,608 @@
             <field name="padding">4</field>
         </record>
 
-        <!-- Ressources type -->
-        <record id="resource_chaises" model="wc.logistics.resource">
-            <field name="name">Chaises pliantes</field>
-            <field name="category">furniture</field>
-            <field name="total_qty">5000</field>
+        <!-- ========================================== -->
+        <!-- LOGISTIQUE DE SÉCURITÉ ET DE SÛRETÉ       -->
+        <!-- ========================================== -->
+        <record id="res_portique_detecteur" model="wc.logistics.resource">
+            <field name="name">Portique détecteur de métaux</field>
+            <field name="category">security</field>
+            <field name="total_qty">150</field>
+            <field name="cost">15000.0</field>
             <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
         </record>
-        <record id="resource_tables" model="wc.logistics.resource">
-            <field name="name">Tables événementielles</field>
-            <field name="category">furniture</field>
-            <field name="total_qty">500</field>
+
+        <record id="res_scanner_bagage" model="wc.logistics.resource">
+            <field name="name">Scanner à bagages (rayons X)</field>
+            <field name="category">security</field>
+            <field name="total_qty">80</field>
+            <field name="cost">120000.0</field>
             <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
         </record>
-        <record id="resource_ecrans" model="wc.logistics.resource">
-            <field name="name">Écrans LED géants</field>
-            <field name="category">tech</field>
-            <field name="total_qty">24</field>
+
+        <record id="res_detecteur_metaux_portable" model="wc.logistics.resource">
+            <field name="name">Détecteur de métaux portatif</field>
+            <field name="category">security</field>
+            <field name="total_qty">400</field>
+            <field name="cost">800.0</field>
             <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
         </record>
-        <record id="resource_radios" model="wc.logistics.resource">
-            <field name="name">Talkies-walkies</field>
-            <field name="category">communication</field>
-            <field name="total_qty">200</field>
-            <field name="unit">unité</field>
-        </record>
-        <record id="resource_kit_medical" model="wc.logistics.resource">
-            <field name="name">Kit premiers secours</field>
-            <field name="category">medical</field>
-            <field name="total_qty">100</field>
-            <field name="unit">kit</field>
-        </record>
-        <record id="resource_panneaux" model="wc.logistics.resource">
-            <field name="name">Panneaux de signalisation</field>
-            <field name="category">signage</field>
+
+        <record id="res_tourniquet_biometrique" model="wc.logistics.resource">
+            <field name="name">Tourniquet biométrique / optique (QR code)</field>
+            <field name="category">security</field>
             <field name="total_qty">300</field>
+            <field name="cost">25000.0</field>
             <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_camera_cctv" model="wc.logistics.resource">
+            <field name="name">Caméra vidéosurveillance CCTV HD</field>
+            <field name="category">security</field>
+            <field name="total_qty">1200</field>
+            <field name="cost">1200.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_drone_surveillance" model="wc.logistics.resource">
+            <field name="name">Drone de surveillance périmétrique</field>
+            <field name="category">security</field>
+            <field name="total_qty">15</field>
+            <field name="cost">35000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_mur_ecran_pcs" model="wc.logistics.resource">
+            <field name="name">Mur d'écrans PCS (Poste de Comm.)</field>
+            <field name="category">security</field>
+            <field name="total_qty">8</field>
+            <field name="cost">150000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_radio_tetra" model="wc.logistics.resource">
+            <field name="name">Radio cryptée (TETRA)</field>
+            <field name="category">communication</field>
+            <field name="total_qty">800</field>
+            <field name="cost">4500.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_gilet_haute_vis" model="wc.logistics.resource">
+            <field name="name">Gilet haute visibilité (sécurité)</field>
+            <field name="category">security</field>
+            <field name="total_qty">3000</field>
+            <field name="cost">50.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_lampe_tactique" model="wc.logistics.resource">
+            <field name="name">Lampe tactique</field>
+            <field name="category">security</field>
+            <field name="total_qty">500</field>
+            <field name="cost">250.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+        </record>
+
+        <record id="res_sifflet" model="wc.logistics.resource">
+            <field name="name">Sifflet</field>
+            <field name="category">security</field>
+            <field name="total_qty">600</field>
+            <field name="cost">15.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_marrakech"/>
+        </record>
+
+        <record id="res_terminal_billet" model="wc.logistics.resource">
+            <field name="name">Terminal mobile de contrôle de billet</field>
+            <field name="category">communication</field>
+            <field name="total_qty">450</field>
+            <field name="cost">3500.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_barriere_vauban" model="wc.logistics.resource">
+            <field name="name">Barrière Vauban anti-écrasement</field>
+            <field name="category">security</field>
+            <field name="total_qty">2500</field>
+            <field name="cost">600.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_ruban_signal" model="wc.logistics.resource">
+            <field name="name">Ruban de signalisation</field>
+            <field name="category">signage</field>
+            <field name="total_qty">150</field>
+            <field name="cost">120.0</field>
+            <field name="unit">rouleau</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_megaphone" model="wc.logistics.resource">
+            <field name="name">Mégaphone</field>
+            <field name="category">communication</field>
+            <field name="total_qty">60</field>
+            <field name="cost">800.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_marrakech"/>
+        </record>
+
+        <record id="res_sonorisation_urgence" model="wc.logistics.resource">
+            <field name="name">Sonorisation d'urgence évacuation</field>
+            <field name="category">tech</field>
+            <field name="total_qty">40</field>
+            <field name="cost">85000.0</field>
+            <field name="unit">système</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+
+        <!-- ========================================== -->
+        <!-- LOGISTIQUE POUR JOUEURS ET STAFF           -->
+        <!-- ========================================== -->
+        <record id="res_casier_vestiaire" model="wc.logistics.resource">
+            <field name="name">Casier individuel vestiaire</field>
+            <field name="category">furniture</field>
+            <field name="total_qty">120</field>
+            <field name="cost">1200.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_tableau_tactique_num" model="wc.logistics.resource">
+            <field name="name">Tableau tactique numérique</field>
+            <field name="category">tech</field>
+            <field name="total_qty">12</field>
+            <field name="cost">25000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_tableau_tactique_phys" model="wc.logistics.resource">
+            <field name="name">Tableau tactique physique</field>
+            <field name="category">furniture</field>
+            <field name="total_qty">24</field>
+            <field name="cost">1500.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_table_massage" model="wc.logistics.resource">
+            <field name="name">Table de massage physiothérapeutique</field>
+            <field name="category">medical</field>
+            <field name="total_qty">16</field>
+            <field name="cost">8500.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_bain_glace" model="wc.logistics.resource">
+            <field name="name">Bain de glace / Cryothérapie</field>
+            <field name="category">medical</field>
+            <field name="total_qty">8</field>
+            <field name="cost">45000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_frigo_nutrition" model="wc.logistics.resource">
+            <field name="name">Réfrigérateur nutrition sportive</field>
+            <field name="category">catering</field>
+            <field name="total_qty">16</field>
+            <field name="cost">6500.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_gazon_synthetique" model="wc.logistics.resource">
+            <field name="name">Gazon synthétique d'échauffement</field>
+            <field name="category">furniture</field>
+            <field name="total_qty">24</field>
+            <field name="cost">12000.0</field>
+            <field name="unit">rouleau</field>
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+        </record>
+
+        <record id="res_ballon_officiel" model="wc.logistics.resource">
+            <field name="name">Ballon de match officiel homologué</field>
+            <field name="category">furniture</field>
+            <field name="total_qty">600</field>
+            <field name="cost">1400.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_chasuble_entrainement" model="wc.logistics.resource">
+            <field name="name">Chasuble d'entraînement</field>
+            <field name="category">furniture</field>
+            <field name="total_qty">1200</field>
+            <field name="cost">80.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_cone_entrainement" model="wc.logistics.resource">
+            <field name="name">Cône d'entraînement</field>
+            <field name="category">furniture</field>
+            <field name="total_qty">2000</field>
+            <field name="cost">30.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+        </record>
+
+        <record id="res_banc_touche" model="wc.logistics.resource">
+            <field name="name">Banc de touche ergonomique équipé</field>
+            <field name="category">furniture</field>
+            <field name="total_qty">12</field>
+            <field name="cost">75000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_voiturette_elec" model="wc.logistics.resource">
+            <field name="name">Voiturette électrique de couloir</field>
+            <field name="category">tech</field>
+            <field name="total_qty">30</field>
+            <field name="cost">120000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_lave_linge_indus" model="wc.logistics.resource">
+            <field name="name">Machine à laver industrielle</field>
+            <field name="category">cleaning</field>
+            <field name="total_qty">8</field>
+            <field name="cost">45000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_seche_linge_indus" model="wc.logistics.resource">
+            <field name="name">Sèche-linge industriel</field>
+            <field name="category">cleaning</field>
+            <field name="total_qty">8</field>
+            <field name="cost">35000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_entretien_crampon" model="wc.logistics.resource">
+            <field name="name">Matériel d'entretien pour crampons</field>
+            <field name="category">cleaning</field>
+            <field name="total_qty">32</field>
+            <field name="cost">150.0</field>
+            <field name="unit">kit</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+
+        <!-- ========================================== -->
+        <!-- LOGISTIQUE MÉDICALE ET ANTI-DOPAGE         -->
+        <!-- ========================================== -->
+        <record id="res_dae" model="wc.logistics.resource">
+            <field name="name">Défibrillateur Automatisé Externe (DAE)</field>
+            <field name="category">medical</field>
+            <field name="total_qty">45</field>
+            <field name="cost">15000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_brancard_motorise" model="wc.logistics.resource">
+            <field name="name">Brancard et civière motorisée</field>
+            <field name="category">medical</field>
+            <field name="total_qty">30</field>
+            <field name="cost">65000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_trousse_secours_rean" model="wc.logistics.resource">
+            <field name="name">Trousse de secours (Niveau Réanimation)</field>
+            <field name="category">medical</field>
+            <field name="total_qty">60</field>
+            <field name="cost">2500.0</field>
+            <field name="unit">trousse</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_bouteille_oxygene" model="wc.logistics.resource">
+            <field name="name">Bouteille d'oxygène portable</field>
+            <field name="category">medical</field>
+            <field name="total_qty">40</field>
+            <field name="cost">1800.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+        </record>
+
+        <record id="res_attelle_vide" model="wc.logistics.resource">
+            <field name="name">Attelle sous vide</field>
+            <field name="category">medical</field>
+            <field name="total_qty">50</field>
+            <field name="cost">1200.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_marrakech"/>
+        </record>
+
+        <record id="res_echographe_portatif" model="wc.logistics.resource">
+            <field name="name">Échographe portable clinique</field>
+            <field name="category">medical</field>
+            <field name="total_qty">6</field>
+            <field name="cost">150000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_kit_suture" model="wc.logistics.resource">
+            <field name="name">Matériel de suture stérile</field>
+            <field name="category">medical</field>
+            <field name="total_qty">40</field>
+            <field name="cost">350.0</field>
+            <field name="unit">kit</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_lit_examen" model="wc.logistics.resource">
+            <field name="name">Lit d'examen médical</field>
+            <field name="category">medical</field>
+            <field name="total_qty">24</field>
+            <field name="cost">4500.0</field>
+            <field name="unit">lit</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_ecg" model="wc.logistics.resource">
+            <field name="name">Électrocardiogramme (ECG)</field>
+            <field name="category">medical</field>
+            <field name="total_qty">12</field>
+            <field name="cost">35000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_kit_dopage" model="wc.logistics.resource">
+            <field name="name">Kit prélèvement anti-dopage scellé</field>
+            <field name="category">medical</field>
+            <field name="total_qty">300</field>
+            <field name="cost">250.0</field>
+            <field name="unit">kit</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_frigo_dopage" model="wc.logistics.resource">
+            <field name="name">Réfrigérateur d'échantillons anti-dopage</field>
+            <field name="category">medical</field>
+            <field name="total_qty">8</field>
+            <field name="cost">12000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_fauteuil_roulant" model="wc.logistics.resource">
+            <field name="name">Fauteuil roulant d'urgence</field>
+            <field name="category">medical</field>
+            <field name="total_qty">80</field>
+            <field name="cost">2800.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_marrakech"/>
+        </record>
+
+
+        <!-- ========================================== -->
+        <!-- LOGISTIQUE MATÉRIELLE ET TECHNIQUE         -->
+        <!-- ========================================== -->
+        <record id="res_projecteur_led" model="wc.logistics.resource">
+            <field name="name">Projecteur de stade LED (2000 lux)</field>
+            <field name="category">tech</field>
+            <field name="total_qty">2400</field>
+            <field name="cost">15000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_generateur_secours" model="wc.logistics.resource">
+            <field name="name">Groupe électrogène de secours (auto)</field>
+            <field name="category">tech</field>
+            <field name="total_qty">16</field>
+            <field name="cost">250000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_onduleur_ups" model="wc.logistics.resource">
+            <field name="name">Onduleur (UPS) critique</field>
+            <field name="category">tech</field>
+            <field name="total_qty">48</field>
+            <field name="cost">18000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_serveur_var" model="wc.logistics.resource">
+            <field name="name">Serveur informatique arbitrage (VAR)</field>
+            <field name="category">tech</field>
+            <field name="total_qty">12</field>
+            <field name="cost">350000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_camera_goal_line" model="wc.logistics.resource">
+            <field name="name">Caméra Goal-Line Technology</field>
+            <field name="category">tech</field>
+            <field name="total_qty">96</field>
+            <field name="cost">95000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_casque_arbitre" model="wc.logistics.resource">
+            <field name="name">Micro-casque de communication arbitre</field>
+            <field name="category">communication</field>
+            <field name="total_qty">60</field>
+            <field name="cost">12000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_tondeuse_pelouse" model="wc.logistics.resource">
+            <field name="name">Tondeuse hélicoïdale de précision</field>
+            <field name="category">cleaning</field>
+            <field name="total_qty">24</field>
+            <field name="cost">85000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_luminotherapie_pelouse" model="wc.logistics.resource">
+            <field name="name">Rampe de luminothérapie mobile pelouse</field>
+            <field name="category">tech</field>
+            <field name="total_qty">48</field>
+            <field name="cost">180000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_bache_thermique" model="wc.logistics.resource">
+            <field name="name">Bâche thermique de protection pelouse</field>
+            <field name="category">furniture</field>
+            <field name="total_qty">12</field>
+            <field name="cost">15000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+        </record>
+
+        <record id="res_arrosage_prog" model="wc.logistics.resource">
+            <field name="name">Système d'arrosage automatique programmé</field>
+            <field name="category">tech</field>
+            <field name="total_qty">12</field>
+            <field name="cost">120000.0</field>
+            <field name="unit">système</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_traceuse_gps" model="wc.logistics.resource">
+            <field name="name">Traceuse de ligne par GPS</field>
+            <field name="category">cleaning</field>
+            <field name="total_qty">12</field>
+            <field name="cost">45000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_marrakech"/>
+        </record>
+
+        <record id="res_boitier_presse" model="wc.logistics.resource">
+            <field name="name">Boîte de dérivation audio presse</field>
+            <field name="category">tech</field>
+            <field name="total_qty">64</field>
+            <field name="cost">8500.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_routeur_wifi_5g" model="wc.logistics.resource">
+            <field name="name">Routeur Wi-Fi / 5G haute densité</field>
+            <field name="category">communication</field>
+            <field name="total_qty">160</field>
+            <field name="cost">3500.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+
+        <!-- ========================================== -->
+        <!-- SPECTATEURS ET OPÉRATIONS COMMERCIALES     -->
+        <!-- ========================================== -->
+        <record id="res_chambre_froide" model="wc.logistics.resource">
+            <field name="name">Chambre froide restauration</field>
+            <field name="category">catering</field>
+            <field name="total_qty">24</field>
+            <field name="cost">160000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_tpe" model="wc.logistics.resource">
+            <field name="name">Terminal de Point de Vente (TPE)</field>
+            <field name="category">catering</field>
+            <field name="total_qty">800</field>
+            <field name="cost">1500.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_machine_glace" model="wc.logistics.resource">
+            <field name="name">Machine à glace industrielle</field>
+            <field name="category">catering</field>
+            <field name="total_qty">32</field>
+            <field name="cost">28000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_chariot_logistique" model="wc.logistics.resource">
+            <field name="name">Chariot logistique de ravitaillement</field>
+            <field name="category">catering</field>
+            <field name="total_qty">120</field>
+            <field name="cost">2500.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+        </record>
+
+        <record id="res_mobilier_vip" model="wc.logistics.resource">
+            <field name="name">Lot mobilier de réception premium (VIP)</field>
+            <field name="category">furniture</field>
+            <field name="total_qty">48</field>
+            <field name="cost">85000.0</field>
+            <field name="unit">lot</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_maintien_chaud_froid" model="wc.logistics.resource">
+            <field name="name">Matériel de maintien chaud/froid buffet</field>
+            <field name="category">catering</field>
+            <field name="total_qty">96</field>
+            <field name="cost">12000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+        </record>
+
+        <record id="res_poubelle_tri" model="wc.logistics.resource">
+            <field name="name">Poubelle de tri sélectif</field>
+            <field name="category">cleaning</field>
+            <field name="total_qty">4000</field>
+            <field name="cost">450.0</field>
+            <field name="unit">bac</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_compacteur_dechet" model="wc.logistics.resource">
+            <field name="name">Compacteur de déchets industriel</field>
+            <field name="category">cleaning</field>
+            <field name="total_qty">12</field>
+            <field name="cost">150000.0</field>
+            <field name="unit">unité</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+        </record>
+
+        <record id="res_benne_evac" model="wc.logistics.resource">
+            <field name="name">Benne d'évacuation déchets</field>
+            <field name="category">cleaning</field>
+            <field name="total_qty">24</field>
+            <field name="cost">18000.0</field>
+            <field name="unit">benne</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
         </record>
 
     </data>

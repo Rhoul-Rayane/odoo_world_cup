@@ -7,4 +7,3 @@ access_wc_dashboard_incident_sev_user,wc.dashboard.incident.severity.user,model_
 access_wc_dashboard_budget_cat_user,wc.dashboard.budget.category.user,model_wc_dashboard_budget_category,base.group_user,1,0,0,0
 access_wc_dashboard_waste_type_user,wc.dashboard.waste.type.user,model_wc_dashboard_waste_type,base.group_user,1,0,0,0
 access_wc_dashboard_carbon_cat_user,wc.dashboard.carbon.category.user,model_wc_dashboard_carbon_category,base.group_user,1,0,0,0
-access_wc_dashboard_transport_type_user,wc.dashboard.transport.type.user,model_wc_dashboard_transport_type,base.group_user,1,0,0,0

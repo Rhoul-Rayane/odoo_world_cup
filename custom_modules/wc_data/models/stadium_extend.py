@@ -43,11 +43,4 @@ class Stadium(models.Model):
         'other': 'set default',
     })
 
-    gps_lat = fields.Float(string='Latitude GPS', digits=(9, 6))
-    gps_lng = fields.Float(string='Longitude GPS', digits=(9, 6))
-    fifa_code = fields.Char(string='Code FIFA Stade', size=3, index=True)
 
-    _fifa_code_uniq = models.Constraint(
-        'unique(fifa_code)',
-        'Le code FIFA du stade doit être unique.',
-    )

@@ -1,92 +1,306 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data noupdate="1">
+    <data>
 
-        <!-- ============ STADES MAROCAINS ============ -->
-        <record id="stadium_hassan_ii" model="wc.stadium">
-            <field name="name">Grand Stade Hassan II</field>
-            <field name="city">Benslimane</field>
-            <field name="capacity">115000</field>
+        <!-- ============ OFFICIAL MATCH VENUES (FIFA 2030) ============ -->
+        <record id="stadium_ibn_batouta" model="wc.stadium">
+            <field name="name">Grand Stade de Tanger</field>
+            <field name="city">Tanger</field>
+            <field name="capacity">75600</field>
+            <field name="gross_capacity">75600</field>
+            <field name="net_capacity">75600</field>
+            <field name="stadium_type">match</field>
             <field name="country">morocco</field>
-            <field name="state">construction</field>
-            <field name="address">Benslimane, Région Casablanca-Settat</field>
+            <field name="fifa_code">TNG</field>
+            <field name="gps_lat">35.7336</field>
+            <field name="gps_lng">-5.8450</field>
+            <field name="state">ready</field>
         </record>
 
-        <record id="stadium_ibn_batouta" model="wc.stadium">
-            <field name="name">Stade Ibn Batouta</field>
-            <field name="city">Tanger</field>
-            <field name="capacity">65000</field>
+        <record id="stadium_rabat" model="wc.stadium">
+            <field name="name">Stade Prince Moulay Abdellah</field>
+            <field name="city">Rabat</field>
+            <field name="capacity">68700</field>
+            <field name="gross_capacity">68700</field>
+            <field name="net_capacity">68700</field>
+            <field name="stadium_type">match</field>
             <field name="country">morocco</field>
+            <field name="fifa_code">RBT</field>
+            <field name="gps_lat">33.9592</field>
+            <field name="gps_lng">-6.8481</field>
+            <field name="state">ready</field>
+        </record>
+
+        <record id="stadium_hassan_ii" model="wc.stadium">
+            <field name="name">Grand Stade Hassan II</field>
+            <field name="city">Casablanca</field>
+            <field name="capacity">115000</field>
+            <field name="gross_capacity">115000</field>
+            <field name="net_capacity">115000</field>
+            <field name="stadium_type">match</field>
+            <field name="country">morocco</field>
+            <field name="fifa_code">CAS</field>
+            <field name="gps_lat">33.6214</field>
+            <field name="gps_lng">-7.5028</field>
+            <field name="state">ready</field>
+        </record>
+
+        <record id="stadium_fes" model="wc.stadium">
+            <field name="name">Stade de Fès</field>
+            <field name="city">Fès</field>
+            <field name="capacity">55800</field>
+            <field name="gross_capacity">55800</field>
+            <field name="net_capacity">55800</field>
+            <field name="stadium_type">match</field>
+            <field name="country">morocco</field>
+            <field name="fifa_code">FEZ</field>
+            <field name="gps_lat">34.0044</field>
+            <field name="gps_lng">-4.9786</field>
             <field name="state">ready</field>
         </record>
 
         <record id="stadium_marrakech" model="wc.stadium">
             <field name="name">Grand Stade de Marrakech</field>
             <field name="city">Marrakech</field>
-            <field name="capacity">45000</field>
+            <field name="capacity">45860</field>
+            <field name="gross_capacity">45860</field>
+            <field name="net_capacity">45860</field>
+            <field name="stadium_type">match</field>
             <field name="country">morocco</field>
+            <field name="fifa_code">RAK</field>
+            <field name="gps_lat">31.7056</field>
+            <field name="gps_lng">-7.9806</field>
             <field name="state">ready</field>
         </record>
 
         <record id="stadium_agadir" model="wc.stadium">
             <field name="name">Grand Stade d'Agadir</field>
             <field name="city">Agadir</field>
+            <field name="capacity">46000</field>
+            <field name="gross_capacity">46000</field>
+            <field name="net_capacity">46000</field>
+            <field name="stadium_type">match</field>
+            <field name="country">morocco</field>
+            <field name="fifa_code">AGA</field>
+            <field name="gps_lat">30.4286</field>
+            <field name="gps_lng">-9.5397</field>
+            <field name="state">ready</field>
+        </record>
+
+        <!-- ============ OFFICIAL TRAINING SITES & BASE CAMPS ============ -->
+        <record id="stadium_complexe_mohammed_v" model="wc.stadium">
+            <field name="name">Complexe Mohammed V</field>
+            <field name="city">Casablanca</field>
             <field name="capacity">45000</field>
+            <field name="gross_capacity">45000</field>
+            <field name="net_capacity">45000</field>
+            <field name="stadium_type">training</field>
             <field name="country">morocco</field>
+            <field name="fifa_code">MV5</field>
+            <field name="gps_lat">33.5828</field>
+            <field name="gps_lng">-7.6475</field>
             <field name="state">ready</field>
         </record>
 
-        <record id="stadium_fes" model="wc.stadium">
-            <field name="name">Grand Stade de Fès</field>
-            <field name="city">Fès</field>
-            <field name="capacity">50000</field>
-            <field name="country">morocco</field>
-            <field name="state">construction</field>
-        </record>
-
-        <record id="stadium_rabat" model="wc.stadium">
-            <field name="name">Stade Moulay Abdellah</field>
+        <record id="stadium_moulay_el_hassan" model="wc.stadium">
+            <field name="name">Stade Moulay El Hassan</field>
             <field name="city">Rabat</field>
-            <field name="capacity">52000</field>
+            <field name="capacity">22000</field>
+            <field name="gross_capacity">22000</field>
+            <field name="net_capacity">22000</field>
+            <field name="stadium_type">training</field>
             <field name="country">morocco</field>
+            <field name="fifa_code">MEH</field>
+            <field name="gps_lat">33.9722</field>
+            <field name="gps_lng">-6.8286</field>
             <field name="state">ready</field>
         </record>
 
-        <!-- ============ ZONES EXEMPLE (Grand Stade Hassan II) ============ -->
-        <record id="zone_hassan_tribune_nord" model="wc.stadium.zone">
-            <field name="name">Tribune Nord</field>
-            <field name="stadium_id" ref="stadium_hassan_ii"/>
-            <field name="zone_type">tribune</field>
-            <field name="capacity">25000</field>
+        <record id="stadium_olympique_rabat" model="wc.stadium">
+            <field name="name">Stade Olympique de Rabat</field>
+            <field name="city">Rabat</field>
+            <field name="capacity">21000</field>
+            <field name="gross_capacity">21000</field>
+            <field name="net_capacity">21000</field>
+            <field name="stadium_type">training</field>
+            <field name="country">morocco</field>
+            <field name="fifa_code">SOR</field>
+            <field name="gps_lat">33.9481</field>
+            <field name="gps_lng">-6.8833</field>
+            <field name="state">ready</field>
         </record>
 
-        <record id="zone_hassan_tribune_sud" model="wc.stadium.zone">
-            <field name="name">Tribune Sud</field>
-            <field name="stadium_id" ref="stadium_hassan_ii"/>
-            <field name="zone_type">tribune</field>
-            <field name="capacity">25000</field>
+        <record id="stadium_al_medina" model="wc.stadium">
+            <field name="name">Stade Al-Medina</field>
+            <field name="city">Rabat</field>
+            <field name="capacity">18000</field>
+            <field name="gross_capacity">18000</field>
+            <field name="net_capacity">18000</field>
+            <field name="stadium_type">training</field>
+            <field name="country">morocco</field>
+            <field name="fifa_code">MED</field>
+            <field name="gps_lat">33.9856</field>
+            <field name="gps_lng">-6.8611</field>
+            <field name="state">ready</field>
         </record>
 
+        <!-- ============ DEFAULT ZONES FOR MATCH VENUES ============ -->
+        <!-- 1. Tanger -->
+        <record id="zone_tanger_a" model="wc.stadium.zone">
+            <field name="name">Loges VIP</field>
+            <field name="stadium_id" ref="stadium_ibn_batouta"/>
+            <field name="zone_type">vip</field>
+            <field name="capacity">3780</field>
+        </record>
+        <record id="zone_tanger_b" model="wc.stadium.zone">
+            <field name="name">Tribune Presse</field>
+            <field name="stadium_id" ref="stadium_ibn_batouta"/>
+            <field name="zone_type">press</field>
+            <field name="capacity">1512</field>
+        </record>
+        <record id="zone_tanger_c" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public A</field>
+            <field name="stadium_id" ref="stadium_ibn_batouta"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">35154</field>
+        </record>
+        <record id="zone_tanger_d" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public B</field>
+            <field name="stadium_id" ref="stadium_ibn_batouta"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">35154</field>
+        </record>
+
+        <!-- 2. Rabat (Prince Moulay Abdellah) -->
+        <record id="zone_rbt_a" model="wc.stadium.zone">
+            <field name="name">Loges VIP</field>
+            <field name="stadium_id" ref="stadium_rabat"/>
+            <field name="zone_type">vip</field>
+            <field name="capacity">3435</field>
+        </record>
+        <record id="zone_rbt_b" model="wc.stadium.zone">
+            <field name="name">Tribune Presse</field>
+            <field name="stadium_id" ref="stadium_rabat"/>
+            <field name="zone_type">press</field>
+            <field name="capacity">1374</field>
+        </record>
+        <record id="zone_rbt_c" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public A</field>
+            <field name="stadium_id" ref="stadium_rabat"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">31945</field>
+        </record>
+        <record id="zone_rbt_d" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public B</field>
+            <field name="stadium_id" ref="stadium_rabat"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">31946</field>
+        </record>
+
+        <!-- 3. Casablanca (Hassan II) -->
         <record id="zone_hassan_vip" model="wc.stadium.zone">
             <field name="name">Loges VIP</field>
             <field name="stadium_id" ref="stadium_hassan_ii"/>
             <field name="zone_type">vip</field>
-            <field name="capacity">5000</field>
+            <field name="capacity">5750</field>
         </record>
-
         <record id="zone_hassan_presse" model="wc.stadium.zone">
             <field name="name">Tribune Presse</field>
             <field name="stadium_id" ref="stadium_hassan_ii"/>
             <field name="zone_type">press</field>
-            <field name="capacity">2000</field>
+            <field name="capacity">2300</field>
+        </record>
+        <record id="zone_hassan_tribune_nord" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public A</field>
+            <field name="stadium_id" ref="stadium_hassan_ii"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">53475</field>
+        </record>
+        <record id="zone_cas_d" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public B</field>
+            <field name="stadium_id" ref="stadium_hassan_ii"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">53475</field>
         </record>
 
-        <record id="zone_hassan_medical" model="wc.stadium.zone">
-            <field name="name">Zone Médicale</field>
-            <field name="stadium_id" ref="stadium_hassan_ii"/>
-            <field name="zone_type">medical</field>
-            <field name="capacity">100</field>
+        <!-- 4. Fès -->
+        <record id="zone_fez_a" model="wc.stadium.zone">
+            <field name="name">Loges VIP</field>
+            <field name="stadium_id" ref="stadium_fes"/>
+            <field name="zone_type">vip</field>
+            <field name="capacity">2790</field>
         </record>
+        <record id="zone_fez_b" model="wc.stadium.zone">
+            <field name="name">Tribune Presse</field>
+            <field name="stadium_id" ref="stadium_fes"/>
+            <field name="zone_type">press</field>
+            <field name="capacity">1116</field>
+        </record>
+        <record id="zone_fez_c" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public A</field>
+            <field name="stadium_id" ref="stadium_fes"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">25947</field>
+        </record>
+        <record id="zone_fez_d" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public B</field>
+            <field name="stadium_id" ref="stadium_fes"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">25947</field>
+        </record>
+
+        <!-- 5. Marrakech -->
+        <record id="zone_rak_a" model="wc.stadium.zone">
+            <field name="name">Loges VIP</field>
+            <field name="stadium_id" ref="stadium_marrakech"/>
+            <field name="zone_type">vip</field>
+            <field name="capacity">2293</field>
+        </record>
+        <record id="zone_rak_b" model="wc.stadium.zone">
+            <field name="name">Tribune Presse</field>
+            <field name="stadium_id" ref="stadium_marrakech"/>
+            <field name="zone_type">press</field>
+            <field name="capacity">917</field>
+        </record>
+        <record id="zone_rak_c" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public A</field>
+            <field name="stadium_id" ref="stadium_marrakech"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">21325</field>
+        </record>
+        <record id="zone_rak_d" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public B</field>
+            <field name="stadium_id" ref="stadium_marrakech"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">21325</field>
+        </record>
+
+        <!-- 6. Agadir -->
+        <record id="zone_aga_a" model="wc.stadium.zone">
+            <field name="name">Loges VIP</field>
+            <field name="stadium_id" ref="stadium_agadir"/>
+            <field name="zone_type">vip</field>
+            <field name="capacity">2300</field>
+        </record>
+        <record id="zone_aga_b" model="wc.stadium.zone">
+            <field name="name">Tribune Presse</field>
+            <field name="stadium_id" ref="stadium_agadir"/>
+            <field name="zone_type">press</field>
+            <field name="capacity">920</field>
+        </record>
+        <record id="zone_aga_c" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public A</field>
+            <field name="stadium_id" ref="stadium_agadir"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">21390</field>
+        </record>
+        <record id="zone_aga_d" model="wc.stadium.zone">
+            <field name="name">Tribune Grand Public B</field>
+            <field name="stadium_id" ref="stadium_agadir"/>
+            <field name="zone_type">tribune</field>
+            <field name="capacity">21390</field>
+        </record>
+
 
     </data>
 </odoo>

@@ -42,13 +42,7 @@ class WcDashboard(models.Model):
     transport_planned = fields.Integer(string='Navettes planifiées', compute='_compute_logistics_kpis')
     request_pending = fields.Integer(string='Demandes en attente', compute='_compute_logistics_kpis')
 
-    # ============ KPI TRANSPORT ============
-    transport_line_total = fields.Integer(string='Lignes de transport', compute='_compute_transport_kpis')
-    transport_station_total = fields.Integer(string='Stations', compute='_compute_transport_kpis')
-    parking_total = fields.Integer(string='Zones de parking', compute='_compute_transport_kpis')
-    parking_avg_occupancy = fields.Float(string='Occupation moyenne parkings (%)', compute='_compute_transport_kpis', digits=(5, 1))
-    parking_full = fields.Integer(string='Parkings pleins (>90%)', compute='_compute_transport_kpis')
-    schedule_total = fields.Integer(string='Trajets programmés', compute='_compute_transport_kpis')
+
 
     # ============ KPI SÉCURITÉ ============
     security_deployment_total = fields.Integer(string='Déploiements sécurité', compute='_compute_security_kpis')
@@ -142,20 +136,7 @@ class WcDashboard(models.Model):
             rec.transport_planned = Transport.search_count([('state', '=', 'planned')])
             rec.request_pending = Request.search_count([('state', 'in', ('draft', 'submitted'))])
 
-    def _compute_transport_kpis(self):
-        Line = self.env['wc.transport.line']
-        Station = self.env['wc.transport.station']
-        Parking = self.env['wc.parking.zone']
-        Schedule = self.env['wc.transport.schedule']
-        for rec in self:
-            rec.transport_line_total = Line.search_count([])
-            rec.transport_station_total = Station.search_count([])
-            all_parkings = Parking.search([])
-            rec.parking_total = len(all_parkings)
-            occupancies = all_parkings.mapped('occupancy_rate')
-            rec.parking_avg_occupancy = sum(occupancies) / len(occupancies) if occupancies else 0
-            rec.parking_full = Parking.search_count([('occupancy_rate', '>', 90)])
-            rec.schedule_total = Schedule.search_count([])
+
 
     def _compute_security_kpis(self):
         Deployment = self.env['wc.security.deployment']
@@ -244,15 +225,7 @@ class WcDashboard(models.Model):
             'domain': [('safety_status', 'in', ['danger', 'warning'])],
         }
 
-    def action_open_parking_full(self):
-        """Ouvre les parkings avec occupation > 90%."""
-        return {
-            'type': 'ir.actions.act_window',
-            'name': '🅿️ Parkings Pleins',
-            'res_model': 'wc.parking.zone',
-            'view_mode': 'list,form',
-            'domain': [('occupancy_rate', '>', 90)],
-        }
+
 
     def action_open_non_conformity(self):
         """Ouvre les audits en non-conformité."""
@@ -491,31 +464,4 @@ class CarbonByCategory(models.Model):
         """)
 
 
-class TransportByType(models.Model):
-    """Vue SQL : lignes de transport par type."""
-    _name = 'wc.dashboard.transport.type'
-    _description = 'Lignes de transport par type'
-    _auto = False
-    _order = 'line_type'
 
-    line_type = fields.Selection([
-        ('bus', 'Bus / Navette'),
-        ('tram', 'Tramway'),
-        ('train', 'Train'),
-        ('metro', 'Métro'),
-    ], string='Type', readonly=True)
-    line_count = fields.Integer(string='Lignes', readonly=True)
-    total_capacity = fields.Integer(string='Capacité totale', readonly=True)
-
-    def init(self):
-        self.env.cr.execute("""
-            CREATE OR REPLACE VIEW wc_dashboard_transport_type AS (
-                SELECT
-                    ROW_NUMBER() OVER () AS id,
-                    line_type,
-                    COUNT(*) AS line_count,
-                    COALESCE(SUM(capacity_per_hour), 0) AS total_capacity
-                FROM wc_transport_line
-                GROUP BY line_type
-            )
-        """)

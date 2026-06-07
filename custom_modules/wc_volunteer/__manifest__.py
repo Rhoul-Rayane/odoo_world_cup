@@ -17,6 +17,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/volunteer_data.xml',
+        'data/volunteer_test_records.xml',
         'views/volunteer_views.xml',
         'views/menu_views.xml',
     ],

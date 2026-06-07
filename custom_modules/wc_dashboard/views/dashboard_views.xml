@@ -69,25 +69,8 @@
                             </group>
                         </page>
 
-                        <!-- TAB 2 : TRANSPORT & SÉCURITÉ -->
-                        <page string="🚌 Transport &amp; Sécurité" name="transport_security">
-                            <!-- TRANSPORT -->
-                            <group string="🚌 Transport Multimodal">
-                                <group>
-                                    <field name="transport_line_total"/>
-                                    <field name="transport_station_total"/>
-                                    <field name="schedule_total"/>
-                                </group>
-                                <group>
-                                    <field name="parking_total"/>
-                                    <field name="parking_avg_occupancy" widget="progressbar"/>
-                                    <field name="parking_full"/>
-                                    <button name="action_open_parking_full" type="object"
-                                            string="🅿️ Voir parkings pleins"
-                                            class="btn-link" icon="fa-car"/>
-                                </group>
-                            </group>
-
+                        <!-- TAB 2 : SÉCURITÉ & LOGISTIQUE -->
+                        <page string="🛡️ Sécurité &amp; Logistique" name="security_logistics">
                             <!-- SÉCURITÉ -->
                             <group string="🛡️ Sécurité">
                                 <group>
@@ -357,29 +340,32 @@
         <field name="view_mode">graph,pivot</field>
     </record>
 
-    <!-- ============ GRAPH : TRANSPORT PAR TYPE ============ -->
-    <record id="wc_transport_type_graph" model="ir.ui.view">
-        <field name="name">wc.dashboard.transport.type.graph</field>
-        <field name="model">wc.dashboard.transport.type</field>
-        <field name="arch" type="xml">
-            <graph string="Transport par Type" type="pie">
-                <field name="line_type" type="row"/>
-                <field name="total_capacity" type="measure"/>
-            </graph>
-        </field>
-    </record>
 
-    <record id="wc_transport_type_action" model="ir.actions.act_window">
-        <field name="name">📊 Transport par Type</field>
-        <field name="res_model">wc.dashboard.transport.type</field>
-        <field name="view_mode">graph,pivot</field>
-    </record>
 
     <!-- ============ DASHBOARD ACTION ============ -->
     <record id="wc_dashboard_action" model="ir.actions.act_window">
         <field name="name">Tableau de Bord</field>
         <field name="res_model">wc.dashboard</field>
         <field name="view_mode">form</field>
+    </record>
+
+    <!-- Server Action to open/create dashboard singleton -->
+    <record id="action_wc_dashboard_server" model="ir.actions.server">
+        <field name="name">Tableau de Bord</field>
+        <field name="model_id" ref="model_wc_dashboard"/>
+        <field name="state">code</field>
+        <field name="code">
+dashboard = env['wc.dashboard'].sudo().search([], limit=1)
+if not dashboard:
+    dashboard = env['wc.dashboard'].sudo().create({'name': 'Dashboard Principal'})
+action = env.ref('wc_dashboard.wc_dashboard_action').sudo().read()[0]
+action['res_id'] = dashboard.id
+action['view_mode'] = 'form'
+action['views'] = [(env.ref('wc_dashboard.wc_dashboard_view_form').id, 'form')]
+action['target'] = 'current'
+action['flags'] = {'initial_mode': 'view'}
+action_id = action
+        </field>
     </record>
 
 </odoo>

@@ -8,11 +8,9 @@
                 <field name="year"/>
                 <field name="host_country"/>
                 <field name="winner"/>
-                <field name="runner_up"/>
                 <field name="teams_count"/>
                 <field name="matches_count"/>
                 <field name="goals_count"/>
-                <field name="attendance" sum="Total Attendance"/>
             </list>
         </field>
     </record>
@@ -36,9 +34,6 @@
                         </group>
                         <group>
                             <field name="winner"/>
-                            <field name="runner_up"/>
-                            <field name="third_place"/>
-                            <field name="fourth_place"/>
                         </group>
                     </group>
                     <group string="Statistiques Globales">
@@ -48,7 +43,6 @@
                         </group>
                         <group>
                             <field name="goals_count"/>
-                            <field name="attendance"/>
                         </group>
                     </group>
                 </sheet>

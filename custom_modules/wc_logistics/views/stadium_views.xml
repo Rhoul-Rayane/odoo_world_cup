@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_wc_stadium_form_inherit_stock" model="ir.ui.view">
+        <field name="name">wc.stadium.form.inherit.stock</field>
+        <field name="model">wc.stadium</field>
+        <field name="inherit_id" ref="wc_base.wc_stadium_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='address']" position="after">
+                <field name="location_id" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

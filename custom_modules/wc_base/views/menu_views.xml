@@ -14,12 +14,7 @@
               action="wc_stadium_action"
               sequence="10"/>
 
-    <!-- Sous-menu Zones -->
-    <menuitem id="wc_menu_zones"
-              name="Zones de Stade"
-              parent="wc_main_menu"
-              action="wc_stadium_zone_action"
-              sequence="20"/>
+
 
     <!-- Sous-menu Matchs -->
     <menuitem id="wc_menu_matches"

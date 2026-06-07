@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============================================================ -->
+        <!-- Utilisateur 1 : Volontaire / Stadier (Scanner)               -->
+        <!-- Login: volunteer@worldcup.com / Password: VolunteerPassword2030! -->
+        <!-- ============================================================ -->
+        <record id="user_wc_volunteer" model="res.users">
+            <field name="name">Ahmed El Fadili (Volontaire)</field>
+            <field name="login">volunteer@worldcup.com</field>
+            <field name="password">VolunteerPassword2030!</field>
+            <field name="group_ids" eval="[
+                (4, ref('base.group_user')),
+                (4, ref('wc_base.group_wc_volunteer')),
+            ]"/>
+        </record>
+
+        <!-- ============================================================ -->
+        <!-- Utilisateur 2 : Superviseur de Stade                         -->
+        <!-- Login: supervisor@worldcup.com / Password: SupervisorPassword2030! -->
+        <!-- ============================================================ -->
+        <record id="user_wc_supervisor" model="res.users">
+            <field name="name">Fatima Zahra Bennis (Superviseur)</field>
+            <field name="login">supervisor@worldcup.com</field>
+            <field name="password">SupervisorPassword2030!</field>
+            <field name="group_ids" eval="[
+                (4, ref('base.group_user')),
+                (4, ref('wc_base.group_wc_supervisor')),
+            ]"/>
+        </record>
+
+        <!-- ============================================================ -->
+        <!-- Utilisateur 3 : Administrateur Coupe du Monde                -->
+        <!-- Login: admin_wc@worldcup.com / Password: AdminPassword2030!  -->
+        <!-- ============================================================ -->
+        <record id="user_wc_admin" model="res.users">
+            <field name="name">Youssef Rhoul (Administrateur)</field>
+            <field name="login">admin_wc@worldcup.com</field>
+            <field name="password">AdminPassword2030!</field>
+            <field name="group_ids" eval="[
+                (4, ref('base.group_user')),
+                (4, ref('wc_base.group_wc_admin')),
+            ]"/>
+        </record>
+
+        <!-- ============================================================ -->
+        <!-- Utilisateur 4 : Agent de Sécurité                            -->
+        <!-- Login: security@worldcup.com / Password: SecurityPassword2030! -->
+        <!-- ============================================================ -->
+        <record id="user_wc_security_agent" model="res.users">
+            <field name="name">Karim Tazi (Agent Sécurité)</field>
+            <field name="login">security@worldcup.com</field>
+            <field name="password">SecurityPassword2030!</field>
+            <field name="group_ids" eval="[
+                (4, ref('base.group_user')),
+                (4, ref('wc_base.group_wc_volunteer')),
+            ]"/>
+        </record>
+
+        <!-- ============================================================ -->
+        <!-- Utilisateur 5 : Responsable Logistique                       -->
+        <!-- Login: logistics@worldcup.com / Password: LogisticsPassword2030! -->
+        <!-- ============================================================ -->
+        <record id="user_wc_logistics_manager" model="res.users">
+            <field name="name">Sara Amrani (Responsable Logistique)</field>
+            <field name="login">logistics@worldcup.com</field>
+            <field name="password">LogisticsPassword2030!</field>
+            <field name="group_ids" eval="[
+                (4, ref('base.group_user')),
+                (4, ref('wc_base.group_wc_supervisor')),
+            ]"/>
+        </record>
+
+        <!-- ============================================================ -->
+        <!-- Utilisateur 6 : Responsable Finance                          -->
+        <!-- Login: finance@worldcup.com / Password: FinancePassword2030! -->
+        <!-- ============================================================ -->
+        <record id="user_wc_finance_manager" model="res.users">
+            <field name="name">Omar Benjelloun (Responsable Finance)</field>
+            <field name="login">finance@worldcup.com</field>
+            <field name="password">FinancePassword2030!</field>
+            <field name="group_ids" eval="[
+                (4, ref('base.group_user')),
+                (4, ref('wc_base.group_wc_admin')),
+            ]"/>
+        </record>
+
+    </data>
+</odoo>

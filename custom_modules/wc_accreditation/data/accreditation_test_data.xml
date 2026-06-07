@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============ 1. FIFA OFFICIALS (RED BADGES) ============ -->
+        <record id="acc_lekjaa" model="wc.accreditation">
+            <field name="holder_name">Fouzi Lekjaa</field>
+            <field name="holder_email">f.lekjaa@frmf.ma</field>
+            <field name="holder_phone">+212661000001</field>
+            <field name="organization">FRMF / FIFA</field>
+            <field name="function">Président du Comité de Candidature Maroc 2030</field>
+            <field name="category">fifa</field>
+            <field name="qr_token">LEKJAA2030FIFA</field>
+            <field name="date_start">2030-05-01</field>
+            <field name="date_end">2030-08-30</field>
+            <field name="state">active</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_hassan_ii'),
+                ref('wc_base.stadium_rabat'),
+                ref('wc_base.stadium_ibn_batouta'),
+                ref('wc_base.stadium_fes'),
+                ref('wc_base.stadium_marrakech'),
+                ref('wc_base.stadium_agadir')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_hassan_vip'),
+                ref('wc_base.zone_rbt_a'),
+                ref('wc_base.zone_tanger_a'),
+                ref('wc_base.zone_fez_a'),
+                ref('wc_base.zone_rak_a'),
+                ref('wc_base.zone_aga_a')
+            ])]"/>
+        </record>
+
+        <record id="acc_infantino" model="wc.accreditation">
+            <field name="holder_name">Gianni Infantino</field>
+            <field name="holder_email">g.infantino@fifa.org</field>
+            <field name="organization">FIFA</field>
+            <field name="function">Président de la FIFA</field>
+            <field name="category">fifa</field>
+            <field name="qr_token">INFANTINOFIFA30</field>
+            <field name="date_start">2030-06-01</field>
+            <field name="date_end">2030-07-31</field>
+            <field name="state">active</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_hassan_ii'),
+                ref('wc_base.stadium_rabat'),
+                ref('wc_base.stadium_ibn_batouta')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_hassan_vip'),
+                ref('wc_base.zone_rbt_a'),
+                ref('wc_base.zone_tanger_a')
+            ])]"/>
+        </record>
+
+        <!-- ============ 2. TEAMS / STAFF (BLUE BADGES) ============ -->
+        <record id="acc_regragui" model="wc.accreditation">
+            <field name="holder_name">Walid Regragui</field>
+            <field name="holder_email">w.regragui@frmf.ma</field>
+            <field name="organization">Équipe Nationale du Maroc</field>
+            <field name="function">Sélectionneur Principal</field>
+            <field name="category">team</field>
+            <field name="qr_token">REGRAGUIMAR2030</field>
+            <field name="date_start">2030-05-15</field>
+            <field name="date_end">2030-08-15</field>
+            <field name="state">active</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_hassan_ii'),
+                ref('wc_base.stadium_rabat'),
+                ref('wc_base.stadium_complexe_mohammed_v')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_hassan_vip'),
+                ref('wc_base.zone_hassan_presse'),
+                ref('wc_base.zone_rbt_a'),
+                ref('wc_base.zone_rbt_b')
+            ])]"/>
+        </record>
+
+        <record id="acc_hakimi" model="wc.accreditation">
+            <field name="holder_name">Achraf Hakimi</field>
+            <field name="organization">Équipe Nationale du Maroc</field>
+            <field name="function">Joueur (Défenseur / Capitaine)</field>
+            <field name="category">team</field>
+            <field name="qr_token">HAKIMIMAROC2030</field>
+            <field name="date_start">2030-05-15</field>
+            <field name="date_end">2030-08-15</field>
+            <field name="state">printed</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_hassan_ii'),
+                ref('wc_base.stadium_rabat')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_hassan_vip'),
+                ref('wc_base.zone_rbt_a')
+            ])]"/>
+        </record>
+
+        <record id="acc_ronaldo" model="wc.accreditation">
+            <field name="holder_name">Cristiano Ronaldo</field>
+            <field name="organization">Équipe Nationale du Portugal</field>
+            <field name="function">Joueur (Attaquant)</field>
+            <field name="category">team</field>
+            <field name="qr_token">CR7PORTUGAL2030</field>
+            <field name="date_start">2030-06-01</field>
+            <field name="date_end">2030-07-31</field>
+            <field name="state">approved</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_ibn_batouta'),
+                ref('wc_base.stadium_marrakech')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_tanger_a'),
+                ref('wc_base.zone_rak_a')
+            ])]"/>
+        </record>
+
+        <!-- ============ 3. MEDIA & PRESS (GREEN BADGES) ============ -->
+        <record id="acc_bouzrara" model="wc.accreditation">
+            <field name="holder_name">Jalal Bouzrara</field>
+            <field name="holder_email">j.bouzrara@snrt.ma</field>
+            <field name="organization">Arryadia TV</field>
+            <field name="function">Journaliste / Présentateur</field>
+            <field name="category">media</field>
+            <field name="qr_token">BOUZRARAMEDIA30</field>
+            <field name="date_start">2030-06-01</field>
+            <field name="date_end">2030-07-31</field>
+            <field name="state">active</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_hassan_ii'),
+                ref('wc_base.stadium_rabat'),
+                ref('wc_base.stadium_ibn_batouta'),
+                ref('wc_base.stadium_fes')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_hassan_presse'),
+                ref('wc_base.zone_rbt_b'),
+                ref('wc_base.zone_tanger_b'),
+                ref('wc_base.zone_fez_b')
+            ])]"/>
+        </record>
+
+        <record id="acc_romano" model="wc.accreditation">
+            <field name="holder_name">Fabrizio Romano</field>
+            <field name="holder_email">f.romano@media.fifa.com</field>
+            <field name="organization">Sky Sports / Freelance</field>
+            <field name="function">Journaliste Mercato / Correspondant Spécial</field>
+            <field name="category">media</field>
+            <field name="qr_token">ROMANOMEDIA2030</field>
+            <field name="date_start">2030-06-05</field>
+            <field name="date_end">2030-07-25</field>
+            <field name="state">approved</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_hassan_ii'),
+                ref('wc_base.stadium_ibn_batouta')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_hassan_presse'),
+                ref('wc_base.zone_tanger_b')
+            ])]"/>
+        </record>
+
+        <!-- ============ 4. VOLUNTEERS (YELLOW BADGES) ============ -->
+        <record id="acc_vol_amine" model="wc.accreditation">
+            <field name="holder_name">Amine El Fassi</field>
+            <field name="holder_email">amine.elfassi@example.com</field>
+            <field name="organization">Comité de Volontariat FIFA</field>
+            <field name="function">Assistant Maréchal de Sécurité</field>
+            <field name="volunteer_id" ref="wc_volunteer.volunteer_amine"/>
+            <field name="category">volunteer</field>
+            <field name="qr_token">VOLAMINEELFASSI3</field>
+            <field name="date_start">2030-06-01</field>
+            <field name="date_end">2030-07-31</field>
+            <field name="state">active</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_hassan_ii')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_hassan_tribune_nord'),
+                ref('wc_base.zone_cas_d')
+            ])]"/>
+        </record>
+
+        <record id="acc_vol_fatima" model="wc.accreditation">
+            <field name="holder_name">Fatima-Zahra Alami</field>
+            <field name="holder_email">fatimazahra.alami@example.com</field>
+            <field name="organization">Comité de Volontariat FIFA</field>
+            <field name="function">Hôte Centre de Presse (MMC)</field>
+            <field name="volunteer_id" ref="wc_volunteer.volunteer_fatima"/>
+            <field name="category">volunteer</field>
+            <field name="qr_token">VOLFATIMAZAHRA30</field>
+            <field name="date_start">2030-06-01</field>
+            <field name="date_end">2030-07-31</field>
+            <field name="state">active</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_hassan_ii')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_hassan_presse')
+            ])]"/>
+        </record>
+
+        <record id="acc_vol_meriem" model="wc.accreditation">
+            <field name="holder_name">Meriem Chraibi</field>
+            <field name="holder_email">meriem.chraibi@example.com</field>
+            <field name="organization">Comité de Volontariat FIFA</field>
+            <field name="function">Hôte Salon VIP</field>
+            <field name="volunteer_id" ref="wc_volunteer.volunteer_meriem"/>
+            <field name="category">volunteer</field>
+            <field name="qr_token">VOLMERIEMCHRAI30</field>
+            <field name="date_start">2030-06-01</field>
+            <field name="date_end">2030-07-31</field>
+            <field name="state">active</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_rabat')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_rbt_a')
+            ])]"/>
+        </record>
+
+        <!-- ============ 5. VIP / SPONSORS (PURPLE BADGES) ============ -->
+        <record id="acc_dangote" model="wc.accreditation">
+            <field name="holder_name">Aliko Dangote</field>
+            <field name="organization">Dangote Group / Sponsor Officiel</field>
+            <field name="function">Invité d'Honneur VVIP</field>
+            <field name="category">vip</field>
+            <field name="qr_token">DANGOTEVVIP2030</field>
+            <field name="date_start">2030-06-10</field>
+            <field name="date_end">2030-07-22</field>
+            <field name="state">active</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_hassan_ii'),
+                ref('wc_base.stadium_rabat')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_hassan_vip'),
+                ref('wc_base.zone_rbt_a')
+            ])]"/>
+        </record>
+
+        <record id="acc_branson" model="wc.accreditation">
+            <field name="holder_name">Richard Branson</field>
+            <field name="organization">Virgin Group / Sponsor Prestige</field>
+            <field name="function">Représentant Partenaire Majeur</field>
+            <field name="category">vip</field>
+            <field name="qr_token">BRANSONVIP20301</field>
+            <field name="date_start">2030-06-10</field>
+            <field name="date_end">2030-07-20</field>
+            <field name="state">draft</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_marrakech'),
+                ref('wc_base.stadium_agadir')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_rak_a'),
+                ref('wc_base.zone_aga_a')
+            ])]"/>
+        </record>
+
+        <!-- ============ 6. LOGISTICS & SECURITY (DARK BADGES) ============ -->
+        <record id="acc_security_rachid" model="wc.accreditation">
+            <field name="holder_name">Rachid El Morabit</field>
+            <field name="holder_email">r.elmorabit@securite.ma</field>
+            <field name="organization">G4S Maroc / Comité de Sécurité</field>
+            <field name="function">Superviseur Principal Sécurité Zone Nord</field>
+            <field name="category">logistics</field>
+            <field name="qr_token">RACHIDSECURITY30</field>
+            <field name="date_start">2030-05-01</field>
+            <field name="date_end">2030-08-30</field>
+            <field name="state">active</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_hassan_ii'),
+                ref('wc_base.stadium_ibn_batouta')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_hassan_vip'),
+                ref('wc_base.zone_hassan_presse'),
+                ref('wc_base.zone_hassan_tribune_nord'),
+                ref('wc_base.zone_cas_d'),
+                ref('wc_base.zone_tanger_a'),
+                ref('wc_base.zone_tanger_b'),
+                ref('wc_base.zone_tanger_c'),
+                ref('wc_base.zone_tanger_d')
+            ])]"/>
+        </record>
+
+        <!-- ============ 7. MEDICAL (WHITE BADGES) ============ -->
+        <record id="acc_medical_bensaid" model="wc.accreditation">
+            <field name="holder_name">Dr. Yassine Bensaïd</field>
+            <field name="holder_email">y.bensaid@sante.gov.ma</field>
+            <field name="organization">Croissant Rouge / Service Médical FIFA</field>
+            <field name="function">Médecin Coordinateur Réanimation</field>
+            <field name="category">medical</field>
+            <field name="qr_token">DRBENSAIDMED2030</field>
+            <field name="date_start">2030-06-01</field>
+            <field name="date_end">2030-08-01</field>
+            <field name="state">active</field>
+            <field name="stadium_ids" eval="[(6, 0, [
+                ref('wc_base.stadium_hassan_ii')
+            ])]"/>
+            <field name="zone_ids" eval="[(6, 0, [
+                ref('wc_base.zone_hassan_vip'),
+                ref('wc_base.zone_hassan_presse'),
+                ref('wc_base.zone_hassan_tribune_nord'),
+                ref('wc_base.zone_cas_d')
+            ])]"/>
+        </record>
+
+    </data>
+</odoo>

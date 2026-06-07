@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Catégorie pour les droits d'accès World Cup 2030 -->
+        <record id="module_category_world_cup_2030" model="ir.module.category">
+            <field name="name">Coupe du Monde 2030</field>
+            <field name="description">Droits d'accès et rôles pour la gestion de la Coupe du Monde 2030.</field>
+            <field name="sequence">100</field>
+        </record>
+
+        <!-- Groupe : Volontaire / Stadier (Scanner) -->
+        <record id="group_wc_volunteer" model="res.groups">
+            <field name="name">Volontaire / Stadier (Scanner)</field>
+
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">Volontaire chargé du scannage des billets aux portes d'accès.</field>
+        </record>
+
+        <!-- Groupe : Superviseur de Stade -->
+        <record id="group_wc_supervisor" model="res.groups">
+            <field name="name">Superviseur de Stade</field>
+
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">Superviseur opérationnel (Logistique, Sécurité, Transports, Incidents, Tableaux de bord).</field>
+        </record>
+
+        <!-- Groupe : Administrateur Coupe du Monde -->
+        <record id="group_wc_admin" model="res.groups">
+            <field name="name">Administrateur</field>
+
+            <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('group_wc_supervisor'))]"/>
+            <field name="comment">Administrateur général ayant accès à l'ensemble du système d'information.</field>
+        </record>
+
+        <!-- Associer l'administrateur système Odoo au groupe admin de la Coupe du Monde -->
+        <record id="base.group_system" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('group_wc_admin'))]"/>
+        </record>
+    </data>
+</odoo>

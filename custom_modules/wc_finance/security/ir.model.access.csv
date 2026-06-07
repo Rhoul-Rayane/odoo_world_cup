@@ -5,3 +5,8 @@ access_wc_revenue_stream_user,wc.revenue.stream.user,model_wc_revenue_stream,bas
 access_wc_revenue_stream_admin,wc.revenue.stream.admin,model_wc_revenue_stream,base.group_system,1,1,1,1
 access_wc_ticket_pricing_user,wc.ticket.pricing.user,model_wc_ticket_pricing,base.group_user,1,0,0,0
 access_wc_ticket_pricing_admin,wc.ticket.pricing.admin,model_wc_ticket_pricing,base.group_system,1,1,1,1
+access_wc_ticket_volunteer,wc.ticket.volunteer,model_wc_ticket,wc_base.group_wc_volunteer,1,0,0,0
+access_wc_ticket_supervisor,wc.ticket.supervisor,model_wc_ticket,wc_base.group_wc_supervisor,1,1,1,0
+access_wc_ticket_admin,wc.ticket.admin,model_wc_ticket,wc_base.group_wc_admin,1,1,1,1
+
+

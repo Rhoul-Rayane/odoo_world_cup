@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="volunteer_amine" model="wc.volunteer">
+            <field name="name">Amine El Fassi</field>
+            <field name="email">amine.elfassi@example.com</field>
+            <field name="phone">+212610111222</field>
+            <field name="date_of_birth">1998-05-14</field>
+            <field name="gender">male</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Gauthier, Casablanca</field>
+            <field name="id_number">CB123456</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_securite'), ref('skill_tech')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">True</field>
+            <field name="has_first_aid">True</field>
+            <field name="education_level">bac5</field>
+            <field name="availability">full</field>
+            <field name="assigned_stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="assigned_zone_id" ref="wc_base.zone_hassan_tribune_nord"/>
+            <field name="role_id" ref="role_sec_marshal"/>
+            <field name="state">active</field>
+            <field name="points">150</field>
+            <field name="badge_ids" eval="[(6, 0, [ref('badge_first_aid')])]"/>
+        </record>
+
+        <record id="volunteer_khadija" model="wc.volunteer">
+            <field name="name">Khadija Benslimane</field>
+            <field name="email">khadija.benslimane@example.com</field>
+            <field name="phone">+212620222333</field>
+            <field name="date_of_birth">2001-11-20</field>
+            <field name="gender">female</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Riad, Rabat</field>
+            <field name="id_number">G987654</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_accueil'), ref('skill_traduction')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais'), ref('lang_espagnol')])]"/>
+            <field name="has_driving_license">False</field>
+            <field name="has_vehicle">False</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac3</field>
+            <field name="availability">morning</field>
+            <field name="state">preselected</field>
+        </record>
+
+        <record id="volunteer_youssef" model="wc.volunteer">
+            <field name="name">Youssef Mansouri</field>
+            <field name="email">youssef.mansouri@example.com</field>
+            <field name="phone">+212630333444</field>
+            <field name="date_of_birth">1995-02-10</field>
+            <field name="gender">male</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Gueliz, Marrakech</field>
+            <field name="id_number">EE555666</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_transport'), ref('skill_logistique')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">True</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac</field>
+            <field name="availability">full</field>
+            <field name="assigned_stadium_id" ref="wc_base.stadium_marrakech"/>
+            <field name="assigned_zone_id" ref="wc_base.zone_rak_d"/>
+            <field name="role_id" ref="role_trn_shuttle"/>
+            <field name="state">trained</field>
+        </record>
+
+        <record id="volunteer_fatima" model="wc.volunteer">
+            <field name="name">Fatima-Zahra Alami</field>
+            <field name="email">fatimazahra.alami@example.com</field>
+            <field name="phone">+212640444555</field>
+            <field name="date_of_birth">1990-09-05</field>
+            <field name="gender">female</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Anfa, Casablanca</field>
+            <field name="id_number">C888999</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_media'), ref('skill_traduction')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais'), ref('lang_espagnol'), ref('lang_portugais')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">False</field>
+            <field name="has_first_aid">True</field>
+            <field name="education_level">phd</field>
+            <field name="availability">full</field>
+            <field name="assigned_stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="assigned_zone_id" ref="wc_base.zone_hassan_presse"/>
+            <field name="role_id" ref="role_med_welcome"/>
+            <field name="state">active</field>
+            <field name="points">350</field>
+            <field name="badge_ids" eval="[(6, 0, [ref('badge_linguist'), ref('badge_first_aid')])]"/>
+        </record>
+
+        <record id="volunteer_mohamed" model="wc.volunteer">
+            <field name="name">Mohamed Tazi</field>
+            <field name="email">mohamed.tazi@example.com</field>
+            <field name="phone">+212650555666</field>
+            <field name="date_of_birth">2003-04-18</field>
+            <field name="gender">male</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Narjiss, Fès</field>
+            <field name="id_number">FL112233</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_logistique'), ref('skill_restauration')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_amazigh')])]"/>
+            <field name="has_driving_license">False</field>
+            <field name="has_vehicle">False</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac2</field>
+            <field name="availability">evening</field>
+            <field name="state">candidate</field>
+        </record>
+
+        <record id="volunteer_laila" model="wc.volunteer">
+            <field name="name">Laila Mezouar</field>
+            <field name="email">laila.mezouar@example.com</field>
+            <field name="phone">+212660666777</field>
+            <field name="date_of_birth">1996-07-22</field>
+            <field name="gender">female</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Malabata, Tanger</field>
+            <field name="id_number">K554433</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_medical'), ref('skill_logistique')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">True</field>
+            <field name="has_first_aid">True</field>
+            <field name="education_level">bac5</field>
+            <field name="availability">weekend</field>
+            <field name="assigned_stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="assigned_zone_id" ref="wc_base.zone_tanger_a"/>
+            <field name="role_id" ref="role_med_firstaid"/>
+            <field name="state">trained</field>
+            <field name="points">150</field>
+            <field name="badge_ids" eval="[(6, 0, [ref('badge_first_aid')])]"/>
+        </record>
+
+        <record id="volunteer_karim" model="wc.volunteer">
+            <field name="name">Karim Slaoui</field>
+            <field name="email">karim.slaoui@example.com</field>
+            <field name="phone">+212670777888</field>
+            <field name="date_of_birth">2000-08-30</field>
+            <field name="gender">male</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Oasis, Casablanca</field>
+            <field name="id_number">BJ998877</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_accueil'), ref('skill_tech')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">False</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac3</field>
+            <field name="availability">morning</field>
+            <field name="state">preselected</field>
+        </record>
+
+        <record id="volunteer_meriem" model="wc.volunteer">
+            <field name="name">Meriem Chraibi</field>
+            <field name="email">meriem.chraibi@example.com</field>
+            <field name="phone">+212680888999</field>
+            <field name="date_of_birth">1997-12-11</field>
+            <field name="gender">female</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Souissi, Rabat</field>
+            <field name="id_number">A112244</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_protocole'), ref('skill_traduction')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais'), ref('lang_espagnol'), ref('lang_allemand')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">True</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac5</field>
+            <field name="availability">full</field>
+            <field name="assigned_stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="assigned_zone_id" ref="wc_base.zone_rbt_a"/>
+            <field name="role_id" ref="role_prt_lounge"/>
+            <field name="state">active</field>
+            <field name="points">450</field>
+            <field name="badge_ids" eval="[(6, 0, [ref('badge_linguist'), ref('badge_elite')])]"/>
+        </record>
+
+        <record id="volunteer_omar" model="wc.volunteer">
+            <field name="name">Omar Bennani</field>
+            <field name="email">omar.bennani@example.com</field>
+            <field name="phone">+212690999000</field>
+            <field name="date_of_birth">2002-01-15</field>
+            <field name="gender">male</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Taddart, Agadir</field>
+            <field name="id_number">EE998811</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_securite'), ref('skill_logistique')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">True</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac2</field>
+            <field name="availability">weekend</field>
+            <field name="state">candidate</field>
+        </record>
+
+        <record id="volunteer_salma" model="wc.volunteer">
+            <field name="name">Salma Iraqui</field>
+            <field name="email">salma.iraqui@example.com</field>
+            <field name="phone">+212611121314</field>
+            <field name="date_of_birth">2001-03-25</field>
+            <field name="gender">female</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Route d'Imouzzer, Fès</field>
+            <field name="id_number">FL776655</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_accueil'), ref('skill_traduction')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais')])]"/>
+            <field name="has_driving_license">False</field>
+            <field name="has_vehicle">False</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac3</field>
+            <field name="availability">morning</field>
+            <field name="state">preselected</field>
+        </record>
+
+        <record id="volunteer_anass" model="wc.volunteer">
+            <field name="name">Anass Jouahri</field>
+            <field name="email">anass.jouahri@example.com</field>
+            <field name="phone">+212612232425</field>
+            <field name="date_of_birth">1997-10-09</field>
+            <field name="gender">male</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Iberia, Tanger</field>
+            <field name="id_number">K778899</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_tech'), ref('skill_logistique')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">True</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac5</field>
+            <field name="availability">full</field>
+            <field name="assigned_stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="assigned_zone_id" ref="wc_base.zone_tanger_d"/>
+            <field name="role_id" ref="role_acc_print"/>
+            <field name="state">active</field>
+            <field name="points">100</field>
+            <field name="badge_ids" eval="[(6, 0, [ref('badge_active')])]"/>
+        </record>
+
+        <record id="volunteer_zineb" model="wc.volunteer">
+            <field name="name">Zineb Berrada</field>
+            <field name="email">zineb.berrada@example.com</field>
+            <field name="phone">+212613343536</field>
+            <field name="date_of_birth">2004-06-12</field>
+            <field name="gender">female</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Daoudiate, Marrakech</field>
+            <field name="id_number">EE443322</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_restauration'), ref('skill_accueil')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_amazigh')])]"/>
+            <field name="has_driving_license">False</field>
+            <field name="has_vehicle">False</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac</field>
+            <field name="availability">evening</field>
+            <field name="state">candidate</field>
+        </record>
+
+        <record id="volunteer_hamza" model="wc.volunteer">
+            <field name="name">Hamza Kabbaj</field>
+            <field name="email">hamza.kabbaj@example.com</field>
+            <field name="phone">+212614454647</field>
+            <field name="date_of_birth">1994-08-25</field>
+            <field name="gender">male</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Sidi Maarouf, Casablanca</field>
+            <field name="id_number">BK665544</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_protocole'), ref('skill_traduction')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais'), ref('lang_espagnol'), ref('lang_portugais')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">True</field>
+            <field name="has_first_aid">True</field>
+            <field name="education_level">bac5</field>
+            <field name="availability">full</field>
+            <field name="assigned_stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="assigned_zone_id" ref="wc_base.zone_hassan_vip"/>
+            <field name="role_id" ref="role_prt_liaison"/>
+            <field name="state">active</field>
+            <field name="points">450</field>
+            <field name="badge_ids" eval="[(6, 0, [ref('badge_linguist'), ref('badge_elite')])]"/>
+        </record>
+
+        <record id="volunteer_yasmine" model="wc.volunteer">
+            <field name="name">Yasmine Filali</field>
+            <field name="email">yasmine.filali@example.com</field>
+            <field name="phone">+212615565758</field>
+            <field name="date_of_birth">2001-01-30</field>
+            <field name="gender">female</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Plaza Toro, Tanger</field>
+            <field name="id_number">K221100</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_accueil'), ref('skill_media')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais')])]"/>
+            <field name="has_driving_license">False</field>
+            <field name="has_vehicle">False</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac3</field>
+            <field name="availability">morning</field>
+            <field name="assigned_stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="assigned_zone_id" ref="wc_base.zone_tanger_b"/>
+            <field name="role_id" ref="role_med_welcome"/>
+            <field name="state">trained</field>
+        </record>
+
+        <record id="volunteer_adnane" model="wc.volunteer">
+            <field name="name">Adnane Guessous</field>
+            <field name="email">adnane.guessous@example.com</field>
+            <field name="phone">+212616676869</field>
+            <field name="date_of_birth">1989-12-04</field>
+            <field name="gender">male</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Agdal, Rabat</field>
+            <field name="id_number">X102030</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_traduction'), ref('skill_protocole')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais'), ref('lang_espagnol')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">False</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">phd</field>
+            <field name="availability">full</field>
+            <field name="state">preselected</field>
+        </record>
+
+        <record id="volunteer_nadia" model="wc.volunteer">
+            <field name="name">Nadia Skalli</field>
+            <field name="email">nadia.skalli@example.com</field>
+            <field name="phone">+212617787980</field>
+            <field name="date_of_birth">2002-11-27</field>
+            <field name="gender">female</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Massira, Marrakech</field>
+            <field name="id_number">EE885544</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_logistique'), ref('skill_transport')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">False</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac2</field>
+            <field name="availability">evening</field>
+            <field name="state">candidate</field>
+        </record>
+
+        <record id="volunteer_walid" model="wc.volunteer">
+            <field name="name">Walid Belkhayat</field>
+            <field name="email">walid.belkhayat@example.com</field>
+            <field name="phone">+212618899091</field>
+            <field name="date_of_birth">1999-03-16</field>
+            <field name="gender">male</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Belvédère, Casablanca</field>
+            <field name="id_number">BK990088</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_securite'), ref('skill_accueil')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">True</field>
+            <field name="has_first_aid">True</field>
+            <field name="education_level">bac3</field>
+            <field name="availability">full</field>
+            <field name="assigned_stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="assigned_zone_id" ref="wc_base.zone_hassan_tribune_nord"/>
+            <field name="role_id" ref="role_sec_flow"/>
+            <field name="state">active</field>
+            <field name="points">150</field>
+            <field name="badge_ids" eval="[(6, 0, [ref('badge_first_aid')])]"/>
+        </record>
+
+        <record id="volunteer_safae" model="wc.volunteer">
+            <field name="name">Safae Benjelloun</field>
+            <field name="email">safae.benjelloun@example.com</field>
+            <field name="phone">+212619900102</field>
+            <field name="date_of_birth">1998-02-05</field>
+            <field name="gender">female</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Rte d'Aïn Chkef, Fès</field>
+            <field name="id_number">FL445566</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_protocole'), ref('skill_accueil')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais')])]"/>
+            <field name="has_driving_license">False</field>
+            <field name="has_vehicle">False</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac5</field>
+            <field name="availability">weekend</field>
+            <field name="assigned_stadium_id" ref="wc_base.stadium_fes"/>
+            <field name="assigned_zone_id" ref="wc_base.zone_fez_c"/>
+            <field name="role_id" ref="role_prt_mascot"/>
+            <field name="state">trained</field>
+        </record>
+
+        <record id="volunteer_tarik" model="wc.volunteer">
+            <field name="name">Tarik El Ouali</field>
+            <field name="email">tarik.elouali@example.com</field>
+            <field name="phone">+212620011223</field>
+            <field name="date_of_birth">1996-01-20</field>
+            <field name="gender">male</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Hay Riad, Rabat</field>
+            <field name="id_number">G112299</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_protocole'), ref('skill_traduction')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais'), ref('lang_espagnol')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">True</field>
+            <field name="has_first_aid">False</field>
+            <field name="education_level">bac5</field>
+            <field name="availability">full</field>
+            <field name="state">archived</field>
+            <field name="active">False</field>
+        </record>
+
+        <record id="volunteer_ikram" model="wc.volunteer">
+            <field name="name">Ikram Naciri</field>
+            <field name="email">ikram.naciri@example.com</field>
+            <field name="phone">+212621122334</field>
+            <field name="date_of_birth">1991-04-14</field>
+            <field name="gender">female</field>
+            <field name="nationality">Marocaine</field>
+            <field name="address">Founty, Agadir</field>
+            <field name="id_number">EE114422</field>
+            <field name="skill_ids" eval="[(6, 0, [ref('skill_medical'), ref('skill_traduction')])]"/>
+            <field name="language_ids" eval="[(6, 0, [ref('lang_arabe'), ref('lang_francais'), ref('lang_anglais')])]"/>
+            <field name="has_driving_license">True</field>
+            <field name="has_vehicle">False</field>
+            <field name="has_first_aid">True</field>
+            <field name="education_level">phd</field>
+            <field name="availability">full</field>
+            <field name="assigned_stadium_id" ref="wc_base.stadium_agadir"/>
+            <field name="assigned_zone_id" ref="wc_base.zone_aga_b"/>
+            <field name="role_id" ref="role_med_doping"/>
+            <field name="state">trained</field>
+        </record>
+
+        <!-- ============ STADIUM VOLUNTEER QUOTAS ============ -->
+        <!-- Grand Stade Hassan II (Casablanca) -->
+        <record id="quota_hassan_ii_sec_marshal" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="role_id" ref="role_sec_marshal"/>
+            <field name="quota_required">50</field>
+        </record>
+        <record id="quota_hassan_ii_med_welcome" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="role_id" ref="role_med_welcome"/>
+            <field name="quota_required">20</field>
+        </record>
+        <record id="quota_hassan_ii_prt_liaison" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="role_id" ref="role_prt_liaison"/>
+            <field name="quota_required">15</field>
+        </record>
+        <record id="quota_hassan_ii_sec_flow" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="role_id" ref="role_sec_flow"/>
+            <field name="quota_required">40</field>
+        </record>
+        <record id="quota_hassan_ii_acc_welcome" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="role_id" ref="role_acc_welcome"/>
+            <field name="quota_required">30</field>
+        </record>
+        <record id="quota_hassan_ii_tkt_scanner" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="role_id" ref="role_tkt_scanner"/>
+            <field name="quota_required">80</field>
+        </record>
+
+        <!-- Stade Prince Moulay Abdellah (Rabat) -->
+        <record id="quota_rabat_prt_lounge" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="role_id" ref="role_prt_lounge"/>
+            <field name="quota_required">25</field>
+        </record>
+        <record id="quota_rabat_sec_tribune" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="role_id" ref="role_sec_tribune"/>
+            <field name="quota_required">45</field>
+        </record>
+        <record id="quota_rabat_med_firstaid" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="role_id" ref="role_med_firstaid"/>
+            <field name="quota_required">15</field>
+        </record>
+
+        <!-- Grand Stade de Tanger (Ibn Batouta) -->
+        <record id="quota_tanger_acc_print" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="role_id" ref="role_acc_print"/>
+            <field name="quota_required">10</field>
+        </record>
+        <record id="quota_tanger_sec_flow" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="role_id" ref="role_sec_flow"/>
+            <field name="quota_required">35</field>
+        </record>
+        <record id="quota_tanger_trn_shuttle" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="role_id" ref="role_trn_shuttle"/>
+            <field name="quota_required">20</field>
+        </record>
+
+        <!-- Stade de Fès -->
+        <record id="quota_fes_prt_mascot" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_fes"/>
+            <field name="role_id" ref="role_prt_mascot"/>
+            <field name="quota_required">5</field>
+        </record>
+        <record id="quota_fes_sec_tribune" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_fes"/>
+            <field name="role_id" ref="role_sec_tribune"/>
+            <field name="quota_required">30</field>
+        </record>
+
+        <!-- Grand Stade de Marrakech -->
+        <record id="quota_marrakech_trn_shuttle" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_marrakech"/>
+            <field name="role_id" ref="role_trn_shuttle"/>
+            <field name="quota_required">15</field>
+        </record>
+        <record id="quota_marrakech_sec_flow" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_marrakech"/>
+            <field name="role_id" ref="role_sec_flow"/>
+            <field name="quota_required">25</field>
+        </record>
+
+        <!-- Grand Stade d'Agadir -->
+        <record id="quota_agadir_med_doping" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_agadir"/>
+            <field name="role_id" ref="role_med_doping"/>
+            <field name="quota_required">8</field>
+        </record>
+        <record id="quota_agadir_tkt_control" model="wc.stadium.volunteer.quota">
+            <field name="stadium_id" ref="wc_base.stadium_agadir"/>
+            <field name="role_id" ref="role_tkt_control"/>
+            <field name="quota_required">20</field>
+        </record>
+
+    </data>
+</odoo>
