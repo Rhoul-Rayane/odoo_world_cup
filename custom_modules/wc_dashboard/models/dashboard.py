@@ -52,15 +52,6 @@ class WcDashboard(models.Model):
     crowd_alert_red = fields.Integer(string='Alertes rouges', compute='_compute_security_kpis')
     crowd_alert_orange = fields.Integer(string='Alertes orange', compute='_compute_security_kpis')
 
-    # ============ KPI DURABILITÉ ============
-    waste_total_kg = fields.Float(string='Déchets totaux (kg)', compute='_compute_sustainability_kpis', digits=(12, 1))
-    waste_diversion_avg = fields.Float(string='Taux détournement moyen (%)', compute='_compute_sustainability_kpis', digits=(5, 1))
-    carbon_total_emission = fields.Float(string='Émissions CO₂ (tonnes)', compute='_compute_sustainability_kpis', digits=(12, 2))
-    carbon_total_offset = fields.Float(string='Compensations CO₂ (tonnes)', compute='_compute_sustainability_kpis', digits=(12, 2))
-    carbon_net = fields.Float(string='Émissions nettes CO₂', compute='_compute_sustainability_kpis', digits=(12, 2))
-    audit_total = fields.Integer(string='Audits ISO 20121', compute='_compute_sustainability_kpis')
-    audit_compliant = fields.Integer(string='Audits conformes', compute='_compute_sustainability_kpis')
-    audit_non_conformity = fields.Integer(string='Non-conformités', compute='_compute_sustainability_kpis')
 
     # ============ KPI FINANCE ============
     budget_total_planned = fields.Float(string='Budget prévu (MAD)', compute='_compute_finance_kpis', digits=(14, 2))
@@ -80,8 +71,7 @@ class WcDashboard(models.Model):
     qatar_capacity = fields.Integer(string='Qatar 2022 : Capacité totale', default=437000, readonly=True)
     qatar_matches = fields.Integer(string='Qatar 2022 : Matchs', default=64, readonly=True)
     qatar_attendance = fields.Integer(string='Qatar 2022 : Spectateurs', default=3404252, readonly=True)
-    qatar_carbon_tons = fields.Float(string='Qatar 2022 : CO₂ (tonnes)', default=3630000, readonly=True)
-    qatar_waste_diverted_pct = fields.Float(string='Qatar 2022 : Taux recyclage (%)', default=79.0, readonly=True)
+
     qatar_budget_usd_bn = fields.Float(string='Qatar 2022 : Budget (Mrd $)', default=220.0, readonly=True)
 
     # ============ COMPUTE METHODS ============
@@ -151,22 +141,6 @@ class WcDashboard(models.Model):
             rec.crowd_alert_red = Crowd.search_count([('safety_status', '=', 'danger')])
             rec.crowd_alert_orange = Crowd.search_count([('safety_status', '=', 'warning')])
 
-    def _compute_sustainability_kpis(self):
-        Waste = self.env['wc.waste.tracking']
-        Carbon = self.env['wc.carbon.footprint']
-        Audit = self.env['wc.sustainability.audit']
-        for rec in self:
-            all_waste = Waste.search([])
-            rec.waste_total_kg = sum(all_waste.mapped('quantity_kg'))
-            diversions = all_waste.mapped('diversion_rate')
-            rec.waste_diversion_avg = sum(diversions) / len(diversions) if diversions else 0
-            all_carbon = Carbon.search([])
-            rec.carbon_total_emission = sum(all_carbon.mapped('emission_tons_co2'))
-            rec.carbon_total_offset = sum(all_carbon.mapped('offset_tons_co2'))
-            rec.carbon_net = sum(all_carbon.mapped('net_emission'))
-            rec.audit_total = Audit.search_count([])
-            rec.audit_compliant = Audit.search_count([('compliance_level', '=', 'full')])
-            rec.audit_non_conformity = Audit.search_count([('state', '=', 'non_conformity')])
 
     def _compute_finance_kpis(self):
         Budget = self.env['wc.budget.line']
@@ -227,15 +201,6 @@ class WcDashboard(models.Model):
 
 
 
-    def action_open_non_conformity(self):
-        """Ouvre les audits en non-conformité."""
-        return {
-            'type': 'ir.actions.act_window',
-            'name': '❌ Non-Conformités ISO',
-            'res_model': 'wc.sustainability.audit',
-            'view_mode': 'list,form',
-            'domain': [('state', '=', 'non_conformity')],
-        }
 
     def action_open_budget_overspent(self):
         """Ouvre les budgets en surconsommation (>80%)."""
@@ -393,75 +358,6 @@ class BudgetByCategory(models.Model):
         """)
 
 
-class WasteByType(models.Model):
-    """Vue SQL : déchets par type."""
-    _name = 'wc.dashboard.waste.type'
-    _description = 'Répartition déchets par type'
-    _auto = False
-    _order = 'waste_type'
-
-    waste_type = fields.Selection([
-        ('organic', 'Organique'),
-        ('plastic', 'Plastique'),
-        ('paper', 'Papier/Carton'),
-        ('glass', 'Verre'),
-        ('metal', 'Métal'),
-        ('electronic', 'Électronique'),
-        ('mixed', 'Mélangé'),
-    ], string='Type', readonly=True)
-    total_kg = fields.Float(string='Total (kg)', readonly=True)
-    recycled_kg = fields.Float(string='Recyclé (kg)', readonly=True)
-    avg_diversion = fields.Float(string='Détournement (%)', readonly=True)
-
-    def init(self):
-        self.env.cr.execute("""
-            CREATE OR REPLACE VIEW wc_dashboard_waste_type AS (
-                SELECT
-                    ROW_NUMBER() OVER () AS id,
-                    waste_type,
-                    COALESCE(SUM(quantity_kg), 0) AS total_kg,
-                    COALESCE(SUM(recycled_kg), 0) AS recycled_kg,
-                    CASE WHEN SUM(quantity_kg) > 0
-                         THEN (SUM(recycled_kg) + SUM(diverted_kg)) / SUM(quantity_kg) * 100
-                         ELSE 0 END AS avg_diversion
-                FROM wc_waste_tracking
-                GROUP BY waste_type
-            )
-        """)
-
-
-class CarbonByCategory(models.Model):
-    """Vue SQL : émissions carbone par catégorie."""
-    _name = 'wc.dashboard.carbon.category'
-    _description = 'Émissions carbone par catégorie'
-    _auto = False
-    _order = 'category'
-
-    category = fields.Selection([
-        ('energy', 'Énergie'),
-        ('transport', 'Transport'),
-        ('construction', 'Construction'),
-        ('catering', 'Restauration'),
-        ('waste', 'Déchets'),
-        ('water', 'Eau'),
-    ], string='Catégorie', readonly=True)
-    total_emission = fields.Float(string='Émissions (t CO₂)', readonly=True)
-    total_offset = fields.Float(string='Compensé (t CO₂)', readonly=True)
-    net_emission = fields.Float(string='Net (t CO₂)', readonly=True)
-
-    def init(self):
-        self.env.cr.execute("""
-            CREATE OR REPLACE VIEW wc_dashboard_carbon_category AS (
-                SELECT
-                    ROW_NUMBER() OVER () AS id,
-                    category,
-                    COALESCE(SUM(emission_tons_co2), 0) AS total_emission,
-                    COALESCE(SUM(offset_tons_co2), 0) AS total_offset,
-                    COALESCE(SUM(emission_tons_co2 - offset_tons_co2), 0) AS net_emission
-                FROM wc_carbon_footprint
-                GROUP BY category
-            )
-        """)
 
 
 

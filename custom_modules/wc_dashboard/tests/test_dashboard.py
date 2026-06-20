@@ -74,32 +74,7 @@ class TestWcDashboard(TransactionCase):
             'zone_area': 5000.0,
         })
 
-        # ---- Sustainability data ----
-        cls.waste = cls.env['wc.waste.tracking'].create({
-            'stadium_id': cls.stadium.id,
-            'waste_type': 'plastic',
-            'quantity_kg': 500.0,
-            'recycled_kg': 200.0,
-            'diverted_kg': 100.0,
-        })
 
-        cls.carbon = cls.env['wc.carbon.footprint'].create({
-            'stadium_id': cls.stadium.id,
-            'category': 'energy',
-            'emission_tons_co2': 150.0,
-            'offset_tons_co2': 30.0,
-            'period_start': date.today(),
-            'period_end': date.today() + timedelta(days=30),
-        })
-
-        cls.audit = cls.env['wc.sustainability.audit'].create({
-            'name': 'Audit Dashboard Test',
-            'stadium_id': cls.stadium.id,
-            'audit_date': date.today(),
-            'auditor_name': 'Auditeur Test',
-            'iso_category': 'governance',
-            'score': 85,
-        })
 
         # ---- Finance data ----
         cls.budget = cls.env['wc.budget.line'].create({
@@ -159,15 +134,6 @@ class TestWcDashboard(TransactionCase):
         self.assertGreaterEqual(dashboard.security_agents_total, 50)
         self.assertGreaterEqual(dashboard.crowd_monitoring_total, 1)
 
-    def test_sustainability_kpis(self):
-        """Test sustainability KPIs."""
-        dashboard = self.env['wc.dashboard'].create({'name': 'Test Sustainability'})
-
-        self.assertGreater(dashboard.waste_total_kg, 0)
-        self.assertGreater(dashboard.waste_diversion_avg, 0)
-        self.assertGreater(dashboard.carbon_total_emission, 0)
-        self.assertGreater(dashboard.carbon_total_offset, 0)
-        self.assertGreaterEqual(dashboard.audit_total, 1)
 
     def test_finance_kpis(self):
         """Test finance KPIs."""
@@ -191,8 +157,6 @@ class TestWcDashboard(TransactionCase):
         self.assertEqual(dashboard.qatar_capacity, 437000)
         self.assertEqual(dashboard.qatar_matches, 64)
         self.assertEqual(dashboard.qatar_attendance, 3404252)
-        self.assertAlmostEqual(dashboard.qatar_carbon_tons, 3630000)
-        self.assertAlmostEqual(dashboard.qatar_waste_diverted_pct, 79.0)
         self.assertAlmostEqual(dashboard.qatar_budget_usd_bn, 220.0)
 
     def test_action_refresh(self):
@@ -211,7 +175,6 @@ class TestWcDashboard(TransactionCase):
             dashboard.action_open_out_of_stock(),
             dashboard.action_open_crowd_alerts(),
 
-            dashboard.action_open_non_conformity(),
             dashboard.action_open_budget_overspent(),
             dashboard.action_open_pending_requests(),
         ]
@@ -240,16 +203,5 @@ class TestWcDashboard(TransactionCase):
         self.assertGreater(infra.total_planned, 0)
         self.assertGreater(infra.total_spent, 0)
 
-        # Waste by type
-        wastes = self.env['wc.dashboard.waste.type'].search([])
-        plastic = wastes.filtered(lambda r: r.waste_type == 'plastic')
-        self.assertTrue(plastic)
-        self.assertGreater(plastic.total_kg, 0)
-
-        # Carbon by category
-        carbons = self.env['wc.dashboard.carbon.category'].search([])
-        energy = carbons.filtered(lambda r: r.category == 'energy')
-        self.assertTrue(energy)
-        self.assertGreater(energy.total_emission, 0)
 
 

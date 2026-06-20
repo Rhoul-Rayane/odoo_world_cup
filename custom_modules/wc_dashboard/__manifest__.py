@@ -23,7 +23,6 @@
         'wc_accreditation',
         'wc_logistics',
         'wc_security',
-        'wc_sustainability',
         'wc_finance',
     ],
     'data': [

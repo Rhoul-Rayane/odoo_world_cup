@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- ================= BUDGET LINES ================= -->
+
+        <!-- Grand Stade Hassan II (Casablanca) Budgets -->
+        <record id="budget_hassan_ii_infra" model="wc.budget.line">
+            <field name="name">Modernisation &amp; Finalisation Structures Principales</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="category">infrastructure</field>
+            <field name="budget_type">capex</field>
+            <field name="planned_amount">1200000000.0</field>
+            <field name="spent_amount">1180000000.0</field>
+            <field name="committed_amount">20000000.0</field>
+            <field name="fiscal_year">2030</field>
+            <field name="state">closed</field>
+            <field name="notes">Travaux de gros œuvre terminés. Réception définitive prononcée.</field>
+        </record>
+
+        <record id="budget_hassan_ii_tech" model="wc.budget.line">
+            <field name="name">Infrastructure Réseau, Fibre Optique &amp; Écrans Géants LED</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="category">technology</field>
+            <field name="budget_type">capex</field>
+            <field name="planned_amount">150000000.0</field>
+            <field name="spent_amount">142000000.0</field>
+            <field name="committed_amount">8000000.0</field>
+            <field name="fiscal_year">2030</field>
+            <field name="state">approved</field>
+            <field name="notes">Tests de connectivité 5G et calibration des écrans en cours.</field>
+        </record>
+
+        <record id="budget_hassan_ii_security" model="wc.budget.line">
+            <field name="name">Dispositif de Sécurité Événementielle et Contrôle d'Accès</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="category">security</field>
+            <field name="budget_type">opex</field>
+            <field name="planned_amount">80000000.0</field>
+            <field name="spent_amount">45000000.0</field>
+            <field name="committed_amount">20000000.0</field>
+            <field name="fiscal_year">2030</field>
+            <field name="state">approved</field>
+            <field name="notes">Couvre la formation des stewards, les barrières et le système de vidéosurveillance IA.</field>
+        </record>
+
+        <record id="budget_hassan_ii_logistics" model="wc.budget.line">
+            <field name="name">Logistique Matchs &amp; Approvisionnement</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="category">logistics</field>
+            <field name="budget_type">opex</field>
+            <field name="planned_amount">50000000.0</field>
+            <field name="spent_amount">30000000.0</field>
+            <field name="committed_amount">10000000.0</field>
+            <field name="fiscal_year">2030</field>
+            <field name="state">approved</field>
+            <field name="notes">Logistique du mobilier de bureau, signalétique temporaire et flux matériels.</field>
+        </record>
+
+        <record id="budget_hassan_ii_sustainability" model="wc.budget.line">
+            <field name="name">Gestion des Déchets &amp; Éco-responsabilité (ISO 20121)</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="category">sustainability</field>
+            <field name="budget_type">opex</field>
+            <field name="planned_amount">25000000.0</field>
+            <field name="spent_amount">18000000.0</field>
+            <field name="committed_amount">5000000.0</field>
+            <field name="fiscal_year">2030</field>
+            <field name="state">approved</field>
+            <field name="notes">Tri sélectif, bacs de recyclage et audits de certification environnementale.</field>
+        </record>
+
+        <!-- Stade Prince Moulay Abdellah (Rabat) Budgets -->
+        <record id="budget_rabat_infra" model="wc.budget.line">
+            <field name="name">Rénovation de la Tribune d'Honneur et Vestiaires</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="category">infrastructure</field>
+            <field name="budget_type">capex</field>
+            <field name="planned_amount">800000000.0</field>
+            <field name="spent_amount">790000000.0</field>
+            <field name="committed_amount">10000000.0</field>
+            <field name="fiscal_year">2030</field>
+            <field name="state">closed</field>
+        </record>
+
+        <record id="budget_rabat_security" model="wc.budget.line">
+            <field name="name">Déploiement Sécurité Stade de Rabat</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="category">security</field>
+            <field name="budget_type">opex</field>
+            <field name="planned_amount">50000000.0</field>
+            <field name="spent_amount">48000000.0</field>
+            <field name="committed_amount">1500000.0</field>
+            <field name="fiscal_year">2030</field>
+            <field name="state">approved</field>
+            <field name="notes">Budget proche de la consommation totale en raison du renforcement des forces mobiles.</field>
+        </record>
+
+        <!-- Grand Stade de Tanger Budgets -->
+        <record id="budget_tanger_infra" model="wc.budget.line">
+            <field name="name">Extension Couverture du Stade (Toiture métallique)</field>
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="category">infrastructure</field>
+            <field name="budget_type">capex</field>
+            <field name="planned_amount">600000000.0</field>
+            <field name="spent_amount">580000000.0</field>
+            <field name="committed_amount">20000000.0</field>
+            <field name="fiscal_year">2030</field>
+            <field name="state">closed</field>
+        </record>
+
+
+        <!-- ================= REVENUE STREAMS ================= -->
+
+        <!-- Sponsorship Revenues -->
+        <record id="rev_sponsorship_maroc_telecom" model="wc.revenue.stream">
+            <field name="name">Partenariat Télécom Officiel - Maroc Telecom</field>
+            <field name="revenue_type">sponsorship</field>
+            <field name="projected_amount">150000000.0</field>
+            <field name="actual_amount">150000000.0</field>
+            <field name="period">q3_2030</field>
+            <field name="state">collected</field>
+            <field name="notes">Intégration de la marque dans tous les stades et supports physiques/digitaux.</field>
+        </record>
+
+        <record id="rev_sponsorship_ram" model="wc.revenue.stream">
+            <field name="name">Transporteur Aérien Officiel - Royal Air Maroc</field>
+            <field name="revenue_type">sponsorship</field>
+            <field name="projected_amount">120000000.0</field>
+            <field name="actual_amount">125000000.0</field>
+            <field name="period">q3_2030</field>
+            <field name="state">collected</field>
+            <field name="notes">Revenu révisé à la hausse suite à des options marketing additionnelles (vols nolisés d'équipes).</field>
+        </record>
+
+        <record id="rev_sponsorship_attijari" model="wc.revenue.stream">
+            <field name="name">Partenaire Bancaire National - Attijariwafa Bank</field>
+            <field name="revenue_type">sponsorship</field>
+            <field name="projected_amount">80000000.0</field>
+            <field name="actual_amount">80000000.0</field>
+            <field name="period">q2_2030</field>
+            <field name="state">collected</field>
+        </record>
+
+        <!-- Broadcasting Revenues -->
+        <record id="rev_broadcasting_snrt" model="wc.revenue.stream">
+            <field name="name">Droits TV Nationaux - SNRT Maroc</field>
+            <field name="revenue_type">broadcasting</field>
+            <field name="projected_amount">200000000.0</field>
+            <field name="actual_amount">210000000.0</field>
+            <field name="period">q3_2030</field>
+            <field name="state">collected</field>
+            <field name="notes">Inclut la couverture TNT HD et droits radio nationaux.</field>
+        </record>
+
+        <record id="rev_broadcasting_bein" model="wc.revenue.stream">
+            <field name="name">Droits de Diffusion Région MENA - BeIN Sports</field>
+            <field name="revenue_type">broadcasting</field>
+            <field name="projected_amount">1500000000.0</field>
+            <field name="actual_amount">1600000000.0</field>
+            <field name="period">q3_2030</field>
+            <field name="state">collected</field>
+            <field name="notes">Montants réalistes pour la diffusion exclusive des matches en langue arabe au Moyen-Orient.</field>
+        </record>
+
+        <!-- Ticketing Revenues -->
+        <record id="rev_ticketing_hassan_ii" model="wc.revenue.stream">
+            <field name="name">Revenus Billetterie - Grand Stade Hassan II</field>
+            <field name="revenue_type">ticketing</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="projected_amount">350000000.0</field>
+            <field name="actual_amount">365000000.0</field>
+            <field name="period">q3_2030</field>
+            <field name="state">collected</field>
+            <field name="notes">Succès commercial massif, notamment pour la finale et les demi-finales.</field>
+        </record>
+
+        <record id="rev_ticketing_rabat" model="wc.revenue.stream">
+            <field name="name">Revenus Billetterie - Stade Prince Moulay Abdellah</field>
+            <field name="revenue_type">ticketing</field>
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="projected_amount">180000000.0</field>
+            <field name="actual_amount">175000000.0</field>
+            <field name="period">q3_2030</field>
+            <field name="state">invoiced</field>
+        </record>
+
+        <record id="rev_ticketing_tanger" model="wc.revenue.stream">
+            <field name="name">Revenus Billetterie - Grand Stade de Tanger</field>
+            <field name="revenue_type">ticketing</field>
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="projected_amount">150000000.0</field>
+            <field name="actual_amount">148000000.0</field>
+            <field name="period">q3_2030</field>
+            <field name="state">confirmed</field>
+        </record>
+
+        <!-- VIP/Hospitality -->
+        <record id="rev_hospitality_hassan_ii" model="wc.revenue.stream">
+            <field name="name">Vente de Loges VIP &amp; Packs Hospitalité - Casablanca</field>
+            <field name="revenue_type">hospitality</field>
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="projected_amount">90000000.0</field>
+            <field name="actual_amount">95000000.0</field>
+            <field name="period">q3_2030</field>
+            <field name="state">collected</field>
+        </record>
+
+        <!-- Merchandising -->
+        <record id="rev_merch_stores" model="wc.revenue.stream">
+            <field name="name">Ventes Boutiques Officielles Stades &amp; Fan Zones</field>
+            <field name="revenue_type">merchandising</field>
+            <field name="projected_amount">60000000.0</field>
+            <field name="actual_amount">65000000.0</field>
+            <field name="period">q3_2030</field>
+            <field name="state">collected</field>
+        </record>
+
+
+        <!-- ================= TICKET PRICING ================= -->
+
+        <!-- Grand Stade Hassan II (Casablanca) - Group Phase -->
+        <record id="price_hassan_ii_group_cat1" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="phase">group</field>
+            <field name="ticket_category">cat1</field>
+            <field name="base_price">1200.0</field>
+            <field name="early_bird_price">1000.0</field>
+            <field name="last_minute_price">1300.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">2000</field>
+            <field name="total_sold">1600</field>
+        </record>
+
+        <record id="price_hassan_ii_group_cat2" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="phase">group</field>
+            <field name="ticket_category">cat2</field>
+            <field name="base_price">600.0</field>
+            <field name="early_bird_price">500.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">10000</field>
+            <field name="total_sold">8500</field>
+        </record>
+
+        <record id="price_hassan_ii_group_cat3" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="phase">group</field>
+            <field name="ticket_category">cat3</field>
+            <field name="base_price">300.0</field>
+            <field name="early_bird_price">250.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">25000</field>
+            <field name="total_sold">22000</field>
+        </record>
+
+        <record id="price_hassan_ii_group_cat4" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="phase">group</field>
+            <field name="ticket_category">cat4</field>
+            <field name="base_price">120.0</field>
+            <field name="early_bird_price">100.0</field>
+            <field name="resident_discount_pct">25</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">40000</field>
+            <field name="total_sold">38500</field>
+        </record>
+
+        <!-- Grand Stade Hassan II (Casablanca) - Final Match -->
+        <record id="price_hassan_ii_final_cat1" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="phase">final</field>
+            <field name="ticket_category">cat1</field>
+            <field name="base_price">8000.0</field>
+            <field name="early_bird_price">7000.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">5000</field>
+            <field name="total_sold">5000</field>
+        </record>
+
+        <record id="price_hassan_ii_final_cat2" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="phase">final</field>
+            <field name="ticket_category">cat2</field>
+            <field name="base_price">4000.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">15000</field>
+            <field name="total_sold">14950</field>
+        </record>
+
+        <record id="price_hassan_ii_final_cat3" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="phase">final</field>
+            <field name="ticket_category">cat3</field>
+            <field name="base_price">2000.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">30000</field>
+            <field name="total_sold">29800</field>
+        </record>
+
+        <record id="price_hassan_ii_final_cat4" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_hassan_ii"/>
+            <field name="phase">final</field>
+            <field name="ticket_category">cat4</field>
+            <field name="base_price">800.0</field>
+            <field name="resident_discount_pct">30</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">50000</field>
+            <field name="total_sold">50000</field>
+        </record>
+
+        <!-- Stade Prince Moulay Abdellah (Rabat) - Semi Finals -->
+        <record id="price_rabat_semi_cat1" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="phase">semi</field>
+            <field name="ticket_category">cat1</field>
+            <field name="base_price">4000.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">1500</field>
+            <field name="total_sold">1450</field>
+        </record>
+
+        <record id="price_rabat_semi_cat2" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="phase">semi</field>
+            <field name="ticket_category">cat2</field>
+            <field name="base_price">2000.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">5000</field>
+            <field name="total_sold">4900</field>
+        </record>
+
+        <record id="price_rabat_semi_cat3" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="phase">semi</field>
+            <field name="ticket_category">cat3</field>
+            <field name="base_price">1000.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">15000</field>
+            <field name="total_sold">14800</field>
+        </record>
+
+        <record id="price_rabat_semi_cat4" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_rabat"/>
+            <field name="phase">semi</field>
+            <field name="ticket_category">cat4</field>
+            <field name="base_price">400.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">30000</field>
+            <field name="total_sold">30000</field>
+        </record>
+
+        <!-- Grand Stade de Tanger - Group Phase -->
+        <record id="price_tanger_group_cat1" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="phase">group</field>
+            <field name="ticket_category">cat1</field>
+            <field name="base_price">1000.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">1500</field>
+            <field name="total_sold">1100</field>
+        </record>
+
+        <record id="price_tanger_group_cat2" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="phase">group</field>
+            <field name="ticket_category">cat2</field>
+            <field name="base_price">500.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">6000</field>
+            <field name="total_sold">5200</field>
+        </record>
+
+        <record id="price_tanger_group_cat3" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="phase">group</field>
+            <field name="ticket_category">cat3</field>
+            <field name="base_price">250.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">18000</field>
+            <field name="total_sold">16500</field>
+        </record>
+
+        <record id="price_tanger_group_cat4" model="wc.ticket.pricing">
+            <field name="stadium_id" ref="wc_base.stadium_ibn_batouta"/>
+            <field name="phase">group</field>
+            <field name="ticket_category">cat4</field>
+            <field name="base_price">100.0</field>
+            <field name="resident_discount_pct">20</field>
+            <field name="student_discount_pct">40</field>
+            <field name="total_available">30000</field>
+            <field name="total_sold">29000</field>
+        </record>
+
+    </data>
+</odoo>

@@ -52,16 +52,6 @@
               action="wc_budget_category_action"
               sequence="10"/>
 
-    <menuitem id="wc_menu_dashboard_waste_graph"
-              name="Déchets par Type"
-              parent="wc_menu_dashboard_graphs_analytics"
-              action="wc_waste_type_action"
-              sequence="20"/>
 
-    <menuitem id="wc_menu_dashboard_carbon_graph"
-              name="Émissions Carbone"
-              parent="wc_menu_dashboard_graphs_analytics"
-              action="wc_carbon_category_action"
-              sequence="30"/>
 
 </odoo>

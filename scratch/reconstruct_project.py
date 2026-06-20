@@ -218,8 +218,9 @@ def main():
                     
             # Zones
             if 'wc.stadium.zone' in env:
-                zones = env['wc.stadium.zone'].search([])
-                print(f"  Unlinking {len(zones)} stadium zones...")
+                allowed_codes = [s['fifa_code'] for s in STADIUMS_DATA]
+                zones = env['wc.stadium.zone'].search([('stadium_id.fifa_code', 'not in', allowed_codes)])
+                print(f"  Unlinking {len(zones)} stadium zones of deleted/foreign stadiums...")
                 zones.unlink()
                 
             # Logistics resources
@@ -235,14 +236,21 @@ def main():
                     print(f"  Unlinking {len(records)} records from {model_name}...")
                     records.unlink()
             
-            # Volunteers stadium preferred/assigned references
+            # Volunteers preferred/assigned references (only clear if linked to deleted stadiums)
             if 'wc.volunteer' in env:
-                volunteers = env['wc.volunteer'].search([])
-                print(f"  Clearing stadium links on {len(volunteers)} volunteers...")
-                volunteers.write({
-                    'preferred_stadium_id': False,
-                    'assigned_stadium_id': False
-                })
+                allowed_codes = [s['fifa_code'] for s in STADIUMS_DATA]
+                stadiums_to_delete = env['wc.stadium'].search([('fifa_code', 'not in', allowed_codes)])
+                if stadiums_to_delete:
+                    volunteers_to_clear = env['wc.volunteer'].search([
+                        '|', 
+                        ('preferred_stadium_id', 'in', stadiums_to_delete.ids),
+                        ('assigned_stadium_id', 'in', stadiums_to_delete.ids)
+                    ])
+                    print(f"  Clearing stadium links on {len(volunteers_to_clear)} volunteers linked to deleted stadiums...")
+                    volunteers_to_clear.write({
+                        'preferred_stadium_id': False,
+                        'assigned_stadium_id': False
+                    })
             
             # Ticket Pricing
             if 'wc.ticket.pricing' in env:
@@ -262,14 +270,16 @@ def main():
                 tournaments.unlink()
                 
             # Delete ir.model.data references for old data to keep Odoo registry clean
-            cr.execute("DELETE FROM ir_model_data WHERE model IN ('wc.stadium', 'wc.match', 'wc.tournament')")
-            print("  Deleted ir.model.data references.")
+            cr.execute("DELETE FROM ir_model_data WHERE model IN ('wc.match', 'wc.tournament')")
+            print("  Deleted match and tournament ir.model.data references.")
             
-            # 3. PURGE EXISTING STADIUMS (foreign and small complexes)
+            # 3. PURGE NON-OFFICIAL / FOREIGN STADIUMS
             if 'wc.stadium' in env:
+                allowed_codes = [s['fifa_code'] for s in STADIUMS_DATA]
                 stadiums = env['wc.stadium'].search([])
-                print(f"  Unlinking {len(stadiums)} existing stadiums in DB...")
-                stadiums.unlink()
+                to_delete = stadiums.filtered(lambda s: s.fifa_code not in allowed_codes)
+                print(f"  Unlinking {len(to_delete)} duplicate/foreign/small stadiums in DB...")
+                to_delete.unlink()
                 
             # 4. INITIALIZE 2030 TOURNAMENT
             print("Initializing WC-2030 tournament...")
@@ -285,8 +295,8 @@ def main():
             })
             print(f"  Created tournament ID: {tournament.id}")
             
-            # 5. INITIALIZE THE 10 MOROCCAN STADIUMS
-            print("Creating 10 Moroccan stadiums...")
+            # 5. INITIALIZE OR UPDATE THE 10 MOROCCAN STADIUMS
+            print("Syncing 10 Moroccan stadiums...")
             created_stadiums = {}
             for std_data in STADIUMS_DATA:
                 img_data = download_and_encode_image(std_data.get('image_filename'))
@@ -302,21 +312,21 @@ def main():
                     'gps_lat': std_data['gps_lat'],
                     'gps_lng': std_data['gps_lng'],
                     'state': 'ready',
-                    'image': img_data
                 }
-                stadium_rec = env['wc.stadium'].create(vals)
-                created_stadiums[std_data['fifa_code']] = stadium_rec
-                print(f"  Created stadium '{stadium_rec.name}' (ID: {stadium_rec.id}) as type '{stadium_rec.stadium_type}'")
+                if img_data:
+                    vals['image'] = img_data
                 
-                # Create default zones for match stadiums
-                if std_data['stadium_type'] == 'match':
-                    for zone_letter in ['A', 'B', 'C', 'D']:
-                        env['wc.stadium.zone'].create({
-                            'stadium_id': stadium_rec.id,
-                            'name': f"Tribune {zone_letter}",
-                            'zone_type': 'tribune',
-                            'capacity': std_data['capacity'] // 4
-                        })
+                stadium_rec = env['wc.stadium'].search([('fifa_code', '=', std_data['fifa_code'])], limit=1)
+                if stadium_rec:
+                    stadium_rec.write(vals)
+                    print(f"  Updated stadium '{stadium_rec.name}' (ID: {stadium_rec.id})")
+                else:
+                    stadium_rec = env['wc.stadium'].create(vals)
+                    print(f"  Created stadium '{stadium_rec.name}' (ID: {stadium_rec.id})")
+                
+                created_stadiums[std_data['fifa_code']] = stadium_rec
+                
+
             
             # 6. GENERATE MOCK 2030 MATCHES (Option A)
             print("Generating 2030 mock matches...")

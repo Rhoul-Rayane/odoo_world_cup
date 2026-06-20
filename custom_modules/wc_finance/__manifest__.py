@@ -22,6 +22,7 @@ Fonctionnalités :
     'data': [
         'security/ir.model.access.csv',
         'data/ticket_data.xml',
+        'data/finance_demo_data.xml',
         'views/ticket_views.xml',
         'views/ticket_scan_templates.xml',
         'views/budget_views.xml',

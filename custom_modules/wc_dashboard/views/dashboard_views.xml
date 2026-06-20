@@ -109,35 +109,6 @@
                             </group>
                         </page>
 
-                        <!-- TAB 3 : DURABILITÉ -->
-                        <page string="🌱 Durabilité" name="sustainability">
-                            <group string="♻️ Gestion des Déchets">
-                                <group>
-                                    <field name="waste_total_kg"/>
-                                    <field name="waste_diversion_avg" widget="progressbar"/>
-                                </group>
-                                <group>
-                                    <field name="audit_total"/>
-                                    <field name="audit_compliant"/>
-                                    <field name="audit_non_conformity"/>
-                                    <button name="action_open_non_conformity" type="object"
-                                            string="❌ Voir non-conformités"
-                                            class="btn-link" icon="fa-flag"/>
-                                </group>
-                            </group>
-
-                            <group string="🌍 Empreinte Carbone">
-                                <group>
-                                    <field name="carbon_total_emission"/>
-                                    <field name="carbon_total_offset"/>
-                                    <field name="carbon_net"/>
-                                </group>
-                                <group string="📊 Benchmark Qatar 2022">
-                                    <field name="qatar_carbon_tons"/>
-                                    <field name="qatar_waste_diverted_pct"/>
-                                </group>
-                            </group>
-                        </page>
 
                         <!-- TAB 4 : FINANCE -->
                         <page string="💰 Finance" name="finance">
@@ -185,16 +156,12 @@
                                     <field name="stadium_total" string="Stades"/>
                                     <field name="stadium_total_capacity" string="Capacité totale"/>
                                     <field name="match_total" string="Matchs"/>
-                                    <field name="carbon_net" string="CO₂ net (tonnes)"/>
-                                    <field name="waste_diversion_avg" string="Recyclage (%)" widget="progressbar"/>
                                 </group>
                                 <group string="Qatar 2022 (référence)">
                                     <field name="qatar_volunteers"/>
                                     <field name="qatar_stadiums"/>
                                     <field name="qatar_capacity"/>
                                     <field name="qatar_matches"/>
-                                    <field name="qatar_carbon_tons"/>
-                                    <field name="qatar_waste_diverted_pct"/>
                                 </group>
                             </group>
                         </page>
@@ -303,42 +270,6 @@
         <field name="view_mode">graph,pivot</field>
     </record>
 
-    <!-- ============ GRAPH : DÉCHETS PAR TYPE ============ -->
-    <record id="wc_waste_type_graph" model="ir.ui.view">
-        <field name="name">wc.dashboard.waste.type.graph</field>
-        <field name="model">wc.dashboard.waste.type</field>
-        <field name="arch" type="xml">
-            <graph string="Déchets par Type" type="pie">
-                <field name="waste_type" type="row"/>
-                <field name="total_kg" type="measure"/>
-            </graph>
-        </field>
-    </record>
-
-    <record id="wc_waste_type_action" model="ir.actions.act_window">
-        <field name="name">📊 Déchets par Type</field>
-        <field name="res_model">wc.dashboard.waste.type</field>
-        <field name="view_mode">graph,pivot</field>
-    </record>
-
-    <!-- ============ GRAPH : CARBONE PAR CATÉGORIE ============ -->
-    <record id="wc_carbon_category_graph" model="ir.ui.view">
-        <field name="name">wc.dashboard.carbon.category.graph</field>
-        <field name="model">wc.dashboard.carbon.category</field>
-        <field name="arch" type="xml">
-            <graph string="Émissions CO₂ par Catégorie" type="bar">
-                <field name="category" type="row"/>
-                <field name="total_emission" type="measure"/>
-                <field name="total_offset" type="measure"/>
-            </graph>
-        </field>
-    </record>
-
-    <record id="wc_carbon_category_action" model="ir.actions.act_window">
-        <field name="name">📊 Émissions Carbone</field>
-        <field name="res_model">wc.dashboard.carbon.category</field>
-        <field name="view_mode">graph,pivot</field>
-    </record>
 
 
 
